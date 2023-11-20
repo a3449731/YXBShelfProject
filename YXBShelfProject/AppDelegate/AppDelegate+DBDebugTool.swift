@@ -20,23 +20,27 @@ extension AppDelegate {
     
 #if DEBUG
     private func addTestCustomAction() {
-        let actionCurrent = DBCustomAction(name: "当前环境为：👉\(LQNetWorkHostUrl.currentNetworkEnvironment())👈", body: nil)
+        let envConfigs = Env.shared.constants
+        
+        let actionCurrent = DBCustomAction(name: "当前环境为：👉\(envConfigs.title)👈", body: nil)
         DBDebugToolkit.add(actionCurrent)
         
-        
         let actionTest = DBCustomAction(name: "切换为测试环境", body: { [weak self] in
+            envConfigs.setUserDefaultEnvironment(env: .development)
             self?.removeIMSig()
             exit(0)
         })
         DBDebugToolkit.add(actionTest)
         
         let actionRelease = DBCustomAction(name: "切换为预发环境", body: { [weak self] in
+            envConfigs.setUserDefaultEnvironment(env: .stage)
             self?.removeIMSig()
             exit(0)
         })
         DBDebugToolkit.add(actionRelease)
         
         let actionOnline = DBCustomAction(name: "切换为线上环境", body: { [weak self] in
+            envConfigs.setUserDefaultEnvironment(env: .release)
             self?.removeIMSig()
             exit(0)
         })

@@ -54,7 +54,7 @@ extension APIService {
     }
     
     var baseURL: URL {
-        URL(string: Env.current.constants.baseUrl + servicePath)!
+        URL(string: Env.shared.constants.baseUrl + servicePath)!
     }
     
     var servicePath: String {
