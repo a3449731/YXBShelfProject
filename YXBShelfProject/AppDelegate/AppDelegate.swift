@@ -39,7 +39,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func setupMainViewController() {
         self.window = UIWindow(frame: UIScreen.main.bounds)
         self.window?.backgroundColor = UIColor.white
-        let loginVc = YXBBaseViewController.init()
+        let loginVc = ExampleViewController.init()
         let nav = UINavigationController.init(rootViewController: loginVc)
         self.window?.rootViewController = nav;
         self.window?.makeKeyAndVisible()

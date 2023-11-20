@@ -43,5 +43,33 @@ end
 
 loaclPods()
 
+# 个性装扮
+def MyDress
+  pod 'JXSegmentedView'
+end
+
+# vap特效
+def VAP
+  pod 'QGVAPlayer'
+end
+
+# 聊天的tableview
+def TextMessage
+  pod 'YYText'
+end
+
+# 分页，下拉
+def Page
+  pod 'MJRefresh'
+end
+
+# 为了示例所需要的,按需导入
+def example
+  MyDress()
+  VAP()
+  TextMessage()
+  Page()
+end
+example()
 
 end

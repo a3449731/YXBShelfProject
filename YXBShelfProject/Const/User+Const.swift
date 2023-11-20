@@ -14,7 +14,8 @@ class UserConst {
     }
 
     class var token: String {
-        return UserDefaults.standard.value(forKey: "UserToken") as? String ?? ""
+        "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1aWQiOiJmZDU2YTAxYjQ3Zjk0OWY1YmNiMTY5MGQ2MmY0YWE4ZSIsImV4cCI6MTcwMTA3MTIyNn0.BqkIyexWKnUavYHuuVGqxiH_hN_WPvMWS3MZeUR2LRY"
+//        return UserDefaults.standard.value(forKey: "UserToken") as? String ?? ""
     }
 
     class var appversion: String {
