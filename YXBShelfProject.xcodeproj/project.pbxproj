@@ -52,6 +52,17 @@
 		68252FE52B0B5D4A0024EC76 /* IM+API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68252FE12B0B5D4A0024EC76 /* IM+API.swift */; };
 		68252FE72B0B5E470024EC76 /* YXBGifRefreshHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68252FE62B0B5E470024EC76 /* YXBGifRefreshHeader.swift */; };
 		68252FE92B0B5F5A0024EC76 /* refeshIcon.gif in Resources */ = {isa = PBXBuildFile; fileRef = 68252FE82B0B5F5A0024EC76 /* refeshIcon.gif */; };
+		68252FEC2B0B683A0024EC76 /* BannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68252FEB2B0B683A0024EC76 /* BannerViewController.swift */; };
+		68252FEE2B0B6B7F0024EC76 /* NewRoomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68252FED2B0B6B7E0024EC76 /* NewRoomCollectionViewCell.swift */; };
+		68252FF12B0C4D210024EC76 /* YXBPhotoBrowswer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68252FF02B0C4D210024EC76 /* YXBPhotoBrowswer.swift */; };
+		68252FF32B0C4D670024EC76 /* BrowswerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68252FF22B0C4D670024EC76 /* BrowswerViewController.swift */; };
+		68252FF62B0C51010024EC76 /* DownloadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68252FF52B0C51010024EC76 /* DownloadViewController.swift */; };
+		68252FF82B0C55F50024EC76 /* String+YXB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68252FF72B0C55F50024EC76 /* String+YXB.swift */; };
+		68252FFA2B0C561E0024EC76 /* Date+YXB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68252FF92B0C561E0024EC76 /* Date+YXB.swift */; };
+		68252FFC2B0C56950024EC76 /* FileManager+YXB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68252FFB2B0C56950024EC76 /* FileManager+YXB.swift */; };
+		68252FFE2B0C57EB0024EC76 /* PermissionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68252FFD2B0C57EB0024EC76 /* PermissionManager.swift */; };
+		682530002B0C5CD60024EC76 /* LoadingGifView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68252FFF2B0C5CD60024EC76 /* LoadingGifView.swift */; };
+		682530032B0C5DA30024EC76 /* LoadingGiftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 682530022B0C5DA30024EC76 /* LoadingGiftViewController.swift */; };
 		68ED52D12B0760D80099F469 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 68ED52D02B0760D80099F469 /* Assets.xcassets */; };
 		68ED52D42B0760D80099F469 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 68ED52D32B0760D80099F469 /* Preview Assets.xcassets */; };
 		68ED52DB2B0761520099F469 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68ED52DA2B0761520099F469 /* AppDelegate.swift */; };
@@ -143,6 +154,17 @@
 		68252FE12B0B5D4A0024EC76 /* IM+API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "IM+API.swift"; sourceTree = "<group>"; };
 		68252FE62B0B5E470024EC76 /* YXBGifRefreshHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YXBGifRefreshHeader.swift; sourceTree = "<group>"; };
 		68252FE82B0B5F5A0024EC76 /* refeshIcon.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = refeshIcon.gif; sourceTree = "<group>"; };
+		68252FEB2B0B683A0024EC76 /* BannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerViewController.swift; sourceTree = "<group>"; };
+		68252FED2B0B6B7E0024EC76 /* NewRoomCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewRoomCollectionViewCell.swift; sourceTree = "<group>"; };
+		68252FF02B0C4D210024EC76 /* YXBPhotoBrowswer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YXBPhotoBrowswer.swift; sourceTree = "<group>"; };
+		68252FF22B0C4D670024EC76 /* BrowswerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowswerViewController.swift; sourceTree = "<group>"; };
+		68252FF52B0C51010024EC76 /* DownloadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadViewController.swift; sourceTree = "<group>"; };
+		68252FF72B0C55F50024EC76 /* String+YXB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+YXB.swift"; sourceTree = "<group>"; };
+		68252FF92B0C561E0024EC76 /* Date+YXB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+YXB.swift"; sourceTree = "<group>"; };
+		68252FFB2B0C56950024EC76 /* FileManager+YXB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager+YXB.swift"; sourceTree = "<group>"; };
+		68252FFD2B0C57EB0024EC76 /* PermissionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionManager.swift; sourceTree = "<group>"; };
+		68252FFF2B0C5CD60024EC76 /* LoadingGifView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingGifView.swift; sourceTree = "<group>"; };
+		682530022B0C5DA30024EC76 /* LoadingGiftViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingGiftViewController.swift; sourceTree = "<group>"; };
 		68ED52C92B0760D60099F469 /* YXBShelfProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YXBShelfProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		68ED52D02B0760D80099F469 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		68ED52D32B0760D80099F469 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -217,6 +239,10 @@
 				68252F8B2B0B41F70024EC76 /* 直播间消息TableView */,
 				68252FBD2B0B57D80024EC76 /* 装扮中心 */,
 				68252FDC2B0B5D4A0024EC76 /* MVVM+Rx+MJ加载gif图 */,
+				68252FEA2B0B681D0024EC76 /* 轮播图 */,
+				68252FEF2B0C4CF40024EC76 /* 图片预览 */,
+				68252FF42B0C50F00024EC76 /* 下载 */,
+				682530012B0C5D8B0024EC76 /* 加载GIF菊花 */,
 			);
 			path = Example;
 			sourceTree = "<group>";
@@ -386,6 +412,40 @@
 			path = "MVVM+Rx+MJ加载gif图";
 			sourceTree = "<group>";
 		};
+		68252FEA2B0B681D0024EC76 /* 轮播图 */ = {
+			isa = PBXGroup;
+			children = (
+				68252FEB2B0B683A0024EC76 /* BannerViewController.swift */,
+				68252FED2B0B6B7E0024EC76 /* NewRoomCollectionViewCell.swift */,
+			);
+			path = "轮播图";
+			sourceTree = "<group>";
+		};
+		68252FEF2B0C4CF40024EC76 /* 图片预览 */ = {
+			isa = PBXGroup;
+			children = (
+				68252FF22B0C4D670024EC76 /* BrowswerViewController.swift */,
+				68252FF02B0C4D210024EC76 /* YXBPhotoBrowswer.swift */,
+			);
+			path = "图片预览";
+			sourceTree = "<group>";
+		};
+		68252FF42B0C50F00024EC76 /* 下载 */ = {
+			isa = PBXGroup;
+			children = (
+				68252FF52B0C51010024EC76 /* DownloadViewController.swift */,
+			);
+			path = "下载";
+			sourceTree = "<group>";
+		};
+		682530012B0C5D8B0024EC76 /* 加载GIF菊花 */ = {
+			isa = PBXGroup;
+			children = (
+				682530022B0C5DA30024EC76 /* LoadingGiftViewController.swift */,
+			);
+			path = "加载GIF菊花";
+			sourceTree = "<group>";
+		};
 		68ED52C02B0760D60099F469 = {
 			isa = PBXGroup;
 			children = (
@@ -485,6 +545,9 @@
 				68ED53222B0772130099F469 /* UIView+Gradient.swift */,
 				68ED53232B0772130099F469 /* UIView+YXB.swift */,
 				68ED53242B0772130099F469 /* UIView+YYAdd.swift */,
+				68252FF72B0C55F50024EC76 /* String+YXB.swift */,
+				68252FF92B0C561E0024EC76 /* Date+YXB.swift */,
+				68252FFB2B0C56950024EC76 /* FileManager+YXB.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -528,6 +591,7 @@
 				68ED531A2B07719A0099F469 /* GCDTimerManager.swift */,
 				68ED53552B08882D0099F469 /* YXBImageCache.swift */,
 				68ED535D2B08C1B80099F469 /* IPNRSAUtil.swift */,
+				68252FFD2B0C57EB0024EC76 /* PermissionManager.swift */,
 			);
 			path = Tool;
 			sourceTree = "<group>";
@@ -537,6 +601,7 @@
 			children = (
 				68252FE62B0B5E470024EC76 /* YXBGifRefreshHeader.swift */,
 				68ED530D2B07712A0099F469 /* YXBCountDownButton.swift */,
+				68252FFF2B0C5CD60024EC76 /* LoadingGifView.swift */,
 			);
 			path = CustomView;
 			sourceTree = "<group>";
@@ -738,9 +803,11 @@
 				68252FD02B0B58770024EC76 /* MSDressBuyViewModel.swift in Sources */,
 				68ED53522B0887870099F469 /* MyMoyaExmple.swift in Sources */,
 				68252FD52B0B58770024EC76 /* MSDressCenterVC.swift in Sources */,
+				68252FEE2B0B6B7F0024EC76 /* NewRoomCollectionViewCell.swift in Sources */,
 				68252F8A2B0B39210024EC76 /* ExampleViewController.swift in Sources */,
 				68252FAC2B0B42270024EC76 /* LQMessageImageCell.swift in Sources */,
 				68252FD82B0B58770024EC76 /* MSDressBuyCell.swift in Sources */,
+				68252FFC2B0C56950024EC76 /* FileManager+YXB.swift in Sources */,
 				68252FE42B0B5D4A0024EC76 /* MSSystemNoticeVC.swift in Sources */,
 				68252FD12B0B58770024EC76 /* MyDressPreviewView+Protocol.swift in Sources */,
 				68ED52DB2B0761520099F469 /* AppDelegate.swift in Sources */,
@@ -751,28 +818,37 @@
 				68ED535E2B08C1B80099F469 /* IPNRSAUtil.swift in Sources */,
 				68ED532D2B0772130099F469 /* NSObject+ClassName.swift in Sources */,
 				68ED53282B0772130099F469 /* UIView+Gradient.swift in Sources */,
+				68252FF62B0C51010024EC76 /* DownloadViewController.swift in Sources */,
 				68252FB62B0B42270024EC76 /* LQMessageCell.swift in Sources */,
+				68252FF32B0C4D670024EC76 /* BrowswerViewController.swift in Sources */,
 				68ED53342B0887740099F469 /* NetworkError.swift in Sources */,
 				68252FD62B0B58770024EC76 /* MSDressBuyVC.swift in Sources */,
 				68252FB42B0B42270024EC76 /* LQMessageBubbleCell.swift in Sources */,
 				68ED53352B0887740099F469 /* NetworkCode.swift in Sources */,
 				68252FE32B0B5D4A0024EC76 /* MSSystemNoticeModel.swift in Sources */,
+				682530002B0C5CD60024EC76 /* LoadingGifView.swift in Sources */,
 				68ED53472B0887870099F469 /* APIParameters.swift in Sources */,
 				68ED531F2B0771F90099F469 /* UIColor+Const.swift in Sources */,
 				68252FD32B0B58770024EC76 /* My+API.swift in Sources */,
+				68252FFA2B0C561E0024EC76 /* Date+YXB.swift in Sources */,
 				68ED53502B0887870099F469 /* AuthPlugin.swift in Sources */,
 				68ED534E2B0887870099F469 /* LogPlugin.swift in Sources */,
+				68252FF12B0C4D210024EC76 /* YXBPhotoBrowswer.swift in Sources */,
 				68ED53372B0887740099F469 /* Env.swift in Sources */,
 				68252FB52B0B42270024EC76 /* LQOnlyBubbleCell.swift in Sources */,
+				68252FEC2B0B683A0024EC76 /* BannerViewController.swift in Sources */,
 				68ED532B2B0772130099F469 /* UIFont+PingFang.swift in Sources */,
 				68ED532C2B0772130099F469 /* UIButton+YXB.swift in Sources */,
 				68252FB12B0B42270024EC76 /* LQMessageWelcomeCell.swift in Sources */,
+				68252FFE2B0C57EB0024EC76 /* PermissionManager.swift in Sources */,
 				68ED535A2B088DA00099F469 /* AppDelegate+DBDebugTool.swift in Sources */,
 				68252FCF2B0B58770024EC76 /* MSDressViewModel.swift in Sources */,
 				68ED53492B0887870099F469 /* APIServer.swift in Sources */,
+				68252FF82B0C55F50024EC76 /* String+YXB.swift in Sources */,
 				68252FA92B0B42270024EC76 /* LQMessageNormalJoinCell.swift in Sources */,
 				68252FD42B0B58770024EC76 /* MSDressSegmentVC.swift in Sources */,
 				68252FE22B0B5D4A0024EC76 /* MSSystemNoticeViewModel.swift in Sources */,
+				682530032B0C5DA30024EC76 /* LoadingGiftViewController.swift in Sources */,
 				68252FB82B0B42270024EC76 /* LQMessageBaseCell.swift in Sources */,
 				68252FAE2B0B42270024EC76 /* LQMessageTextCell.swift in Sources */,
 				68ED532A2B0772130099F469 /* UIView+YYAdd.swift in Sources */,

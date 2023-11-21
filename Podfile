@@ -22,12 +22,6 @@ target 'YXBShelfProject' do
   pod 'HandyJSON'
   pod 'SDWebImage'
   pod 'Kingfisher'
-  # JXCategoryView 的 swift 版本
-  # pod 'JXSegmentedView'
-  # 下载资源的库。
-  # pod 'Tiercel'
-  # 图片预览库，蜂巢开源的
-  # pod 'JXPhotoBrowser'
 
   #pod 'MJRefresh'
   #pod 'SVProgressHUD'
@@ -43,8 +37,11 @@ end
 
 loaclPods()
 
+
+# MARK: - 下面是为了示例代码导入的，按需
 # 个性装扮
 def MyDress
+  # JXCategoryView 的 swift 版本
   pod 'JXSegmentedView'
 end
 
@@ -63,12 +60,31 @@ def Page
   pod 'MJRefresh'
 end
 
+#banner
+def Banner
+  pod 'FSPagerView'
+end
+
+# 图片预览库，蜂巢开源的
+def Preview
+  pod 'JXPhotoBrowser'
+end
+
+# 下载
+def DownLoad
+  # 下载资源的库。这个呢怎么说
+  pod 'Tiercel'
+end
+
 # 为了示例所需要的,按需导入
 def example
   MyDress()
   VAP()
   TextMessage()
   Page()
+  Banner()
+  Preview()
+  DownLoad()
 end
 example()
 

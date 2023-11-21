@@ -8,10 +8,14 @@
 import UIKit
 
 enum ExampleType: String, CaseIterable {
-    case vap = "vap特效播放"
+    case vap = "vap特效播放，队列播放"
     case message = "消息列表"
     case dress = "装扮中心"
     case mvvm = "MVVM+Rx+MJ加载gif图"
+    case banner = "轮播图"
+    case browser = "预览图片"
+    case download = "资源文件下载库"
+    case loading = "加载, MBProgress+Gif"
 }
 
 class ExampleViewController: UIViewController {
@@ -71,7 +75,18 @@ extension ExampleViewController: UITableViewDelegate, UITableViewDataSource {
         case .mvvm:
             let vc = MSSystemNoticeVC()
             self.navigationController?.pushViewController(vc, animated: true)
-            
-        }
+        case .banner:
+            let vc = BannerViewController()
+            self.navigationController?.pushViewController(vc, animated: true)
+        case .browser:
+            let vc = BrowswerViewController()
+            self.navigationController?.pushViewController(vc, animated: true)
+        case .download:
+            let vc = DownloadViewController()
+            self.navigationController?.pushViewController(vc, animated: true)
+        case .loading:
+            let vc = LoadingGiftViewController()
+            self.navigationController?.pushViewController(vc, animated: true)
+        }        
     }
 }
