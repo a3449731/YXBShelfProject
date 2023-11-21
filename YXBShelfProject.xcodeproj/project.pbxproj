@@ -244,7 +244,6 @@
 		68252F812B0B2CFB0024EC76 /* Example */ = {
 			isa = PBXGroup;
 			children = (
-				682530042B0C66780024EC76 /* Mask转场动画 */,
 				68252F892B0B39210024EC76 /* ExampleViewController.swift */,
 				68252F822B0B2D0B0024EC76 /* vap特效 */,
 				68252F8B2B0B41F70024EC76 /* 直播间消息TableView */,
@@ -254,6 +253,7 @@
 				68252FEF2B0C4CF40024EC76 /* 图片预览 */,
 				68252FF42B0C50F00024EC76 /* 下载 */,
 				682530012B0C5D8B0024EC76 /* 加载GIF菊花 */,
+				682530042B0C66780024EC76 /* Mask转场动画 */,
 			);
 			path = Example;
 			sourceTree = "<group>";
