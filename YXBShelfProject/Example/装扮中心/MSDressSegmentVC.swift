@@ -116,6 +116,8 @@ class MSDressSegmentVC: UIViewController {
         
         //  - 内容
         let listContainerView = JXSegmentedListContainerView(dataSource: self)
+        // 禁止滑动，只能点击
+        listContainerView.scrollView.isScrollEnabled = false
         self.view.addSubview(listContainerView)
         //关联listContainer
         segmentedView.listContainer = listContainerView

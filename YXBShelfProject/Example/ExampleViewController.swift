@@ -16,6 +16,7 @@ enum ExampleType: String, CaseIterable {
     case browser = "预览图片"
     case download = "资源文件下载库"
     case loading = "加载, MBProgress+Gif"
+    case mask = "Mask的转场动画"
 }
 
 class ExampleViewController: UIViewController {
@@ -87,6 +88,9 @@ extension ExampleViewController: UITableViewDelegate, UITableViewDataSource {
         case .loading:
             let vc = LoadingGiftViewController()
             self.navigationController?.pushViewController(vc, animated: true)
-        }        
+        case .mask:
+            let vc = MaskViewController()
+            self.navigationController?.pushViewController(vc, animated: true)            
+        }
     }
 }

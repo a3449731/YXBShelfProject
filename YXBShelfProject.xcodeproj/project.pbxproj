@@ -63,6 +63,11 @@
 		68252FFE2B0C57EB0024EC76 /* PermissionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68252FFD2B0C57EB0024EC76 /* PermissionManager.swift */; };
 		682530002B0C5CD60024EC76 /* LoadingGifView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68252FFF2B0C5CD60024EC76 /* LoadingGifView.swift */; };
 		682530032B0C5DA30024EC76 /* LoadingGiftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 682530022B0C5DA30024EC76 /* LoadingGiftViewController.swift */; };
+		682530062B0C668E0024EC76 /* LJKAudioCallAssistiveTouchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 682530052B0C668E0024EC76 /* LJKAudioCallAssistiveTouchView.swift */; };
+		682530082B0C6D830024EC76 /* MaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 682530072B0C6D830024EC76 /* MaskViewController.swift */; };
+		6825300A2B0C77F00024EC76 /* LQCircleMaskAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 682530092B0C77F00024EC76 /* LQCircleMaskAnimation.swift */; };
+		6825300C2B0C7B560024EC76 /* ExampleViewController+Mask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6825300B2B0C7B560024EC76 /* ExampleViewController+Mask.swift */; };
+		6825300E2B0C7D550024EC76 /* LJKAudioTouchViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6825300D2B0C7D550024EC76 /* LJKAudioTouchViewManager.swift */; };
 		68ED52D12B0760D80099F469 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 68ED52D02B0760D80099F469 /* Assets.xcassets */; };
 		68ED52D42B0760D80099F469 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 68ED52D32B0760D80099F469 /* Preview Assets.xcassets */; };
 		68ED52DB2B0761520099F469 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68ED52DA2B0761520099F469 /* AppDelegate.swift */; };
@@ -165,6 +170,11 @@
 		68252FFD2B0C57EB0024EC76 /* PermissionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionManager.swift; sourceTree = "<group>"; };
 		68252FFF2B0C5CD60024EC76 /* LoadingGifView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingGifView.swift; sourceTree = "<group>"; };
 		682530022B0C5DA30024EC76 /* LoadingGiftViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingGiftViewController.swift; sourceTree = "<group>"; };
+		682530052B0C668E0024EC76 /* LJKAudioCallAssistiveTouchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LJKAudioCallAssistiveTouchView.swift; sourceTree = "<group>"; };
+		682530072B0C6D830024EC76 /* MaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaskViewController.swift; sourceTree = "<group>"; };
+		682530092B0C77F00024EC76 /* LQCircleMaskAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LQCircleMaskAnimation.swift; sourceTree = "<group>"; };
+		6825300B2B0C7B560024EC76 /* ExampleViewController+Mask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ExampleViewController+Mask.swift"; sourceTree = "<group>"; };
+		6825300D2B0C7D550024EC76 /* LJKAudioTouchViewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LJKAudioTouchViewManager.swift; sourceTree = "<group>"; };
 		68ED52C92B0760D60099F469 /* YXBShelfProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YXBShelfProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		68ED52D02B0760D80099F469 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		68ED52D32B0760D80099F469 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -234,6 +244,7 @@
 		68252F812B0B2CFB0024EC76 /* Example */ = {
 			isa = PBXGroup;
 			children = (
+				682530042B0C66780024EC76 /* Mask转场动画 */,
 				68252F892B0B39210024EC76 /* ExampleViewController.swift */,
 				68252F822B0B2D0B0024EC76 /* vap特效 */,
 				68252F8B2B0B41F70024EC76 /* 直播间消息TableView */,
@@ -444,6 +455,18 @@
 				682530022B0C5DA30024EC76 /* LoadingGiftViewController.swift */,
 			);
 			path = "加载GIF菊花";
+			sourceTree = "<group>";
+		};
+		682530042B0C66780024EC76 /* Mask转场动画 */ = {
+			isa = PBXGroup;
+			children = (
+				682530072B0C6D830024EC76 /* MaskViewController.swift */,
+				6825300B2B0C7B560024EC76 /* ExampleViewController+Mask.swift */,
+				6825300D2B0C7D550024EC76 /* LJKAudioTouchViewManager.swift */,
+				682530052B0C668E0024EC76 /* LJKAudioCallAssistiveTouchView.swift */,
+				682530092B0C77F00024EC76 /* LQCircleMaskAnimation.swift */,
+			);
+			path = "Mask转场动画";
 			sourceTree = "<group>";
 		};
 		68ED52C02B0760D60099F469 = {
@@ -793,8 +816,10 @@
 				68252F842B0B2D700024EC76 /* PlayVapView.swift in Sources */,
 				68ED53142B0771300099F469 /* TwoLineButton.swift in Sources */,
 				68ED53582B0888860099F469 /* User+Const.swift in Sources */,
+				682530082B0C6D830024EC76 /* MaskViewController.swift in Sources */,
 				68ED53542B0887C60099F469 /* YXBBaseViewController.swift in Sources */,
 				68252FB22B0B42270024EC76 /* LQMeesageAnnouncCell.swift in Sources */,
+				682530062B0C668E0024EC76 /* LJKAudioCallAssistiveTouchView.swift in Sources */,
 				68252FAD2B0B42270024EC76 /* VipPictureConfig.swift in Sources */,
 				68252FB02B0B42270024EC76 /* LQMessageAiteCell.swift in Sources */,
 				68ED534D2B0887870099F469 /* RSAPlugin.swift in Sources */,
@@ -822,10 +847,12 @@
 				68252FB62B0B42270024EC76 /* LQMessageCell.swift in Sources */,
 				68252FF32B0C4D670024EC76 /* BrowswerViewController.swift in Sources */,
 				68ED53342B0887740099F469 /* NetworkError.swift in Sources */,
+				6825300E2B0C7D550024EC76 /* LJKAudioTouchViewManager.swift in Sources */,
 				68252FD62B0B58770024EC76 /* MSDressBuyVC.swift in Sources */,
 				68252FB42B0B42270024EC76 /* LQMessageBubbleCell.swift in Sources */,
 				68ED53352B0887740099F469 /* NetworkCode.swift in Sources */,
 				68252FE32B0B5D4A0024EC76 /* MSSystemNoticeModel.swift in Sources */,
+				6825300C2B0C7B560024EC76 /* ExampleViewController+Mask.swift in Sources */,
 				682530002B0C5CD60024EC76 /* LoadingGifView.swift in Sources */,
 				68ED53472B0887870099F469 /* APIParameters.swift in Sources */,
 				68ED531F2B0771F90099F469 /* UIColor+Const.swift in Sources */,
@@ -859,6 +886,7 @@
 				68ED530E2B07712A0099F469 /* YXBCountDownButton.swift in Sources */,
 				68ED53202B0771F90099F469 /* Screen+Const.swift in Sources */,
 				68252FAF2B0B42270024EC76 /* LQMessageGiftCell.swift in Sources */,
+				6825300A2B0C77F00024EC76 /* LQCircleMaskAnimation.swift in Sources */,
 				68ED53132B0771300099F469 /* TwoLineLabel.swift in Sources */,
 				68ED53562B08882D0099F469 /* YXBImageCache.swift in Sources */,
 				68ED534C2B0887870099F469 /* CachePlugin.swift in Sources */,
