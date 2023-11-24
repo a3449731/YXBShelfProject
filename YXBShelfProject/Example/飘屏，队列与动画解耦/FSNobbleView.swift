@@ -8,8 +8,8 @@
 import UIKit
 
 /// 贵族升级飘屏的view
-class FSNobbleView: UIView, LQPlayableAnimation, LQFloatAnimation {
-    weak var delegate: LQAnimationDelegate?
+class FSNobbleView: FloatingBaseView, LQFloatAnimation {
+//    weak var delegate: LQAnimationDelegate?
     
     private let floatingScreenAnimationKey = "FloatingScreenAnimation"
         
@@ -117,19 +117,8 @@ class FSNobbleView: UIView, LQPlayableAnimation, LQFloatAnimation {
         debugPrint("点击了打招呼")
     }
     
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    deinit {
-        debugPrint(self.className + " deinit 🍺")
-    }
-}
-
-// MARK: LQPlayableAnimation流程控制
-extension FSNobbleView {
-    
-    func start(model: LQAnimationModel) {
+    // MARK: LQPlayableAnimation流程控制
+    override func start(model: LQAnimationModel) {
         let animation = self.createAnimation(for: self)
         self.layer.removeAnimation(forKey: floatingScreenAnimationKey)
         self.layer.add(animation, forKey: floatingScreenAnimationKey)
@@ -141,9 +130,17 @@ extension FSNobbleView {
         }
     }
     
-    func stop(model: LQAnimationModel) {
+    override func stop(model: LQAnimationModel) {
 //        self.layer.removeAnimation(forKey: floatingScreenAnimationKey)
         self.delegate?.animationDidStop(model)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    deinit {
+        debugPrint(self.className + " deinit 🍺")
     }
 }
 

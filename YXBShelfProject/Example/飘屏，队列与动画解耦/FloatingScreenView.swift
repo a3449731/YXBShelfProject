@@ -7,9 +7,22 @@
 
 import UIKit
 
-/// 飘屏的view
-class FloatingScreenView: UIView, LQPlayableAnimation, LQFloatAnimation {
+class FloatingBaseView: UIView, LQPlayableAnimation {
     weak var delegate: LQAnimationDelegate?
+    
+    func start(model: LQAnimationModel) {
+        
+    }
+    
+    func stop(model: LQAnimationModel) {
+        
+    }
+}
+
+
+/// 飘屏的view
+class FloatingScreenView: FloatingBaseView, LQFloatAnimation {
+//    weak var delegate: LQAnimationDelegate?
     
     private let floatingScreenAnimationKey = "FloatingScreenAnimation"
         
@@ -152,19 +165,8 @@ class FloatingScreenView: UIView, LQPlayableAnimation, LQFloatAnimation {
         debugPrint("点击了去围观")
     }
     
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    deinit {
-        debugPrint(self.className + " deinit 🍺")
-    }
-}
-
-// MARK: LQPlayableAnimation流程控制
-extension FloatingScreenView {
-    
-    func start(model: LQAnimationModel) {
+    // MARK: LQPlayableAnimation流程控制
+    override func start(model: LQAnimationModel) {
         let animation = self.createAnimation(for: self)
         self.layer.removeAnimation(forKey: floatingScreenAnimationKey)
         self.layer.add(animation, forKey: floatingScreenAnimationKey)
@@ -176,11 +178,20 @@ extension FloatingScreenView {
         }
     }
     
-    func stop(model: LQAnimationModel) {
+    override func stop(model: LQAnimationModel) {
 //        self.layer.removeAnimation(forKey: floatingScreenAnimationKey)
         self.delegate?.animationDidStop(model)
     }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    deinit {
+        debugPrint(self.className + " deinit 🍺")
+    }
 }
+
 
 #Preview {
     let view = UIView()

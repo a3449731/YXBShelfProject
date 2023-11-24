@@ -6,13 +6,14 @@
 //
 
 import Foundation
+import HandyJSON
 
 // 动画所需的数据模型
 struct LQAnimationModel: Equatable {
     /// 声网消息类型
     var type: String?
     /// 礼物飘屏范围 1房间内 2同品类 3全直播 4全派对 5全站
-    var scopeFloat: Int?
+    var scopeFloat: FloatingScreenType.FloatScopeType?
     /// 礼物图片
     var img: String?
     /// 礼物数量
@@ -20,9 +21,9 @@ struct LQAnimationModel: Equatable {
     /// 房间id
     var houseId: String?
     /// 打赏人
-    var tippingUser: String?
+    var tippingUser: FloatUserModel?
     /// 被打赏人
-    var byTippingUser: String?
+    var byTippingUser: FloatUserModel?
     /// 用户id
     var id: String?
     /// 昵称
@@ -45,7 +46,7 @@ struct LQAnimationModel: Equatable {
     
     /// 下面是送礼的，起另一个模型就太麻烦了
     /// floatType 飘屏类型 1礼物飘屏 2贵族升级飘屏 3红包飘屏 4大礼物
-    var floatType: String? //":4,
+    var floatType: FloatingScreenType? //":4,
 //    var houseId: String? //":"50616500",
 //    var headImg: String? //":"https://misheng001-1318856868.cos.ap-nanjing.myqcloud.com/1690792476235.jpg",
 //    var nickname: String? //":"addis",
@@ -54,17 +55,29 @@ struct LQAnimationModel: Equatable {
     var isex: String? //":"1",
 //    var type: String? //":"409",
 //    var scopeFloat: String? //":5
+    /// 送大礼物有的模型
     var gift: GiftModel?
     
-    struct GiftModel: Equatable {
+    struct GiftModel: Equatable, HandyJSON {
         var giftId: String? //":"a8644e5292cd43bbb90778b45360de88",
         var giftImg: String? //":"https://lanqi123.oss-cn-beijing.aliyuncs.com/file/1700120871014.png",
         var giftName: String? //":"相约巴黎",
         var num: String? //":133
     }
+    
+    struct FloatUserModel: Equatable, HandyJSON {
+        var custNo: String?
+        var headImg: String?
+        var nickname: String?
+        var id: String?
+    }
 }
 
-enum FloatingScreenType: Int {
+extension LQAnimationModel: HandyJSON {
+    
+}
+
+enum FloatingScreenType: Int, HandyJSONEnum {
 //    floatType 飘屏类型 1礼物飘屏 2贵族升级飘屏 3红包飘屏 4大礼物
     // 当为1时候，要和FloatScopeType结合起来，样式不一样
     case gift = 1
@@ -84,16 +97,17 @@ enum FloatingScreenType: Int {
         case .nobble:
             if nobbleLevel == 6 {
                 return "float_nobble_type_6"
-            } else {
+            } else if nobbleLevel == 7 {
                 return "float_nobble_type_7"
             }
         case .bigGift: return "float_big_type_1"
         default:
             return nil
         }
+        return nil
     }
     
-    enum FloatScopeType: Int {
+    enum FloatScopeType: Int, HandyJSONEnum {
         /// 房间
         case room = 1
         /// 品类

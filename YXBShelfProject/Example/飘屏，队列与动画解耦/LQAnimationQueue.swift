@@ -38,7 +38,7 @@ import UIKit
 ///
 ///     floatAnimationQueue.playAnimations()
 /// }
-class LQAnimationQueue<T: LQPlayableAnimation> where T: UIView {
+class LQAnimationQueue<T: FloatingBaseView> {
 
     // 数据模型数组
     private var animationArray: [LQAnimationModel] = []
@@ -47,12 +47,16 @@ class LQAnimationQueue<T: LQPlayableAnimation> where T: UIView {
     private let lock = NSLock()
     
     // 为了方便拓展,需要一个泛型的播放动画的实体类
-    var playView: T
-    
-    init(playView: T) {
-        self.playView = playView
-        self.playView.delegate = self
+    var playView: T! {
+        didSet {
+            self.playView.delegate = self
+        }
     }
+    
+//    init(playView: T) {
+//        self.playView = playView
+//        self.playView.delegate = self
+//    }
         
     // 添加动画
     func addAnimation(_ animation: LQAnimationModel) {
@@ -137,12 +141,15 @@ class LQAnimationQueue<T: LQPlayableAnimation> where T: UIView {
 extension LQAnimationQueue: LQAnimationDelegate {
     func animationDidStart(_ animation: LQAnimationModel) {
         // 处理动画开始事件
+        // 因为是加在window上的，所以选择有动画的时候添加，动画结束时移除。避免盖在上面有响应事件
+        UIApplication.shared.getKeyWindow()?.addSubview(self.playView)
     }
     
     func animationDidStop(_ animation: LQAnimationModel) {
         // 处理动画停止事件
         isPlayingAnimation = false
         removeAnimation(animation)
+        self.playView.removeFromSuperview()
         
         if !isPaused {
             playAnimations()
@@ -153,6 +160,7 @@ extension LQAnimationQueue: LQAnimationDelegate {
         // 处理动画失败事件
         isPlayingAnimation = false
         removeAnimation(animation)
+        self.playView.removeFromSuperview()
         
         if !isPaused {
             playAnimations()
