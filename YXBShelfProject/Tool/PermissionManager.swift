@@ -105,6 +105,6 @@ class PermissionManager {
         alertController.addAction(UIAlertAction(title: "去设置", style: .default, handler: { (_) in
             UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!, options: [:], completionHandler: nil)
         }))
-        ScreenConst.getCurrentUIController()?.present(alertController, animated: true)        
+        UIApplication.shared.getCurrentUIController()?.present(alertController, animated: true)
     }
 }

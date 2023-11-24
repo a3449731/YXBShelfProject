@@ -17,6 +17,7 @@ enum ExampleType: String, CaseIterable {
     case download = "资源文件下载库"
     case loading = "加载, MBProgress+Gif"
     case mask = "Mask的转场动画"
+    case floatScreen = "飘屏，队列与动画解耦"
 }
 
 class ExampleViewController: UIViewController {
@@ -90,7 +91,10 @@ extension ExampleViewController: UITableViewDelegate, UITableViewDataSource {
             self.navigationController?.pushViewController(vc, animated: true)
         case .mask:
             let vc = MaskViewController()
-            self.navigationController?.pushViewController(vc, animated: true)            
+            self.navigationController?.pushViewController(vc, animated: true)
+        case .floatScreen:
+            let vc = PiaoPingViewController()
+            self.navigationController?.pushViewController(vc, animated: true)
         }
     }
 }

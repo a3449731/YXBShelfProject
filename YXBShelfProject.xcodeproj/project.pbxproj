@@ -68,6 +68,14 @@
 		6825300A2B0C77F00024EC76 /* LQCircleMaskAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 682530092B0C77F00024EC76 /* LQCircleMaskAnimation.swift */; };
 		6825300C2B0C7B560024EC76 /* ExampleViewController+Mask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6825300B2B0C7B560024EC76 /* ExampleViewController+Mask.swift */; };
 		6825300E2B0C7D550024EC76 /* LJKAudioTouchViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6825300D2B0C7D550024EC76 /* LJKAudioTouchViewManager.swift */; };
+		682530112B0CA5750024EC76 /* LQMaiWeiModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 682530102B0CA5750024EC76 /* LQMaiWeiModel.swift */; };
+		682530142B0D8A3F0024EC76 /* LQAnimationQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 682530132B0D8A3F0024EC76 /* LQAnimationQueue.swift */; };
+		682530162B0DA7EB0024EC76 /* PiaoPingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 682530152B0DA7EB0024EC76 /* PiaoPingViewController.swift */; };
+		682530182B0DA8690024EC76 /* FloatingScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 682530172B0DA8690024EC76 /* FloatingScreenView.swift */; };
+		6825301A2B0DAA610024EC76 /* LQAnimationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 682530192B0DAA610024EC76 /* LQAnimationModel.swift */; };
+		6825301C2B0DAA850024EC76 /* LQAnimationProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6825301B2B0DAA850024EC76 /* LQAnimationProtocol.swift */; };
+		682530302B0F31AC0024EC76 /* FSNobbleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6825302F2B0F31AC0024EC76 /* FSNobbleView.swift */; };
+		682530322B0F3B930024EC76 /* FSBigGiftView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 682530312B0F3B930024EC76 /* FSBigGiftView.swift */; };
 		68ED52D12B0760D80099F469 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 68ED52D02B0760D80099F469 /* Assets.xcassets */; };
 		68ED52D42B0760D80099F469 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 68ED52D32B0760D80099F469 /* Preview Assets.xcassets */; };
 		68ED52DB2B0761520099F469 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68ED52DA2B0761520099F469 /* AppDelegate.swift */; };
@@ -175,6 +183,14 @@
 		682530092B0C77F00024EC76 /* LQCircleMaskAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LQCircleMaskAnimation.swift; sourceTree = "<group>"; };
 		6825300B2B0C7B560024EC76 /* ExampleViewController+Mask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ExampleViewController+Mask.swift"; sourceTree = "<group>"; };
 		6825300D2B0C7D550024EC76 /* LJKAudioTouchViewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LJKAudioTouchViewManager.swift; sourceTree = "<group>"; };
+		682530102B0CA5750024EC76 /* LQMaiWeiModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LQMaiWeiModel.swift; sourceTree = "<group>"; };
+		682530132B0D8A3F0024EC76 /* LQAnimationQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LQAnimationQueue.swift; sourceTree = "<group>"; };
+		682530152B0DA7EB0024EC76 /* PiaoPingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PiaoPingViewController.swift; sourceTree = "<group>"; };
+		682530172B0DA8690024EC76 /* FloatingScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingScreenView.swift; sourceTree = "<group>"; };
+		682530192B0DAA610024EC76 /* LQAnimationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LQAnimationModel.swift; sourceTree = "<group>"; };
+		6825301B2B0DAA850024EC76 /* LQAnimationProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LQAnimationProtocol.swift; sourceTree = "<group>"; };
+		6825302F2B0F31AC0024EC76 /* FSNobbleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FSNobbleView.swift; sourceTree = "<group>"; };
+		682530312B0F3B930024EC76 /* FSBigGiftView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FSBigGiftView.swift; sourceTree = "<group>"; };
 		68ED52C92B0760D60099F469 /* YXBShelfProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YXBShelfProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		68ED52D02B0760D80099F469 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		68ED52D32B0760D80099F469 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -254,6 +270,8 @@
 				68252FF42B0C50F00024EC76 /* 下载 */,
 				682530012B0C5D8B0024EC76 /* 加载GIF菊花 */,
 				682530042B0C66780024EC76 /* Mask转场动画 */,
+				6825300F2B0CA0A90024EC76 /* 麦位列表 */,
+				682530122B0D8A110024EC76 /* 飘屏，队列与动画解耦 */,
 			);
 			path = Example;
 			sourceTree = "<group>";
@@ -467,6 +485,28 @@
 				682530092B0C77F00024EC76 /* LQCircleMaskAnimation.swift */,
 			);
 			path = "Mask转场动画";
+			sourceTree = "<group>";
+		};
+		6825300F2B0CA0A90024EC76 /* 麦位列表 */ = {
+			isa = PBXGroup;
+			children = (
+				682530102B0CA5750024EC76 /* LQMaiWeiModel.swift */,
+			);
+			path = "麦位列表";
+			sourceTree = "<group>";
+		};
+		682530122B0D8A110024EC76 /* 飘屏，队列与动画解耦 */ = {
+			isa = PBXGroup;
+			children = (
+				682530152B0DA7EB0024EC76 /* PiaoPingViewController.swift */,
+				6825301B2B0DAA850024EC76 /* LQAnimationProtocol.swift */,
+				682530132B0D8A3F0024EC76 /* LQAnimationQueue.swift */,
+				682530192B0DAA610024EC76 /* LQAnimationModel.swift */,
+				682530172B0DA8690024EC76 /* FloatingScreenView.swift */,
+				6825302F2B0F31AC0024EC76 /* FSNobbleView.swift */,
+				682530312B0F3B930024EC76 /* FSBigGiftView.swift */,
+			);
+			path = "飘屏，队列与动画解耦";
 			sourceTree = "<group>";
 		};
 		68ED52C02B0760D60099F469 = {
@@ -813,6 +853,7 @@
 				68252FAB2B0B42270024EC76 /* LQMeesageShangMaiCell.swift in Sources */,
 				68ED53192B07718F0099F469 /* MyUIFactory.swift in Sources */,
 				68252FD92B0B58770024EC76 /* MSDressCell.swift in Sources */,
+				6825301A2B0DAA610024EC76 /* LQAnimationModel.swift in Sources */,
 				68252F842B0B2D700024EC76 /* PlayVapView.swift in Sources */,
 				68ED53142B0771300099F469 /* TwoLineButton.swift in Sources */,
 				68ED53582B0888860099F469 /* User+Const.swift in Sources */,
@@ -824,6 +865,7 @@
 				68252FB02B0B42270024EC76 /* LQMessageAiteCell.swift in Sources */,
 				68ED534D2B0887870099F469 /* RSAPlugin.swift in Sources */,
 				68ED53362B0887740099F469 /* NetworkManager.swift in Sources */,
+				682530302B0F31AC0024EC76 /* FSNobbleView.swift in Sources */,
 				68ED53512B0887870099F469 /* ProgressPlugin.swift in Sources */,
 				68252FD02B0B58770024EC76 /* MSDressBuyViewModel.swift in Sources */,
 				68ED53522B0887870099F469 /* MyMoyaExmple.swift in Sources */,
@@ -847,7 +889,9 @@
 				68252FB62B0B42270024EC76 /* LQMessageCell.swift in Sources */,
 				68252FF32B0C4D670024EC76 /* BrowswerViewController.swift in Sources */,
 				68ED53342B0887740099F469 /* NetworkError.swift in Sources */,
+				6825301C2B0DAA850024EC76 /* LQAnimationProtocol.swift in Sources */,
 				6825300E2B0C7D550024EC76 /* LJKAudioTouchViewManager.swift in Sources */,
+				682530112B0CA5750024EC76 /* LQMaiWeiModel.swift in Sources */,
 				68252FD62B0B58770024EC76 /* MSDressBuyVC.swift in Sources */,
 				68252FB42B0B42270024EC76 /* LQMessageBubbleCell.swift in Sources */,
 				68ED53352B0887740099F469 /* NetworkCode.swift in Sources */,
@@ -861,6 +905,7 @@
 				68ED53502B0887870099F469 /* AuthPlugin.swift in Sources */,
 				68ED534E2B0887870099F469 /* LogPlugin.swift in Sources */,
 				68252FF12B0C4D210024EC76 /* YXBPhotoBrowswer.swift in Sources */,
+				682530142B0D8A3F0024EC76 /* LQAnimationQueue.swift in Sources */,
 				68ED53372B0887740099F469 /* Env.swift in Sources */,
 				68252FB52B0B42270024EC76 /* LQOnlyBubbleCell.swift in Sources */,
 				68252FEC2B0B683A0024EC76 /* BannerViewController.swift in Sources */,
@@ -872,11 +917,13 @@
 				68252FCF2B0B58770024EC76 /* MSDressViewModel.swift in Sources */,
 				68ED53492B0887870099F469 /* APIServer.swift in Sources */,
 				68252FF82B0C55F50024EC76 /* String+YXB.swift in Sources */,
+				682530322B0F3B930024EC76 /* FSBigGiftView.swift in Sources */,
 				68252FA92B0B42270024EC76 /* LQMessageNormalJoinCell.swift in Sources */,
 				68252FD42B0B58770024EC76 /* MSDressSegmentVC.swift in Sources */,
 				68252FE22B0B5D4A0024EC76 /* MSSystemNoticeViewModel.swift in Sources */,
 				682530032B0C5DA30024EC76 /* LoadingGiftViewController.swift in Sources */,
 				68252FB82B0B42270024EC76 /* LQMessageBaseCell.swift in Sources */,
+				682530162B0DA7EB0024EC76 /* PiaoPingViewController.swift in Sources */,
 				68252FAE2B0B42270024EC76 /* LQMessageTextCell.swift in Sources */,
 				68ED532A2B0772130099F469 /* UIView+YYAdd.swift in Sources */,
 				68252FA72B0B42270024EC76 /* HonourTagView.swift in Sources */,
@@ -888,6 +935,7 @@
 				68252FAF2B0B42270024EC76 /* LQMessageGiftCell.swift in Sources */,
 				6825300A2B0C77F00024EC76 /* LQCircleMaskAnimation.swift in Sources */,
 				68ED53132B0771300099F469 /* TwoLineLabel.swift in Sources */,
+				682530182B0DA8690024EC76 /* FloatingScreenView.swift in Sources */,
 				68ED53562B08882D0099F469 /* YXBImageCache.swift in Sources */,
 				68ED534C2B0887870099F469 /* CachePlugin.swift in Sources */,
 				68252FD22B0B58770024EC76 /* MSDressPreviewView.swift in Sources */,
@@ -988,7 +1036,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1137,7 +1185,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1168,7 +1216,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

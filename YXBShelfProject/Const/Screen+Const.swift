@@ -76,35 +76,6 @@ final class ScreenConst {
     static let bottomSpaceHeight: CGFloat = {
         return hasNotch ? 34 : 0
     }()
-    
-    
-    // 获取当前控制器，尤其iOS版本不断升级，加上一些第三方可能乱加window，所以先获取到正确的window是第一步
-    @objc static func getCurrentUIController() -> UIViewController? {
-        guard let window = UIApplication.shared.getKeyWindow() else {
-            return nil
-        }
-        
-        guard let frontView = window.subviews.first else {
-            return nil
-        }
-
-        guard let nextResponder = frontView.next else {
-            return nil
-        }
-        
-        var result: UIViewController?
-        if let viewController = nextResponder as? UIViewController {
-            result = viewController
-        } else {
-            result = window.rootViewController
-
-            if let tabBarController = result as? UITabBarController,
-               let navigationController = tabBarController.selectedViewController as? UINavigationController {
-                result = navigationController.topViewController
-            }
-        }
-        return result
-    }
 }
 
 extension UIApplication {
@@ -148,6 +119,25 @@ extension UIApplication {
         }
         
         return keyWindow
+    }
+    
+    // 获取当前控制器，尤其iOS版本不断升级，加上一些第三方可能乱加window，所以先获取到正确的window是第一步
+    @objc func getCurrentUIController() -> UIViewController? {
+        guard let window = UIApplication.shared.getKeyWindow() else {
+            return nil
+        }
+        
+        var vc: UIViewController?
+        if let rootViewController = window.rootViewController as? UINavigationController {
+            vc = rootViewController.topViewController
+        } else if let rootViewController = window.rootViewController as? UITabBarController {
+            if let selectedViewController = rootViewController.selectedViewController as? UINavigationController {
+                vc = selectedViewController.topViewController
+            }
+        } else {
+            vc = window.rootViewController
+        }
+        return vc
     }
     
 //    func navBarHeight() -> CGFloat{ return 44 }

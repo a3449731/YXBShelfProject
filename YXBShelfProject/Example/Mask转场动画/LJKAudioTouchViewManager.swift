@@ -24,7 +24,7 @@ class LJKAudioTouchViewManager: NSObject {
     }
     
     func showAudioCallAssistiveTouchView() {
-        ScreenConst.getCurrentUIController()?.view.addSubview(self.touchView)
+        UIApplication.shared.getCurrentUIController()?.view.addSubview(self.touchView)
         self.touchView.nameLabel.text = "房间名"
     }
     
@@ -40,10 +40,10 @@ extension LJKAudioTouchViewManager: LJKAudioCallAssistiveTouchViewDelegate {
     func assistiveTouchViewClicked() {
         let vc = MaskViewController()
 //        self.touchView.parentViewController?.navigationController?.pushViewController(vc, animated: true)
-        if let nav = ScreenConst.getCurrentUIController() as? UINavigationController {
+        if let nav = UIApplication.shared.getCurrentUIController() as? UINavigationController {
             nav.pushViewController(vc, animated: true)
         } else {
-            ScreenConst.getCurrentUIController()?.navigationController?.pushViewController(vc, animated: true)
+            UIApplication.shared.getCurrentUIController()?.navigationController?.pushViewController(vc, animated: true)
         }
     }
     
