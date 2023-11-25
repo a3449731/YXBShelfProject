@@ -15,9 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-//        DebugToolSwiftBridge.setup()
-        
-//        self.allApplicationCofing()
+        self.allApplicationCofing()
         
         self.setupMainViewController()
                 
@@ -33,7 +31,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func allApplicationCofing() -> Void {
-        self.setupDebugTool()
+//        self.setupDebugTool()
+        self.setupSDWebImage()
     }
     
     func setupMainViewController() {

@@ -31,8 +31,8 @@ target 'YXBShelfProject' do
 # 本地源码依赖库
 def loaclPods
 # 配置环境，测试下的
-  pod 'DBDebugToolkit', :configurations => ['Debug'], :path => './LocalPods/DBDebugToolkit'
-#  pod 'DBDebugToolkit', :configurations => ['Debug']
+  #pod 'DBDebugToolkit', :configurations => ['Debug'], :path => './LocalPods/DBDebugToolkit'
+  #pod 'DBDebugToolkit', :configurations => ['Debug']
 end
 
 loaclPods()

@@ -76,6 +76,15 @@
 		6825301C2B0DAA850024EC76 /* LQAnimationProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6825301B2B0DAA850024EC76 /* LQAnimationProtocol.swift */; };
 		682530302B0F31AC0024EC76 /* FSNobbleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6825302F2B0F31AC0024EC76 /* FSNobbleView.swift */; };
 		682530322B0F3B930024EC76 /* FSBigGiftView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 682530312B0F3B930024EC76 /* FSBigGiftView.swift */; };
+		682530382B1032D80024EC76 /* LQMicrophoneUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 682530372B1032D80024EC76 /* LQMicrophoneUserView.swift */; };
+		6825303A2B1040BE0024EC76 /* AppDelegate+SDWebImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 682530392B1040BE0024EC76 /* AppDelegate+SDWebImage.swift */; };
+		6825303C2B1044A10024EC76 /* LQYinLiangView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6825303B2B1044A10024EC76 /* LQYinLiangView.swift */; };
+		6825303E2B1049320024EC76 /* LQMaiWeiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6825303D2B1049320024EC76 /* LQMaiWeiView.swift */; };
+		682530402B1088D20024EC76 /* LQMaiWeiCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6825303F2B1088D20024EC76 /* LQMaiWeiCell.swift */; };
+		682530422B108E780024EC76 /* LQMaiWeiViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 682530412B108E780024EC76 /* LQMaiWeiViewController.swift */; };
+		682530442B1098C20024EC76 /* LQAllMailWeiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 682530432B1098C20024EC76 /* LQAllMailWeiView.swift */; };
+		682530462B109C3D0024EC76 /* micWave.webp in Resources */ = {isa = PBXBuildFile; fileRef = 682530452B109C3D0024EC76 /* micWave.webp */; };
+		682530482B10AE6B0024EC76 /* LQMaiWeiViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 682530472B10AE6B0024EC76 /* LQMaiWeiViewModel.swift */; };
 		68ED52D12B0760D80099F469 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 68ED52D02B0760D80099F469 /* Assets.xcassets */; };
 		68ED52D42B0760D80099F469 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 68ED52D32B0760D80099F469 /* Preview Assets.xcassets */; };
 		68ED52DB2B0761520099F469 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68ED52DA2B0761520099F469 /* AppDelegate.swift */; };
@@ -191,6 +200,15 @@
 		6825301B2B0DAA850024EC76 /* LQAnimationProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LQAnimationProtocol.swift; sourceTree = "<group>"; };
 		6825302F2B0F31AC0024EC76 /* FSNobbleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FSNobbleView.swift; sourceTree = "<group>"; };
 		682530312B0F3B930024EC76 /* FSBigGiftView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FSBigGiftView.swift; sourceTree = "<group>"; };
+		682530372B1032D80024EC76 /* LQMicrophoneUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LQMicrophoneUserView.swift; sourceTree = "<group>"; };
+		682530392B1040BE0024EC76 /* AppDelegate+SDWebImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+SDWebImage.swift"; sourceTree = "<group>"; };
+		6825303B2B1044A10024EC76 /* LQYinLiangView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LQYinLiangView.swift; sourceTree = "<group>"; };
+		6825303D2B1049320024EC76 /* LQMaiWeiView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LQMaiWeiView.swift; sourceTree = "<group>"; };
+		6825303F2B1088D20024EC76 /* LQMaiWeiCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LQMaiWeiCell.swift; sourceTree = "<group>"; };
+		682530412B108E780024EC76 /* LQMaiWeiViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LQMaiWeiViewController.swift; sourceTree = "<group>"; };
+		682530432B1098C20024EC76 /* LQAllMailWeiView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LQAllMailWeiView.swift; sourceTree = "<group>"; };
+		682530452B109C3D0024EC76 /* micWave.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = micWave.webp; sourceTree = "<group>"; };
+		682530472B10AE6B0024EC76 /* LQMaiWeiViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LQMaiWeiViewModel.swift; sourceTree = "<group>"; };
 		68ED52C92B0760D60099F469 /* YXBShelfProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YXBShelfProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		68ED52D02B0760D80099F469 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		68ED52D32B0760D80099F469 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -490,7 +508,15 @@
 		6825300F2B0CA0A90024EC76 /* 麦位列表 */ = {
 			isa = PBXGroup;
 			children = (
+				682530492B10BA540024EC76 /* 本来就有的 */,
+				682530412B108E780024EC76 /* LQMaiWeiViewController.swift */,
+				682530472B10AE6B0024EC76 /* LQMaiWeiViewModel.swift */,
+				682530432B1098C20024EC76 /* LQAllMailWeiView.swift */,
 				682530102B0CA5750024EC76 /* LQMaiWeiModel.swift */,
+				6825303F2B1088D20024EC76 /* LQMaiWeiCell.swift */,
+				6825303D2B1049320024EC76 /* LQMaiWeiView.swift */,
+				682530372B1032D80024EC76 /* LQMicrophoneUserView.swift */,
+				6825303B2B1044A10024EC76 /* LQYinLiangView.swift */,
 			);
 			path = "麦位列表";
 			sourceTree = "<group>";
@@ -507,6 +533,13 @@
 				682530312B0F3B930024EC76 /* FSBigGiftView.swift */,
 			);
 			path = "飘屏，队列与动画解耦";
+			sourceTree = "<group>";
+		};
+		682530492B10BA540024EC76 /* 本来就有的 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "本来就有的";
 			sourceTree = "<group>";
 		};
 		68ED52C02B0760D60099F469 = {
@@ -560,6 +593,7 @@
 			children = (
 				68ED52DA2B0761520099F469 /* AppDelegate.swift */,
 				68ED53592B088DA00099F469 /* AppDelegate+DBDebugTool.swift */,
+				682530392B1040BE0024EC76 /* AppDelegate+SDWebImage.swift */,
 			);
 			path = AppDelegate;
 			sourceTree = "<group>";
@@ -567,6 +601,7 @@
 		68ED53002B0766B50099F469 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				682530452B109C3D0024EC76 /* micWave.webp */,
 				68252FE82B0B5F5A0024EC76 /* refeshIcon.gif */,
 				68ED52D02B0760D80099F469 /* Assets.xcassets */,
 			);
@@ -793,6 +828,7 @@
 				68252FE92B0B5F5A0024EC76 /* refeshIcon.gif in Resources */,
 				68252F7D2B0B15200024EC76 /* readme.txt in Resources */,
 				68ED52D42B0760D80099F469 /* Preview Assets.xcassets in Resources */,
+				682530462B109C3D0024EC76 /* micWave.webp in Resources */,
 				68ED52D12B0760D80099F469 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -870,6 +906,7 @@
 				68252FD02B0B58770024EC76 /* MSDressBuyViewModel.swift in Sources */,
 				68ED53522B0887870099F469 /* MyMoyaExmple.swift in Sources */,
 				68252FD52B0B58770024EC76 /* MSDressCenterVC.swift in Sources */,
+				6825303E2B1049320024EC76 /* LQMaiWeiView.swift in Sources */,
 				68252FEE2B0B6B7F0024EC76 /* NewRoomCollectionViewCell.swift in Sources */,
 				68252F8A2B0B39210024EC76 /* ExampleViewController.swift in Sources */,
 				68252FAC2B0B42270024EC76 /* LQMessageImageCell.swift in Sources */,
@@ -904,6 +941,7 @@
 				68252FFA2B0C561E0024EC76 /* Date+YXB.swift in Sources */,
 				68ED53502B0887870099F469 /* AuthPlugin.swift in Sources */,
 				68ED534E2B0887870099F469 /* LogPlugin.swift in Sources */,
+				682530422B108E780024EC76 /* LQMaiWeiViewController.swift in Sources */,
 				68252FF12B0C4D210024EC76 /* YXBPhotoBrowswer.swift in Sources */,
 				682530142B0D8A3F0024EC76 /* LQAnimationQueue.swift in Sources */,
 				68ED53372B0887740099F469 /* Env.swift in Sources */,
@@ -918,7 +956,9 @@
 				68ED53492B0887870099F469 /* APIServer.swift in Sources */,
 				68252FF82B0C55F50024EC76 /* String+YXB.swift in Sources */,
 				682530322B0F3B930024EC76 /* FSBigGiftView.swift in Sources */,
+				682530442B1098C20024EC76 /* LQAllMailWeiView.swift in Sources */,
 				68252FA92B0B42270024EC76 /* LQMessageNormalJoinCell.swift in Sources */,
+				682530402B1088D20024EC76 /* LQMaiWeiCell.swift in Sources */,
 				68252FD42B0B58770024EC76 /* MSDressSegmentVC.swift in Sources */,
 				68252FE22B0B5D4A0024EC76 /* MSSystemNoticeViewModel.swift in Sources */,
 				682530032B0C5DA30024EC76 /* LoadingGiftViewController.swift in Sources */,
@@ -932,6 +972,7 @@
 				68ED534B2B0887870099F469 /* ToastPlugin.swift in Sources */,
 				68ED530E2B07712A0099F469 /* YXBCountDownButton.swift in Sources */,
 				68ED53202B0771F90099F469 /* Screen+Const.swift in Sources */,
+				6825303A2B1040BE0024EC76 /* AppDelegate+SDWebImage.swift in Sources */,
 				68252FAF2B0B42270024EC76 /* LQMessageGiftCell.swift in Sources */,
 				6825300A2B0C77F00024EC76 /* LQCircleMaskAnimation.swift in Sources */,
 				68ED53132B0771300099F469 /* TwoLineLabel.swift in Sources */,
@@ -939,10 +980,13 @@
 				68ED53562B08882D0099F469 /* YXBImageCache.swift in Sources */,
 				68ED534C2B0887870099F469 /* CachePlugin.swift in Sources */,
 				68252FD22B0B58770024EC76 /* MSDressPreviewView.swift in Sources */,
+				682530382B1032D80024EC76 /* LQMicrophoneUserView.swift in Sources */,
 				68252FA82B0B42270024EC76 /* LQMessageNobbleJoinCell.swift in Sources */,
 				68252F862B0B305A0024EC76 /* RoomPlayJoinEffectManager.swift in Sources */,
 				68252FBA2B0B42270024EC76 /* LQMessageCellProtocol.swift in Sources */,
+				6825303C2B1044A10024EC76 /* LQYinLiangView.swift in Sources */,
 				68252FD72B0B58770024EC76 /* MSDressModel.swift in Sources */,
+				682530482B10AE6B0024EC76 /* LQMaiWeiViewModel.swift in Sources */,
 				68252FB92B0B42270024EC76 /* MessageViewController.swift in Sources */,
 				68ED531B2B07719A0099F469 /* GCDTimerManager.swift in Sources */,
 				68252FAA2B0B42270024EC76 /* LQMeesageRoomAnnouncCell.swift in Sources */,
@@ -1036,7 +1080,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1185,7 +1229,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1216,7 +1260,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

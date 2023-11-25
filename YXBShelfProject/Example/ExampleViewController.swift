@@ -18,6 +18,7 @@ enum ExampleType: String, CaseIterable {
     case loading = "加载, MBProgress+Gif"
     case mask = "Mask的转场动画"
     case floatScreen = "飘屏，队列与动画解耦"
+    case micropphone = "麦位, Rx双向绑定"
 }
 
 class ExampleViewController: UIViewController {
@@ -94,6 +95,9 @@ extension ExampleViewController: UITableViewDelegate, UITableViewDataSource {
             self.navigationController?.pushViewController(vc, animated: true)
         case .floatScreen:
             let vc = PiaoPingViewController()
+            self.navigationController?.pushViewController(vc, animated: true)
+        case .micropphone:
+            let vc = LQMaiWeiViewController()
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }

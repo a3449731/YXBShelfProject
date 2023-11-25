@@ -12,33 +12,33 @@ import Moya
 enum IMAPI {
     /// 系统通知列表
     case systemMessageList(pageNo: Int, pageSize: Int)
+    /// 麦位列表，接口获取的
+    case getMaiUserInfoList(houseId: String)
 }
 
 extension IMAPI: APIService {
     var route: APIRoute {
         switch self {
-        case .systemMessageList: return .post("/api/v1/getHuMessageList")
+        case .systemMessageList: return .post("/api/v1/getSysMessageNoticeList")
+        case .getMaiUserInfoList(_): return .post("/api/v1/getMaiUserInfoList")
         }
     }
     
     var parameters: APIParameters? {
-        get {
-            // 需要的参数和，解析方法，解析方式可以为空。
-            typealias PE = (parameters: [String: Any], encoding: ParameterEncoding?)
-            var result: PE = ([:], nil)
-            
-            switch self {
-            case let .systemMessageList(pageNo, pageSize):
-                result.parameters = ["pageNo": String(pageNo),
-                                     "pageSize": String(pageSize)]
-            default:
-                return nil
-            }
-            return APIParameters(values: result.parameters, encoding: result.encoding)
+        // 需要的参数和，解析方法，解析方式可以为空。
+        typealias PE = (parameters: [String: Any], encoding: ParameterEncoding?)
+        var result: PE = ([:], nil)
+        
+        switch self {
+        case let .systemMessageList(pageNo, pageSize):
+            result.parameters = ["pageNo": String(pageNo),
+                                 "pageSize": String(pageSize)]
+        case let .getMaiUserInfoList(houseId):
+            result.parameters = ["houseId": houseId]                                 
+        default:
+            return nil
         }
-        set {
-//            parameters = newValue
-        }
+        return APIParameters(values: result.parameters, encoding: result.encoding)
     }
 }
 
