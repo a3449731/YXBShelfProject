@@ -31,7 +31,9 @@ target 'YXBShelfProject' do
 
 # 本地源码依赖库
 def loaclPods
-# 配置环境，测试下的
+# 配置环境，测试下的  
+  # https://github.com/facebook/FBRetainCycleDetector/issues/122 和 https://github.com/Tencent/MLeaksFinder/issues/127
+  pod 'MLeaksFinder', :configurations => ['Debug']
 #  pod 'GodEye', :configurations => ['Debug']
   #pod 'DBDebugToolkit', :configurations => ['Debug'], :path => './LocalPods/DBDebugToolkit'
   #pod 'DBDebugToolkit', :configurations => ['Debug']

@@ -12,7 +12,7 @@ import HandyJSON
 // 收到消息
 extension LQMaiWeiViewModel {
     
-    /// 收到全麦List的消息推送, 重置全麦数据重新配置
+    /// 收到全麦List的消息推送, 重置全麦数据重新配置. 有一个很恶心的事情：9人的房的房主跟着列表一起推送过来了， 而5人房不推房主
     //    200, 204,收到当前麦位状态推送，另外接口请求的数据结构也与这一模一样。
     @objc func receiveAllMaiListMessage(text: String) -> [LQMaiWeiModel]? {
         let json = JSON(parseJSON: text)
@@ -20,6 +20,7 @@ extension LQMaiWeiViewModel {
         let suoList = json["suoList"].arrayValue
         let maiweiNameList = json["maiweiNameList"].arrayValue
                 
+        // 数据全部重置为新的数据
         var modelArray = self.creatMaiWei(count: 8)
         
         // 把dataList转成 [LQMaiWeiModel]的数组，用HandyJSON解析
