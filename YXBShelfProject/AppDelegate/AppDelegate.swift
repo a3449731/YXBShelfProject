@@ -6,9 +6,6 @@
 //
 
 import UIKit
-#if DEBUG
-import GodEye
-#endif
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -21,9 +18,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.allApplicationCofing()
         
         self.setupMainViewController()
-#if DEBUG
-    GodEye.makeEye(with: self.window!)
-#endif
                 
         return true
     }
