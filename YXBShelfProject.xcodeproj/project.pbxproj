@@ -85,6 +85,7 @@
 		682530442B1098C20024EC76 /* LQAllMailWeiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 682530432B1098C20024EC76 /* LQAllMailWeiView.swift */; };
 		682530462B109C3D0024EC76 /* micWave.webp in Resources */ = {isa = PBXBuildFile; fileRef = 682530452B109C3D0024EC76 /* micWave.webp */; };
 		682530482B10AE6B0024EC76 /* LQMaiWeiViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 682530472B10AE6B0024EC76 /* LQMaiWeiViewModel.swift */; };
+		6825306B2B11E59B0024EC76 /* LQMaiWeiViewModel+ReceiveMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6825306A2B11E59B0024EC76 /* LQMaiWeiViewModel+ReceiveMessage.swift */; };
 		68ED52D12B0760D80099F469 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 68ED52D02B0760D80099F469 /* Assets.xcassets */; };
 		68ED52D42B0760D80099F469 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 68ED52D32B0760D80099F469 /* Preview Assets.xcassets */; };
 		68ED52DB2B0761520099F469 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68ED52DA2B0761520099F469 /* AppDelegate.swift */; };
@@ -209,6 +210,7 @@
 		682530432B1098C20024EC76 /* LQAllMailWeiView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LQAllMailWeiView.swift; sourceTree = "<group>"; };
 		682530452B109C3D0024EC76 /* micWave.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = micWave.webp; sourceTree = "<group>"; };
 		682530472B10AE6B0024EC76 /* LQMaiWeiViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LQMaiWeiViewModel.swift; sourceTree = "<group>"; };
+		6825306A2B11E59B0024EC76 /* LQMaiWeiViewModel+ReceiveMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LQMaiWeiViewModel+ReceiveMessage.swift"; sourceTree = "<group>"; };
 		68ED52C92B0760D60099F469 /* YXBShelfProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YXBShelfProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		68ED52D02B0760D80099F469 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		68ED52D32B0760D80099F469 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -511,6 +513,7 @@
 				682530492B10BA540024EC76 /* 本来就有的 */,
 				682530412B108E780024EC76 /* LQMaiWeiViewController.swift */,
 				682530472B10AE6B0024EC76 /* LQMaiWeiViewModel.swift */,
+				6825306A2B11E59B0024EC76 /* LQMaiWeiViewModel+ReceiveMessage.swift */,
 				682530432B1098C20024EC76 /* LQAllMailWeiView.swift */,
 				682530102B0CA5750024EC76 /* LQMaiWeiModel.swift */,
 				6825303F2B1088D20024EC76 /* LQMaiWeiCell.swift */,
@@ -961,6 +964,7 @@
 				682530402B1088D20024EC76 /* LQMaiWeiCell.swift in Sources */,
 				68252FD42B0B58770024EC76 /* MSDressSegmentVC.swift in Sources */,
 				68252FE22B0B5D4A0024EC76 /* MSSystemNoticeViewModel.swift in Sources */,
+				6825306B2B11E59B0024EC76 /* LQMaiWeiViewModel+ReceiveMessage.swift in Sources */,
 				682530032B0C5DA30024EC76 /* LoadingGiftViewController.swift in Sources */,
 				68252FB82B0B42270024EC76 /* LQMessageBaseCell.swift in Sources */,
 				682530162B0DA7EB0024EC76 /* PiaoPingViewController.swift in Sources */,

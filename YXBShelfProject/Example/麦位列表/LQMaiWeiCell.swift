@@ -8,11 +8,12 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import SwifterSwift
 
 class LQMaiWeiCell: UICollectionViewCell {
     
     // 定义一个DisposeBag用于管理订阅的生命周期
-    private let disposed = DisposeBag()
+    private var disposed = DisposeBag()
     // 持有数据
     var model: LQMaiWeiModel?
     
@@ -37,7 +38,7 @@ class LQMaiWeiCell: UICollectionViewCell {
     
     // 配置数据
     func setup(model: LQMaiWeiModel) {
-        self.model = model
+//        self.model = model
         
         // 这个主持的标志只在主持麦上才有可能展示
         self.maiWeiView.identityImageView.isHidden = true
@@ -48,17 +49,43 @@ class LQMaiWeiCell: UICollectionViewCell {
             self.maiWeiView.titleLabel.text = model.uname
             self.maiWeiView.charmButton.isHidden = false
             self.maiWeiView.charmButton.setTitle(model.meiNum, for: .normal)
-            self.maiWeiView.userView.headerView.setImage(url: model.uimg, headerFrameUrl: model.headKuang, placeholderImage: nil)
+            self.maiWeiView.userView.headerView.isHidden = false
+            self.maiWeiView.userView.headerView.setImage(url: model.uimg, headerFrameUrl: model.headKuang, placeholderImage: UIImage(named: "CUYuYinFang_login_logo"))
         } else {
             self.maiWeiView.sortLabel.isHidden = true
             self.maiWeiView.charmButton.isHidden = true
-            self.maiWeiView.titleLabel.text = "\(model.mai ?? "")号麦"
+            self.maiWeiView.userView.headerView.isHidden = true
+            // 如果自定义过麦位名
+            if let customName = model.name {
+                self.maiWeiView.titleLabel.text = customName
+            } else {
+                self.maiWeiView.titleLabel.text = "\(model.mai ?? "")号麦"
+            }
         }
         
         
-        // 是否闭麦绑定到喇叭
-        model.rx.observe(Bool.self, "isSpeaking")
-            .debug()
+        // 下面都是可能因为收到了某些消息，需要变化界面的绑定
+        
+        // 收到了修改麦位名的消息
+        model.rx.observeWeakly(String.self, "name")
+            .debug("\(model.mai ?? "")号麦 修改麦位名称吗")
+            .subscribe(onNext: { [weak self] name in
+                // 如果上麦位上有人，就不动                
+                if let _ = model.id {
+                    
+                } else {
+                    if let name = name,
+                       name.isEmpty == false {
+                        // 麦位上没人，修改麦位名
+                        self?.maiWeiView.titleLabel.text = name
+                    }
+                }
+            })
+            .disposed(by: disposed)
+        
+        // 是否正在说话绑定脉波
+        model.rx.observeWeakly(Bool.self, "isSpeaking")
+            .debug("\(model.mai ?? "")号麦 有人正在说话吗 \(self)")
             .subscribe(onNext: { [weak self] isMuted in
                 // 麦波webp
                 if let isMuted = isMuted,
@@ -72,8 +99,8 @@ class LQMaiWeiCell: UICollectionViewCell {
             .disposed(by: disposed)
         
         // 是否闭麦绑定到喇叭
-        model.rx.observe(Bool.self, "isb")
-            .debug()
+        model.rx.observeWeakly(Bool.self, "isb")
+            .debug("\(model.mai ?? "")号麦 开麦了吗")
             .subscribe(onNext: { [weak self] isMuted in
                 if let isMuted = isMuted {
                     self?.maiWeiView.userView.voiceImageView.isHidden = !isMuted
@@ -82,10 +109,47 @@ class LQMaiWeiCell: UICollectionViewCell {
                 }
             })
             .disposed(by: disposed)
+
+        // 麦位是否被禁言
+        model.rx.observeWeakly(Bool.self, "isMaiWeiMute")
+            .debug("\(model.mai ?? "")号麦 是否被禁言 \(self)")
+            .subscribe(onNext: { [weak self] isMuted in
+                if let isMuted = isMuted,
+                   isMuted == true,
+                   model.isMaiWeiLock == false {
+                    self?.maiWeiView.userView.iconButton.setImage(UIImage(named: "CUYuYinFang_zhibojian_bimai"), for: .normal)
+                } else if model.isMaiWeiLock {
+                    self?.maiWeiView.userView.iconButton.setImage(UIImage(named: "CUYuYinFang_zhibojian_shangsuo"), for: .normal)
+                } else {
+                    self?.maiWeiView.userView.iconButton.setImage(UIImage(named: "CUYuYinFang_zhibojian_kongxian"), for: .normal)
+                }
+            })
+            .disposed(by: disposed)
+        
+        // 麦位是否被关闭
+        model.rx.observeWeakly(Bool.self, "isMaiWeiLock")
+            .debug("\(model.mai ?? "")号麦 是否被关闭 \(self)")
+            .subscribe(onNext: { [weak self] isMuted in
+                if let isMuted = isMuted,
+                   isMuted == true {
+                    self?.maiWeiView.userView.iconButton.setImage(UIImage(named: "CUYuYinFang_zhibojian_shangsuo"), for: .normal)
+                } else if model.isMaiWeiMute == true {
+                    self?.maiWeiView.userView.iconButton.setImage(UIImage(named: "CUYuYinFang_zhibojian_bimai"), for: .normal)
+                } else {
+                    self?.maiWeiView.userView.iconButton.setImage(UIImage(named: "CUYuYinFang_zhibojian_kongxian"), for: .normal)
+                }
+            })
+            .disposed(by: disposed)
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    // RxSwift在UITableViewCell或者UICollectionViewCell中绑定数据遇到的UI混乱的问题 https://www.cnblogs.com/supersr/p/15693611.html
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        self.disposed = DisposeBag()
     }
 }
 

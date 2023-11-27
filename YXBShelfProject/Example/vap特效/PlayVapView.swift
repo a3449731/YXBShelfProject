@@ -124,21 +124,21 @@ extension PlayVapView: VAPWrapViewDelegate {
     func vapWrapview_content(forVapTag tag: String, resource info: QGVAPSourceInfo) -> String {
         var result: String = ""
         if tag == "come_in_text" {
-            result = self.userInfo?["nickname"] ?? ""
+//            result = self.userInfo?["nickname"] ?? ""
+            var nickname = self.userInfo?["nickname"] ?? ""
+            result = nickname
             
-//            var nickname = self.userInfo?["nickname"] ?? ""
-//            let length = nickname.count
-//            if length < 12 {
-//                let leftSpaces = ((12 - length) / 2)
-//                let rightSpaces = (12 - length - leftSpaces)
-//                let spaces = String(repeating: " ", count: leftSpaces * 2)
-//                nickname = spaces + nickname + String(repeating: " ", count: rightSpaces * 2)
-//            }
-//            result = nickname;
-            
+            let length = nickname.count
+            if length < 10 {
+                let leftSpaces = ((12 - length) / 2)
+                let rightSpaces = (12 - length - leftSpaces)
+                let spaces = String(repeating: " ", count: leftSpaces * 3)
+                nickname = spaces + nickname + String(repeating: " ", count: rightSpaces * 3)
+                result = nickname + ".";
+            }
         } else if tag == "come_in_img" {
             return tag
-        }        
+        }
         return result
     }
     
@@ -151,6 +151,7 @@ extension PlayVapView: VAPWrapViewDelegate {
             SDWebImageManager.shared.loadImage(with: URL(string: self.userInfo?["headImg"] ?? ""), progress: nil) { image, data, error, type, result, url1 in
                 if error != nil {
                     debugPrint("图片下载失败：\(String(describing: url1 ?? URL(string: "")))")
+                    completionBlock(UIImage(named: "CUYuYinFang_login_logo"), nil, urlStr)
                 } else {
                     debugPrint("图片下载/加载成功")
                     completionBlock(image, nil, urlStr)
@@ -158,8 +159,8 @@ extension PlayVapView: VAPWrapViewDelegate {
             }
         } else {
             DispatchQueue.main.async {
-                completionBlock(nil, nil, urlStr)
-            }            
+                completionBlock(UIImage(named: "CUYuYinFang_login_logo"), nil, urlStr)
+            }
         }
         
         /*

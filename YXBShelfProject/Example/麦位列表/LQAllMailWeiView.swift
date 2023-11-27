@@ -76,14 +76,27 @@ class LQAllMailWeiView: UIView {
     
     private func setupData() {
 
-        self.viewModel.creatMaiWei(count: 8)
+        let tempArray = self.viewModel.creatMaiWei(count: 8)
+        self.viewModel.modelArray_vm.accept(tempArray)
         
-        self.viewModel.requestMainWeiList(houseId: "26663258") {
-            
+
+        let tempstring = """
+        {"biList":["1"],"suoList":["3"],"maiweiNameList":[{"name":"不是说我","id":"a7e79ab70e914d8c820df6fa669ff172","maino":"4"}],"dataList":[{"uname":"张四","caiLevel":29,"isJy":"0","isAdmin":"0","headKuang":"","isex":"1","isFz":"1","vipInfo":{},"mai":"0","meiNum":"4752","uimg":"https://lanqi123.oss-cn-beijing.aliyuncs.com/head_img/20230929-031959.jpg","isb":"1","id":"e8394b2c4c2d489fa41b62922546077d","maiNo":"0","nianl":28,"meiliNum":"4752"},{"uname":"哈欠不断扩大用户收入囊中","caiLevel":101,"isJy":"0","jueName":"","isAdmin":"0","headKuang":"https://lanqi123.oss-cn-beijing.aliyuncs.com/file/1699241580574.webp","isex":"2","isFz":"0","vipInfo":{},"mai":"2","meiNum":"0","uimg":"https://lanqi123.oss-cn-beijing.aliyuncs.com/file/14423_fd56a01b47f949f5bcb1690d62f4aa8e_ios_1698758120.gif?x-oss-process=image/format,png","isb":"1","id":"fd56a01b47f949f5bcb1690d62f4aa8e","maiNo":"2","nianl":30,"meiliNum":"0"},{"uname":"张七","caiLevel":1,"isJy":"0","isAdmin":"0","headKuang":"","isex":"1","isFz":"0","vipInfo":{"isYcsl":"0","shenmiren_state":"0","nichengbianse":"0","isZcxh":"0","fangjianziliaoka":"0","wuhenliulan":"0","dingzhimingpai":"0","yincangsongli":"0","jinfanghuanyin":"0","yincangsongli_state":"0","zhuanshimingpai":"0","fangjinyanti":"0","zhucexiaohao":"0","wuhenliulan_state":"0","isFdrr":"0","fangdarao_type":"1","shenmiren":"0","isNcbs":"0","isSmi":"0","shengjipiaoping":"0","fangdarao":"0","zhuanshuliwu":"0"},"mai":"4","meiNum":"99","uimg":"https://lanqi123.oss-cn-beijing.aliyuncs.com/file/1700894392197.webp","isb":"1","id":"a55c8bff42a34ff680e9238fe4b2fb79","maiNo":"4","nianl":22,"meiliNum":"99"},{"uname":"张二","caiLevel":70,"isJy":"0","isAdmin":"0","headKuang":"","isex":"2","isFz":"0","vipInfo":{},"mai":"5","meiNum":"297","uimg":"https://lanqi123.oss-cn-beijing.aliyuncs.com/head_img/20230929-031959.jpg","isb":"1","id":"1faf10205e754c7fa3cb5a3991175e2f","maiNo":"5","nianl":29,"meiliNum":"297"},{"uname":"张一","caiLevel":55,"isJy":"0","isAdmin":"0","headKuang":"","isex":"1","isFz":"0","vipInfo":{},"mai":"6","meiNum":"297","uimg":"https://lanqi123.oss-cn-beijing.aliyuncs.com/file/1700471609708.png","isb":"1","id":"c09bc0a54c494ae0bc7bb2dbfea43672","maiNo":"6","nianl":32,"meiliNum":"297"},{"uname":"张三","caiLevel":63,"isJy":"0","isAdmin":"0","headKuang":"","isex":"2","isFz":"0","vipInfo":{},"mai":"7","meiNum":"297","uimg":"https://misheng001-1318856868.cos.ap-nanjing.myqcloud.com/1691403697988.jpg","isb":"1","id":"edff1ee31f3a4125b628c52958b06f25","maiNo":"7","nianl":33,"meiliNum":"297"},{"uname":"张五","caiLevel":1,"isJy":"0","isAdmin":"0","headKuang":"","isex":"1","isFz":"0","vipInfo":{},"mai":"8","meiNum":"297","uimg":"https://lanqi123.oss-cn-beijing.aliyuncs.com/head_img/20230929-031959.jpg","isb":"1","id":"adee48d1a1c74d819da90cdeb6fc0fa2","maiNo":"8","nianl":22,"meiliNum":"297"}],"name":"哈欠不断扩大用户收入囊中","type":"200","shangxiatiao":"1"}
+"""
+
+        
+        if let models = self.viewModel.receiveAllMaiListMessage(text: tempstring) {
+            self.viewModel.modelArray_vm.accept(models)
         }
         
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
+            self.viewModel.requestMainWeiList(houseId: "26663258") {
+                
+            }
+        }
+
         DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
-            self.viewModel.modelArray_vm.value[2].isSpeaking = true
+            self.viewModel.modelArray_vm.value[4].isSpeaking = true
         }
     }
     
@@ -96,6 +109,7 @@ class LQAllMailWeiView: UIView {
                 debugPrint("刷新了第\(index)cell")
                 cell.backgroundColor = .cyan
                 cell.setup(model: model)
+//                cell.model = model
             }
             .disposed(by: disposed)
         
@@ -111,6 +125,10 @@ class LQAllMailWeiView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    deinit {
+        debugPrint(self.className + " deinit 🍺")
+    }
+
 }
 
 extension LQAllMailWeiView: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout  {

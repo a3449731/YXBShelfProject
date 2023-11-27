@@ -20,17 +20,19 @@ target 'YXBShelfProject' do
   pod 'SwifterSwift'
   pod 'Moya'
   pod 'HandyJSON'
+  pod 'SwiftyJSON'
   pod 'SDWebImage'
   pod 'Kingfisher'
 
   #pod 'MJRefresh'
   #pod 'SVProgressHUD'
   pod 'MBProgressHUD'
-
+    
 
 # 本地源码依赖库
 def loaclPods
 # 配置环境，测试下的
+#  pod 'GodEye', :configurations => ['Debug']
   #pod 'DBDebugToolkit', :configurations => ['Debug'], :path => './LocalPods/DBDebugToolkit'
   #pod 'DBDebugToolkit', :configurations => ['Debug']
 end

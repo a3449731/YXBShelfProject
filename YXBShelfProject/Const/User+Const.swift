@@ -14,7 +14,7 @@ class UserConst {
     }
 
     class var token: String {
-        "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1aWQiOiJmZDU2YTAxYjQ3Zjk0OWY1YmNiMTY5MGQ2MmY0YWE4ZSIsImV4cCI6MTcwMTQzNzM4M30.bAuowyriX--h8GZiSsurmstlCOKKwTJk12Ji1zO1hgw"
+        "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1aWQiOiJlNGE3Yzk3YjY5ZDk0NmM0YjkzY2U0NDAzNGU5MzcxNiIsImV4cCI6MTcwMTY2ODIyNH0.ssCPUZrX_ZYuVkXih-BgdSBB3IW5aIehjWoq4-ZD16g"
 //        return UserDefaults.standard.value(forKey: "UserToken") as? String ?? ""
     }
 

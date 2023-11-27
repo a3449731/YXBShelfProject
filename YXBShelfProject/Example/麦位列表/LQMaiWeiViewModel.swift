@@ -8,17 +8,25 @@
 import Foundation
 import RxSwift
 import RxCocoa
+import SwiftyJSON
 
 class LQMaiWeiViewModel {
     // 源数据
 //    var modelArray: [LQMaiWeiModel] = []
+    // 麦位设置了自定义名字的
+//    var nameMaiWeiArray: [[String: String]]?
+//    // 锁麦数据,两个单纯的["3", "5"],麦位下标数组
+//    var lockMaiWeiArray: [String]?
+//    // 闭麦数据,同上
+//    var muteMaiWeiArray: [String]?
+    
     // 房主数据
     var host_vm: BehaviorRelay<LQMaiWeiModel> = BehaviorRelay(value: LQMaiWeiModel())
     // 经过调整，能够直接去双向绑定的数据
     var modelArray_vm: BehaviorRelay<[LQMaiWeiModel]> = BehaviorRelay(value: [])
     
     // 创建空麦位，用于初始化，或者重置麦位的时候
-    func creatEmptyMaiWeiModel(index: Int) -> LQMaiWeiModel {
+    private func creatEmptyMaiWeiModel(index: Int) -> LQMaiWeiModel {
         let model = LQMaiWeiModel()
         model.mai = "\(index)"
         model.maiNo = "\(index)"
@@ -26,19 +34,19 @@ class LQMaiWeiViewModel {
     }
     
     // 初始化房主麦位数据
-    func creatHostMaiWei() {
+    func creatHostMaiWei() -> LQMaiWeiModel {
         let model = self.creatEmptyMaiWeiModel(index: 0)
-        host_vm.accept(model)
+        return model
     }
     
     // 初始化其他麦位数据
-    func creatMaiWei(count: Int) {
+    func creatMaiWei(count: Int) -> [LQMaiWeiModel] {
         var array: [LQMaiWeiModel] = []
         for i in 1...count {
             let model = self.creatEmptyMaiWeiModel(index: i)
             array.append(model)
         }
-        modelArray_vm.accept(array)
+        return array
     }
     
     // 通过接口获取麦位列表
@@ -46,10 +54,17 @@ class LQMaiWeiViewModel {
         let network = NetworkManager<IMAPI>()
         network.sendRequest(.getMaiUserInfoList(houseId: houseId)) {[weak self] obj in
             guard let self = self else { return }
+            
+            if let json = obj as? [String: Any],
+               let text = json.jsonString(prettify: true),
+               let modelArray = self.receiveAllMaiListMessage(text: text) {
+                self.modelArray_vm.accept(modelArray)
+            }
+            
             // 这里只给了麦上用户的信息，需要找到对应的麦位数据去修改
-            let array: [LQMaiWeiModel] = jsonToArray(jsonData: obj)
+//            let array: [LQMaiWeiModel] = jsonToArray(jsonData: obj)
    
-            self.handle(array: array)
+//            self.handle(array: array)
             // 为外界预留一个回调，不一定用得上
             closure()
         } failure: { error in
@@ -59,25 +74,38 @@ class LQMaiWeiViewModel {
     }
     
     // 找到有人的麦位进行替换
-    private func handle(array: [LQMaiWeiModel]) {
-        // 房主麦位
-        var hostModel = self.host_vm.value
-        // 其他麦位
-        var modelArray = self.modelArray_vm.value
-        
-        array.forEach { model in
-            // 通过麦位号进行数据替换
-            if let index = modelArray.firstIndex(where: { $0.mai == model.mai }) {
-                modelArray[index] = model
-            }
-            
-            // 房主
-            if model.mai == "0" {
-                hostModel = model
-                self.host_vm.accept(hostModel)
-            }
-        }
-        self.modelArray_vm.accept(modelArray)
-    }
+//    private func handle(array: [LQMaiWeiModel]) {
+//        // 房主麦位
+//        var hostModel = self.host_vm.value
+//        // 其他麦位
+//        var modelArray = self.modelArray_vm.value
+//        
+//        array.forEach { model in
+//            // 通过麦位号进行数据替换
+//            if let index = self.findIndex(mai: model.mai) {
+//                modelArray[index] = model
+//            }
+//            
+//            // 房主
+//            if model.mai == "0" {
+//                hostModel = model
+//                self.host_vm.accept(hostModel)
+//            }
+//        }
+//        self.modelArray_vm.accept(modelArray)
+//    }
 
+    // 通过麦位找下标
+    func findIndex(mai: String?) -> Int? {
+        let index = self.modelArray_vm.value.firstIndex(where: { $0.mai == mai })
+        return index
+    }
+    
+    // 通过uid找下标，可能为空
+    func findIndex(uid: String?) -> Int? {
+        let index = self.modelArray_vm.value.firstIndex(where: { $0.id == uid })
+        return index
+    }
+    
+    
 }

@@ -29,6 +29,8 @@ class RoomPlayViewController: YXBBaseViewController {
         
         giftAnimationManager = RoomPlayJoinEffectManager(superView: contentView)
         giftAnimationManager.delegate = self
+        // 只能播放含有vap信息的MP4， 普通mp4无法播放。
+//    https://lanqi123.oss-cn-beijing.aliyuncs.com/file/1700899125255.mp4
         let array = [
             ["passAction" : "https://lanqi123.oss-cn-beijing.aliyuncs.com/file/1698288781473.mp4",
              "nickname" : "",

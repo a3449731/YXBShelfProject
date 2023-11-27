@@ -18,5 +18,9 @@ class LQMaiWeiViewController: UIViewController {
             make.edges.equalToSuperview()
         }
     }
+    
+    deinit {
+        debugPrint(self.className + " deinit 🍺")
+    }
 }
 

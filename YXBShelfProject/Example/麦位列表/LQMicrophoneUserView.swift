@@ -16,9 +16,9 @@ class LQMicrophoneUserView: UIView {
     }()
     
     // 底图
-    let iconImageView: UIImageView = {
-        let view = MyUIFactory.commonImageView(name: "CUYuYinFang_zhibojian_kongxian", placeholderImage: nil)
-        return view
+    let iconButton: UIButton = {
+        let btn = MyUIFactory.commonButton(title: nil, titleColor: nil, titleFont: nil, image: UIImage(named: "CUYuYinFang_zhibojian_kongxian"))
+        return btn
     }()
     
     // 头像 + 头像框
@@ -37,14 +37,14 @@ class LQMicrophoneUserView: UIView {
     // 初始化
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.addSubviews([rippleView, iconImageView, headerView, voiceImageView])
+        self.addSubviews([rippleView, iconButton, headerView, voiceImageView])
         
         rippleView.snp.makeConstraints { make in
             make.center.equalToSuperview()
             make.width.height.equalToSuperview().multipliedBy(1.5)
         }
         
-        iconImageView.snp.makeConstraints { make in
+        iconButton.snp.makeConstraints { make in
             make.width.height.equalTo(50.fitScale())
             make.center.equalToSuperview()
         }
