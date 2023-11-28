@@ -99,7 +99,7 @@ class LQMaiWeiCell: UICollectionViewCell {
         
         // 是否正在说话绑定脉波
         model.rx.observeWeakly(Bool.self, "isSpeaking")
-//            .debug("\(model.mai ?? "")号麦 有人正在说话吗 \(self)")
+//            .debug("\(model.mai?.rawValue ?? "")号麦 有人正在说话吗 \(self)")
             .subscribe(onNext: { [weak self] isMuted in
                 // 麦波webp
                 if let isMuted = isMuted,

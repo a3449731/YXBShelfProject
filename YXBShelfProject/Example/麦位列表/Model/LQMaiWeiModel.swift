@@ -112,6 +112,7 @@ enum MaiWeiIndex: String, CaseIterable, HandyJSONEnum {
     // 5人房的图片配置
     var iconImageName_5: String? {
         switch self {
+        case .host: return "CUYuYinFang_zhibojian_kongxian"
         case .one: return "CUYuYinFang_roomDetail_huangjin"
         case .two, .three, .four: return "CUYuYinFang_roomDetail_baiyin"
         default: return nil
