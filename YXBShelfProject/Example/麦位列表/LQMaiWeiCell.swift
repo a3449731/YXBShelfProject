@@ -46,14 +46,14 @@ class LQMaiWeiCell: UICollectionViewCell {
         if let userId = model.id,
            userId.isEmpty == false {
             // 如果是主持麦麦
-            if model.mai == "0" {
+            if model.mai == .host {
                 self.maiWeiView.identityImageView.isHidden = false
                 self.maiWeiView.sortLabel.isHidden = true
                 self.maiWeiView.identityImageView.image = UIImage(named: "CUYuYinFang_fanzhuHead")
             } else {
                 self.maiWeiView.sortLabel.isHidden = false
             }
-            self.maiWeiView.sortLabel.text = model.mai
+            self.maiWeiView.sortLabel.text = model.mai?.rawValue
             self.maiWeiView.titleLabel.text = model.uname?.truncated(toLength: 6)
             self.maiWeiView.charmButton.isHidden = false
             self.maiWeiView.charmButton.setTitle(model.meiNum, for: .normal)
@@ -67,7 +67,7 @@ class LQMaiWeiCell: UICollectionViewCell {
             if let customName = model.name {
                 self.maiWeiView.titleLabel.text = customName
             } else {
-                self.maiWeiView.titleLabel.text = "\(model.mai ?? "")号麦"
+                self.maiWeiView.titleLabel.text = "\(model.mai?.rawValue ?? "")号麦"
             }
         }
         
@@ -108,6 +108,8 @@ class LQMaiWeiCell: UICollectionViewCell {
                 // 麦波webp
                 if let isMuted = isMuted,
                    isMuted == true,
+                   let uid = model.id,
+                    uid.isEmpty == false,
                    let url = Bundle.main.url(forResource: "micWave", withExtension: "webp") {
                     self?.maiWeiView.userView.rippleView.sd_setImage(with: url)
                 } else {
@@ -132,32 +134,35 @@ class LQMaiWeiCell: UICollectionViewCell {
         model.rx.observeWeakly(Bool.self, "isMaiWeiMute")
 //            .debug("\(model.mai ?? "")号麦 是否被禁言 \(self)")
             .subscribe(onNext: { [weak self] isMuted in
-                if let isMuted = isMuted,
-                   isMuted == true,
-                   model.isMaiWeiLock == false {
-                    self?.maiWeiView.userView.iconButton.setImage(UIImage(named: "CUYuYinFang_zhibojian_bimai"), for: .normal)
-                } else if model.isMaiWeiLock {
-                    self?.maiWeiView.userView.iconButton.setImage(UIImage(named: "CUYuYinFang_zhibojian_shangsuo"), for: .normal)
-                } else {
-                    self?.maiWeiView.userView.iconButton.setImage(UIImage(named: "CUYuYinFang_zhibojian_kongxian"), for: .normal)
-                }
+                let image = self?.iconMatch(isLock: model.isMaiWeiLock, isMute: isMuted, mai: model.mai)
+                self?.maiWeiView.userView.iconButton.setImage(image, for: .normal)
             })
             .disposed(by: disposed)
         
         // 麦位是否被关闭
         model.rx.observeWeakly(Bool.self, "isMaiWeiLock")
 //            .debug("\(model.mai ?? "")号麦 是否被关闭 \(self)")
-            .subscribe(onNext: { [weak self] isMuted in
-                if let isMuted = isMuted,
-                   isMuted == true {
-                    self?.maiWeiView.userView.iconButton.setImage(UIImage(named: "CUYuYinFang_zhibojian_shangsuo"), for: .normal)
-                } else if model.isMaiWeiMute == true {
-                    self?.maiWeiView.userView.iconButton.setImage(UIImage(named: "CUYuYinFang_zhibojian_bimai"), for: .normal)
-                } else {
-                    self?.maiWeiView.userView.iconButton.setImage(UIImage(named: "CUYuYinFang_zhibojian_kongxian"), for: .normal)
-                }
+            .subscribe(onNext: { [weak self] isLock in
+                let image = self?.iconMatch(isLock: isLock, isMute: model.isMaiWeiMute, mai: model.mai)
+                self?.maiWeiView.userView.iconButton.setImage(image, for: .normal)
             })
             .disposed(by: disposed)
+    }
+    
+    // 匹配麦位站位图片状态，
+    private func iconMatch(isLock: Bool? = false, isMute: Bool? = false, mai: MaiWeiIndex?) -> UIImage? {
+        // 老板位
+        if mai == .boss {
+            return UIImage(named: "CUYuYinFang_zhibojian_Boss")
+        }
+        
+        if isLock! {
+            return UIImage(named: "CUYuYinFang_zhibojian_shangsuo")
+        } else if isMute! {
+            return UIImage(named: "CUYuYinFang_zhibojian_bimai")
+        } else {
+            return UIImage(named: "CUYuYinFang_zhibojian_kongxian")
+        }
     }
     
     required init?(coder: NSCoder) {

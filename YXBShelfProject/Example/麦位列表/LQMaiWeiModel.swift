@@ -34,7 +34,7 @@ import HandyJSON
     /// 是否禁言
     var isJy: Bool?
     /// 麦位下标
-    var mai: String?
+    var mai: MaiWeiIndex?
     /// 这好像也是麦位下标
     var maiNo: String?
     /// 性别 1男 2女
@@ -90,6 +90,21 @@ import HandyJSON
 
 extension LQMaiWeiModel: HandyJSON {
     
+}
+
+// 麦位下标
+enum MaiWeiIndex: String, CaseIterable, HandyJSONEnum {
+    /// 主持位
+    case host = "0"
+    case one = "1"
+    case two = "2"
+    case three = "3"
+    case four = "4"
+    case five = "5"
+    case six = "6"
+    case seven = "7"
+    /// 老板位
+    case boss = "8"
 }
 
 //"vipInfo" : {

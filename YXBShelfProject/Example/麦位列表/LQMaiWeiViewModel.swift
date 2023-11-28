@@ -28,7 +28,7 @@ class LQMaiWeiViewModel {
     // 创建空麦位，用于初始化，或者重置麦位的时候
     private func creatEmptyMaiWeiModel(index: Int) -> LQMaiWeiModel {
         let model = LQMaiWeiModel()
-        model.mai = "\(index)"
+        model.mai = MaiWeiIndex(rawValue: "\(index)")
         model.maiNo = "\(index)"
         return model
     }
@@ -70,33 +70,15 @@ class LQMaiWeiViewModel {
             // 为外界预留一个回调，不一定用得上
             closure()
         }
-    }
-    
-    // 找到有人的麦位进行替换
-//    private func handle(array: [LQMaiWeiModel]) {
-//        // 房主麦位
-//        var hostModel = self.host_vm.value
-//        // 其他麦位
-//        var modelArray = self.modelArray_vm.value
-//        
-//        array.forEach { model in
-//            // 通过麦位号进行数据替换
-//            if let index = self.findIndex(mai: model.mai) {
-//                modelArray[index] = model
-//            }
-//            
-//            // 房主
-//            if model.mai == "0" {
-//                hostModel = model
-//                self.host_vm.accept(hostModel)
-//            }
-//        }
-//        self.modelArray_vm.accept(modelArray)
-//    }
+    }    
 
     // 通过麦位找下标
-    func findIndex(mai: String?) -> Int? {
+    func findIndex(mai: MaiWeiIndex?) -> Int? {
         let index = self.modelArray_vm.value.firstIndex(where: { $0.mai == mai })
+        return index
+    }
+    func findIndex(mai: String?) -> Int? {
+        let index = self.modelArray_vm.value.firstIndex(where: { $0.mai?.rawValue == mai })
         return index
     }
     

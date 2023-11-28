@@ -37,7 +37,7 @@ extension LQMaiWeiViewModel {
                 // 如果有mai为0的，那是房主的的麦位，需要单独处理
                 // 另外只有在9人房才会在这里出现主持麦的信息，5人房不会在这里，是自己合成的。
                 if let mai = model.mai,
-                   mai == "0" {
+                   mai == .host {
                     self.receiveHostMaiMessage(model: model)
                 }
             }
@@ -78,8 +78,13 @@ extension LQMaiWeiViewModel {
 //        return modelArray
     }
     
-    private func findIndex(array: [LQMaiWeiModel], mai: String?) -> Int? {
+    private func findIndex(array: [LQMaiWeiModel], mai: MaiWeiIndex?) -> Int? {
         let index = array.firstIndex(where: { $0.mai == mai })
+        return index
+    }
+    
+    private func findIndex(array: [LQMaiWeiModel], mai: String?) -> Int? {
+        let index = array.firstIndex(where: { $0.mai?.rawValue == mai })
         return index
     }
     
@@ -163,7 +168,7 @@ extension LQMaiWeiViewModel {
             dataList.forEach { charmJson in
                 if let mai = charmJson["mai"].string {
                     // 如果是主持麦
-                    if mai == "0" {
+                    if mai == MaiWeiIndex.host.rawValue {
                         self.host_vm.value.meiNum = charmJson["meiNum"].string
                         
                     } else if let index = self.findIndex(mai: mai), let charm = charmJson["meiNum"].string {
