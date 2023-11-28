@@ -43,10 +43,18 @@ class LQMaiWeiCell: UICollectionViewCell {
         // 这个主持的标志只在主持麦上才有可能展示
         self.maiWeiView.identityImageView.isHidden = true
         // 存在用户id的时候
-        if let userId = model.id {
-            self.maiWeiView.sortLabel.isHidden = false
+        if let userId = model.id,
+           userId.isEmpty == false {
+            // 如果是主持麦麦
+            if model.mai == "0" {
+                self.maiWeiView.identityImageView.isHidden = false
+                self.maiWeiView.sortLabel.isHidden = true
+                self.maiWeiView.identityImageView.image = UIImage(named: "CUYuYinFang_fanzhuHead")
+            } else {
+                self.maiWeiView.sortLabel.isHidden = false
+            }
             self.maiWeiView.sortLabel.text = model.mai
-            self.maiWeiView.titleLabel.text = model.uname
+            self.maiWeiView.titleLabel.text = model.uname?.truncated(toLength: 6)
             self.maiWeiView.charmButton.isHidden = false
             self.maiWeiView.charmButton.setTitle(model.meiNum, for: .normal)
             self.maiWeiView.userView.headerView.isHidden = false
@@ -65,13 +73,23 @@ class LQMaiWeiCell: UICollectionViewCell {
         
         
         // 下面都是可能因为收到了某些消息，需要变化界面的绑定
+        // 收到了魅力值变化的消息
+        model.rx.observeWeakly(String.self, "meiNum")
+//            .debug("\(model.mai ?? "")号麦 魅力值变化了吗")
+            .subscribe(onNext: { [weak self] charm in
+                // 如果麦上有人
+                if let uid = model.id, uid.isEmpty == false {
+                    self?.maiWeiView.charmButton.setTitle(charm, for: .normal)
+                }
+            })
+            .disposed(by: disposed)
         
         // 收到了修改麦位名的消息
         model.rx.observeWeakly(String.self, "name")
-            .debug("\(model.mai ?? "")号麦 修改麦位名称吗")
+//            .debug("\(model.mai ?? "")号麦 修改麦位名称吗")
             .subscribe(onNext: { [weak self] name in
                 // 如果上麦位上有人，就不动                
-                if let _ = model.id {
+                if let uid = model.id, uid.isEmpty == false {
                     
                 } else {
                     if let name = name,
@@ -85,7 +103,7 @@ class LQMaiWeiCell: UICollectionViewCell {
         
         // 是否正在说话绑定脉波
         model.rx.observeWeakly(Bool.self, "isSpeaking")
-            .debug("\(model.mai ?? "")号麦 有人正在说话吗 \(self)")
+//            .debug("\(model.mai ?? "")号麦 有人正在说话吗 \(self)")
             .subscribe(onNext: { [weak self] isMuted in
                 // 麦波webp
                 if let isMuted = isMuted,
@@ -100,7 +118,7 @@ class LQMaiWeiCell: UICollectionViewCell {
         
         // 是否闭麦绑定到喇叭
         model.rx.observeWeakly(Bool.self, "isb")
-            .debug("\(model.mai ?? "")号麦 开麦了吗")
+//            .debug("\(model.mai ?? "")号麦 开麦了吗")
             .subscribe(onNext: { [weak self] isMuted in
                 if let isMuted = isMuted {
                     self?.maiWeiView.userView.voiceImageView.isHidden = !isMuted
@@ -112,7 +130,7 @@ class LQMaiWeiCell: UICollectionViewCell {
 
         // 麦位是否被禁言
         model.rx.observeWeakly(Bool.self, "isMaiWeiMute")
-            .debug("\(model.mai ?? "")号麦 是否被禁言 \(self)")
+//            .debug("\(model.mai ?? "")号麦 是否被禁言 \(self)")
             .subscribe(onNext: { [weak self] isMuted in
                 if let isMuted = isMuted,
                    isMuted == true,
@@ -128,7 +146,7 @@ class LQMaiWeiCell: UICollectionViewCell {
         
         // 麦位是否被关闭
         model.rx.observeWeakly(Bool.self, "isMaiWeiLock")
-            .debug("\(model.mai ?? "")号麦 是否被关闭 \(self)")
+//            .debug("\(model.mai ?? "")号麦 是否被关闭 \(self)")
             .subscribe(onNext: { [weak self] isMuted in
                 if let isMuted = isMuted,
                    isMuted == true {

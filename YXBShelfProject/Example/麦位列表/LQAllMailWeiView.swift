@@ -14,16 +14,16 @@ class LQAllMailWeiView: UIView {
     let disposed = DisposeBag()
     let viewModel: LQMaiWeiViewModel = LQMaiWeiViewModel()
     
-    // 房主麦位
-    let hostUserView: LQMaiWeiView = {
-        let contentView = LQMaiWeiView()
-        contentView.backgroundColor = .cyan
-        contentView.userView.headerView.setImage(url: "https://misheng001-1318856868.cos.ap-nanjing.myqcloud.com/1690792476235.jpg", headerFrameUrl: "https://lanqi123.oss-cn-beijing.aliyuncs.com/file/1699241627225.webp", placeholderImage: UIImage(named: "CUYuYinFang_login_logo"))
-        contentView.hStack.backgroundColor = .black
-        contentView.titleLabel.text = "Ss.草电风扇申达股份."
-        contentView.sortLabel.text = "4"
-        contentView.identityImageView.image = UIImage(named: "CUYuYinFang_fanzhuHead")
-        contentView.charmButton.setTitle("1000w", for: .normal)
+    // 房主麦位,直接借用cell，懒得再写赋值代码了
+    var hostUserView: LQMaiWeiCell = {
+        let contentView = LQMaiWeiCell()
+//        contentView.backgroundColor = .cyan
+//        contentView.userView.headerView.setImage(url: "https://misheng001-1318856868.cos.ap-nanjing.myqcloud.com/1690792476235.jpg", headerFrameUrl: "https://lanqi123.oss-cn-beijing.aliyuncs.com/file/1699241627225.webp", placeholderImage: UIImage(named: "CUYuYinFang_login_logo"))
+//        contentView.hStack.backgroundColor = .black
+//        contentView.titleLabel.text = "Ss.草电风扇申达股份."
+//        contentView.sortLabel.text = "4"
+//        contentView.identityImageView.image = UIImage(named: "CUYuYinFang_fanzhuHead")
+//        contentView.charmButton.setTitle("1000w", for: .normal)
         return contentView
     }()
     
@@ -71,6 +71,7 @@ class LQAllMailWeiView: UIView {
     }
     
     private func setupTool() {
+        self.rx_HostView()
         self.rx_ColletionView()
     }
     
@@ -85,9 +86,7 @@ class LQAllMailWeiView: UIView {
 """
 
         
-        if let models = self.viewModel.receiveAllMaiListMessage(text: tempstring) {
-            self.viewModel.modelArray_vm.accept(models)
-        }
+        self.viewModel.receiveAllMaiListMessage(text: tempstring)
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
             self.viewModel.requestMainWeiList(houseId: "26663258") {
@@ -98,15 +97,33 @@ class LQAllMailWeiView: UIView {
         DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
             self.viewModel.modelArray_vm.value[4].isSpeaking = true
         }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 6.0) {
+            let str = """
+        {"hotnum":"100","hotsum":"3073128","meiNum":"0","dataList":[{"mai":"5","meiNum":"80","id":"e4a7c97b69d946c4b93ce44034e93716"},{"mai":"0","meiNum":"30","id":"fd56a01b47f949f5bcb1690d62f4aa8e"}],"type":"201"}
+"""
+            self.viewModel.receiveCharmListMessage(text: str)
+//            self.viewModel.modelArray_vm.value[3].isSpeaking = true
+        }
+        
+        
+        
     }
     
-    
+    // 主持麦位
+    private func rx_HostView() {
+        viewModel.host_vm
+            .subscribe(onNext: { [weak self] model in
+                self?.hostUserView.setup(model: model)
+            })
+            .disposed(by: disposed)        
+    }
     
     private func rx_ColletionView() {
         // MARK: collectionView数据源
         viewModel.modelArray_vm
             .bind(to: collectionView.rx.items(cellIdentifier: "LQMaiWeiCell", cellType: LQMaiWeiCell.self)) { [weak self] index, model, cell in
-                debugPrint("刷新了第\(index)cell")
+//                debugPrint("刷新了第\(index)cell")
                 cell.backgroundColor = .cyan
                 cell.setup(model: model)
 //                cell.model = model

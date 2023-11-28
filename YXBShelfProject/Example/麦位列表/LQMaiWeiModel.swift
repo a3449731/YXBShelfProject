@@ -9,8 +9,12 @@ import HandyJSON
 
 @objc class LQMaiWeiModel: NSObject {
     required override init() {}
+    /*
+     // 201消息推的是整个魅力值，要自己找对应位置拆分出来
+     Rtm频道消息:{"hotnum":"100","hotsum":"3073128","meiNum":"0","dataList":[{"mai":"5","meiNum":"100","id":"e4a7c97b69d946c4b93ce44034e93716"},{"mai":"0","meiNum":"0","id":"fd56a01b47f949f5bcb1690d62f4aa8e"}],"type":"201"}
+     */
     /// 麦位的魅力值
-    var meiNum: String?
+    @objc dynamic var meiNum: String?
     /// 这好像没用上
 //    var meiliNum: String?
     /// 头像

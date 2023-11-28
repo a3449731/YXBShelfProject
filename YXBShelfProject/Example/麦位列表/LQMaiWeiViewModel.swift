@@ -56,9 +56,8 @@ class LQMaiWeiViewModel {
             guard let self = self else { return }
             
             if let json = obj as? [String: Any],
-               let text = json.jsonString(prettify: true),
-               let modelArray = self.receiveAllMaiListMessage(text: text) {
-                self.modelArray_vm.accept(modelArray)
+               let text = json.jsonString(prettify: true) {
+                self.receiveAllMaiListMessage(text: text)
             }
             
             // 这里只给了麦上用户的信息，需要找到对应的麦位数据去修改
