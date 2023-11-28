@@ -26,38 +26,39 @@ class LQMaiWeiViewModel {
     var modelArray_vm: BehaviorRelay<[LQMaiWeiModel]> = BehaviorRelay(value: [])
     
     // 创建空麦位，用于初始化，或者重置麦位的时候
-    private func creatEmptyMaiWeiModel(index: Int) -> LQMaiWeiModel {
+    private func creatEmptyMaiWeiModel(index: Int, roomType: LQRoomType) -> LQMaiWeiModel {
         let model = LQMaiWeiModel()
         model.mai = MaiWeiIndex(rawValue: "\(index)")
         model.maiNo = "\(index)"
+        model.roomType = roomType
         return model
     }
     
     // 初始化房主麦位数据
-    func creatHostMaiWei() -> LQMaiWeiModel {
-        let model = self.creatEmptyMaiWeiModel(index: 0)
+    func creatHostMaiWei(roomType: LQRoomType) -> LQMaiWeiModel {
+        let model = self.creatEmptyMaiWeiModel(index: 0, roomType: roomType)
         return model
     }
     
     // 初始化其他麦位数据
-    func creatMaiWei(count: Int) -> [LQMaiWeiModel] {
+    func creatMaiWei(count: Int, roomType: LQRoomType) -> [LQMaiWeiModel] {
         var array: [LQMaiWeiModel] = []
         for i in 1...count {
-            let model = self.creatEmptyMaiWeiModel(index: i)
+            let model = self.creatEmptyMaiWeiModel(index: i, roomType: roomType)
             array.append(model)
         }
         return array
     }
     
     // 通过接口获取麦位列表
-    func requestMainWeiList(houseId: String, closure: @escaping () -> ()) {
+    func requestMainWeiList(houseId: String, roomType: LQRoomType, closure: @escaping () -> ()) {
         let network = NetworkManager<IMAPI>()
         network.sendRequest(.getMaiUserInfoList(houseId: houseId)) {[weak self] obj in
             guard let self = self else { return }
             
             if let json = obj as? [String: Any],
                let text = json.jsonString(prettify: true) {
-                self.receiveAllMaiListMessage(text: text)
+                self.receiveAllMaiListMessage(text: text, roomType: roomType)
             }
             
             // 这里只给了麦上用户的信息，需要找到对应的麦位数据去修改

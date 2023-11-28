@@ -77,7 +77,7 @@ class LQAllMailWeiView: UIView {
     
     private func setupData() {
 
-        let tempArray = self.viewModel.creatMaiWei(count: 8)
+        let tempArray = self.viewModel.creatMaiWei(count: 4, roomType: .merchant_5)
         self.viewModel.modelArray_vm.accept(tempArray)
         
 
@@ -86,23 +86,23 @@ class LQAllMailWeiView: UIView {
 """
 
         
-        self.viewModel.receiveAllMaiListMessage(text: tempstring)
+        self.viewModel.receiveAllMaiListMessage(text: tempstring, roomType: .merchant_5)
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
-            self.viewModel.requestMainWeiList(houseId: "26663258") {
+            self.viewModel.requestMainWeiList(houseId: "26663258", roomType: .merchant_5) {
                 
             }
         }
 
         DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
-            self.viewModel.modelArray_vm.value[4].isSpeaking = true
+            self.viewModel.modelArray_vm.value[2].isSpeaking = true
         }
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 6.0) {
             let str = """
         {"hotnum":"100","hotsum":"3073128","meiNum":"0","dataList":[{"mai":"5","meiNum":"80","id":"e4a7c97b69d946c4b93ce44034e93716"},{"mai":"0","meiNum":"30","id":"fd56a01b47f949f5bcb1690d62f4aa8e"}],"type":"201"}
 """
-            self.viewModel.receiveCharmListMessage(text: str)
+            self.viewModel.receiveCharmListMessage(text: str, roomType: .merchant_5)
 //            self.viewModel.modelArray_vm.value[3].isSpeaking = true
         }
         

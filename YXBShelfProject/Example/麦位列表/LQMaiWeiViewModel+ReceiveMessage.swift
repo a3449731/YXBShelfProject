@@ -14,14 +14,27 @@ extension LQMaiWeiViewModel {
     
     /// 收到全麦List的消息推送, 重置全麦数据重新配置. 有一个很恶心的事情：9人的房的房主跟着列表一起推送过来了， 而5人房不推房主
     //    200：上麦，下麦，跳麦 以后都会收到服务器那边推来的麦位信息, 204,收到当前麦位状态推送，另外接口请求的数据结构也与这一模一样。
-    @objc func receiveAllMaiListMessage(text: String) {
+    @objc func receiveAllMaiListMessage(text: String, roomType: String) {
+        guard let type = LQRoomType(rawValue: roomType) else {
+            debugPrint("xxxxxxxxx 房间类型不合法 xxxxxxxxxxx")
+            return
+        }
+        receiveAllMaiListMessage(text: text, roomType: type)
+    }
+    func receiveAllMaiListMessage(text: String, roomType: LQRoomType) {
         let json = JSON(parseJSON: text)
         let biList = json["biList"].arrayValue
         let suoList = json["suoList"].arrayValue
         let maiweiNameList = json["maiweiNameList"].arrayValue
         
         // 数据全部重置为新的数据
-        var modelArray = self.creatMaiWei(count: 8)
+        var modelArray: [LQMaiWeiModel] = []
+        switch roomType {
+        case .merchant_9, .personal:
+            modelArray = self.creatMaiWei(count: 8, roomType: roomType)
+        case .merchant_5:
+            modelArray = self.creatMaiWei(count: 4, roomType: roomType)
+        }
         
         // 把dataList转成 [LQMaiWeiModel]的数组，用HandyJSON解析
         let dataListString = json["dataList"].rawString()
@@ -142,7 +155,7 @@ extension LQMaiWeiViewModel {
     {
         "hotnum":"100",
         "hotsum":"3073128",
-        "meiNum":"0",
+        "meiNum":"0", // 这个值就是5人房 房主的魅力值
         "dataList":[
             {
                 "mai":"5",
@@ -159,7 +172,14 @@ extension LQMaiWeiViewModel {
     }
     */
     /// 接收魅力值的消息推送
-    @objc func receiveCharmListMessage(text: String) {
+    @objc func receiveCharmListMessage(text: String, roomType: String) {
+        guard let type = LQRoomType(rawValue: roomType) else {
+            debugPrint("xxxxxxxxx 房间类型不合法 xxxxxxxxxxx")
+            return
+        }
+        receiveCharmListMessage(text: text, roomType: type)
+    }
+    func receiveCharmListMessage(text: String, roomType: LQRoomType) {
         let json = JSON(parseJSON: text)
         if let type = json["type"].string,
            let dataList = json["dataList"].array,
@@ -169,8 +189,12 @@ extension LQMaiWeiViewModel {
                 if let mai = charmJson["mai"].string {
                     // 如果是主持麦
                     if mai == MaiWeiIndex.host.rawValue {
-                        self.host_vm.value.meiNum = charmJson["meiNum"].string
-                        
+                        if roomType == .merchant_5 {
+                            // 5人房 房主的魅力值是外层的值
+                            self.host_vm.value.meiNum = json["meiNum"].string
+                        } else {
+                            self.host_vm.value.meiNum = charmJson["meiNum"].string
+                        }                        
                     } else if let index = self.findIndex(mai: mai), let charm = charmJson["meiNum"].string {
                         // 非主持麦
                         let model = self.modelArray_vm.value[index]

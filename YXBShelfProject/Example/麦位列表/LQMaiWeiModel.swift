@@ -46,6 +46,9 @@ import HandyJSON
     /// 财富等级
     var caiLevel: String?
     
+    /// 房间类型
+    var roomType: LQRoomType = .merchant_9
+    
     // MARK: 下面这两个是对麦位而言，不是对用户。由接口里biList，suoList推演得到，或者消息推送里转化得出
     /*
      // 20: 麦位被锁,关闭。， 21: 麦位解锁，打开
@@ -105,6 +108,35 @@ enum MaiWeiIndex: String, CaseIterable, HandyJSONEnum {
     case seven = "7"
     /// 老板位
     case boss = "8"
+    
+    // 5人房的图片配置
+    var iconImageName_5: String? {
+        switch self {
+        case .one: return "CUYuYinFang_roomDetail_huangjin"
+        case .two, .three, .four: return "CUYuYinFang_roomDetail_baiyin"
+        default: return nil
+        }
+    }
+    
+    // 5人房的名字配置
+    var titleName_5: String? {
+        switch self {
+        case .one: return "黄金守护"
+        case .two, .three, .four: return "白银守护"
+        default: return nil
+        }
+    }
+    
+}
+
+// 标1,2,3主要是为了给OC用，方便转化，
+enum LQRoomType: String {
+    /// 商业房 9人房
+    case merchant_9 = "1"
+    /// 商业房 5人房
+    case merchant_5 = "2"
+    /// 个播房，9人，不在首页展示，可搜索到
+    case personal = "3"
 }
 
 //"vipInfo" : {

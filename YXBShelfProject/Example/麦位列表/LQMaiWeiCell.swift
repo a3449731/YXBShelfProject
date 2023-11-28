@@ -63,12 +63,25 @@ class LQMaiWeiCell: UICollectionViewCell {
             self.maiWeiView.sortLabel.isHidden = true
             self.maiWeiView.charmButton.isHidden = true
             self.maiWeiView.userView.headerView.isHidden = true
-            // 如果自定义过麦位名
-            if let customName = model.name {
+            if model.roomType == .merchant_5 {
+                // 如果是5人房
+                self.maiWeiView.titleLabel.text = model.mai?.titleName_5
+            } else if let customName = model.name {
+                // 如果自定义过麦位名
                 self.maiWeiView.titleLabel.text = customName
+            } else if model.mai == .boss {
+                self.maiWeiView.titleLabel.text = "老板位"
             } else {
                 self.maiWeiView.titleLabel.text = "\(model.mai?.rawValue ?? "")号麦"
             }
+        }
+        
+        // icon图的区别，5人房与9人房
+        if model.roomType == .merchant_5 {
+            self.maiWeiView.userView.iconButton.setImage(UIImage(named: model.mai?.iconImageName_5 ?? ""), for: .normal)
+        } else {
+            let image = self.iconMatch(isLock: model.isMaiWeiLock, isMute: model.isMaiWeiMute, mai: model.mai)
+            self.maiWeiView.userView.iconButton.setImage(image, for: .normal)
         }
         
         
@@ -80,23 +93,6 @@ class LQMaiWeiCell: UICollectionViewCell {
                 // 如果麦上有人
                 if let uid = model.id, uid.isEmpty == false {
                     self?.maiWeiView.charmButton.setTitle(charm, for: .normal)
-                }
-            })
-            .disposed(by: disposed)
-        
-        // 收到了修改麦位名的消息
-        model.rx.observeWeakly(String.self, "name")
-//            .debug("\(model.mai ?? "")号麦 修改麦位名称吗")
-            .subscribe(onNext: { [weak self] name in
-                // 如果上麦位上有人，就不动                
-                if let uid = model.id, uid.isEmpty == false {
-                    
-                } else {
-                    if let name = name,
-                       name.isEmpty == false {
-                        // 麦位上没人，修改麦位名
-                        self?.maiWeiView.titleLabel.text = name
-                    }
                 }
             })
             .disposed(by: disposed)
@@ -130,23 +126,45 @@ class LQMaiWeiCell: UICollectionViewCell {
             })
             .disposed(by: disposed)
 
-        // 麦位是否被禁言
-        model.rx.observeWeakly(Bool.self, "isMaiWeiMute")
-//            .debug("\(model.mai ?? "")号麦 是否被禁言 \(self)")
-            .subscribe(onNext: { [weak self] isMuted in
-                let image = self?.iconMatch(isLock: model.isMaiWeiLock, isMute: isMuted, mai: model.mai)
-                self?.maiWeiView.userView.iconButton.setImage(image, for: .normal)
-            })
-            .disposed(by: disposed)
-        
-        // 麦位是否被关闭
-        model.rx.observeWeakly(Bool.self, "isMaiWeiLock")
-//            .debug("\(model.mai ?? "")号麦 是否被关闭 \(self)")
-            .subscribe(onNext: { [weak self] isLock in
-                let image = self?.iconMatch(isLock: isLock, isMute: model.isMaiWeiMute, mai: model.mai)
-                self?.maiWeiView.userView.iconButton.setImage(image, for: .normal)
-            })
-            .disposed(by: disposed)
+        // 有一些监听5人是不需要的，他没有
+        if model.roomType == .merchant_5 {
+            
+        } else {
+            // 收到了修改麦位名的消息
+            model.rx.observeWeakly(String.self, "name")
+    //            .debug("\(model.mai ?? "")号麦 修改麦位名称吗")
+                .subscribe(onNext: { [weak self] name in
+                    // 如果上麦位上有人，就不动
+                    if let uid = model.id, uid.isEmpty == false {
+                        
+                    } else {
+                        if let name = name,
+                           name.isEmpty == false {
+                            // 麦位上没人，修改麦位名
+                            self?.maiWeiView.titleLabel.text = name
+                        }
+                    }
+                })
+                .disposed(by: disposed)
+            
+            // 麦位是否被禁言
+            model.rx.observeWeakly(Bool.self, "isMaiWeiMute")
+    //            .debug("\(model.mai ?? "")号麦 是否被禁言 \(self)")
+                .subscribe(onNext: { [weak self] isMuted in
+                    let image = self?.iconMatch(isLock: model.isMaiWeiLock, isMute: isMuted, mai: model.mai)
+                    self?.maiWeiView.userView.iconButton.setImage(image, for: .normal)
+                })
+                .disposed(by: disposed)
+            
+            // 麦位是否被关闭
+            model.rx.observeWeakly(Bool.self, "isMaiWeiLock")
+    //            .debug("\(model.mai ?? "")号麦 是否被关闭 \(self)")
+                .subscribe(onNext: { [weak self] isLock in
+                    let image = self?.iconMatch(isLock: isLock, isMute: model.isMaiWeiMute, mai: model.mai)
+                    self?.maiWeiView.userView.iconButton.setImage(image, for: .normal)
+                })
+                .disposed(by: disposed)
+        }
     }
     
     // 匹配麦位站位图片状态，
