@@ -9,7 +9,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class LQAllMailWeiView: UIView {
+@objcMembers class LQAllMailWeiView: UIView {
     
     let disposed = DisposeBag()
     let viewModel: LQMaiWeiViewModel = LQMaiWeiViewModel()

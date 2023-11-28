@@ -510,16 +510,12 @@
 		6825300F2B0CA0A90024EC76 /* 麦位列表 */ = {
 			isa = PBXGroup;
 			children = (
-				682530492B10BA540024EC76 /* 本来就有的 */,
 				682530412B108E780024EC76 /* LQMaiWeiViewController.swift */,
-				682530472B10AE6B0024EC76 /* LQMaiWeiViewModel.swift */,
-				6825306A2B11E59B0024EC76 /* LQMaiWeiViewModel+ReceiveMessage.swift */,
 				682530432B1098C20024EC76 /* LQAllMailWeiView.swift */,
-				682530102B0CA5750024EC76 /* LQMaiWeiModel.swift */,
-				6825303F2B1088D20024EC76 /* LQMaiWeiCell.swift */,
-				6825303D2B1049320024EC76 /* LQMaiWeiView.swift */,
-				682530372B1032D80024EC76 /* LQMicrophoneUserView.swift */,
-				6825303B2B1044A10024EC76 /* LQYinLiangView.swift */,
+				6848DC682B15CC87003BE89D /* ViewModel */,
+				6848DC692B15CC94003BE89D /* Model */,
+				6848DC6A2B15CC9D003BE89D /* View */,
+				682530492B10BA540024EC76 /* 本来就有的 */,
 			);
 			path = "麦位列表";
 			sourceTree = "<group>";
@@ -543,6 +539,34 @@
 			children = (
 			);
 			path = "本来就有的";
+			sourceTree = "<group>";
+		};
+		6848DC682B15CC87003BE89D /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				682530472B10AE6B0024EC76 /* LQMaiWeiViewModel.swift */,
+				6825306A2B11E59B0024EC76 /* LQMaiWeiViewModel+ReceiveMessage.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		6848DC692B15CC94003BE89D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				682530102B0CA5750024EC76 /* LQMaiWeiModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		6848DC6A2B15CC9D003BE89D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				6825303F2B1088D20024EC76 /* LQMaiWeiCell.swift */,
+				6825303D2B1049320024EC76 /* LQMaiWeiView.swift */,
+				682530372B1032D80024EC76 /* LQMicrophoneUserView.swift */,
+				6825303B2B1044A10024EC76 /* LQYinLiangView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		68ED52C02B0760D60099F469 = {
