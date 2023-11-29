@@ -25,7 +25,7 @@ class LQMaiWeiViewController: UIViewController {
             "pkaf" : "0|1|4|5",
             "bgImg" : "https://lanqi123.oss-cn-beijing.aliyuncs.com/file/1698751210463.jpg",
             "maitype" : "2",
-            "headKuang" : "https://lanqi123.oss-cn-beijing.aliyuncs.com/file/1698290177150.webp",
+//            "headKuang" : "https://lanqi123.oss-cn-beijing.aliyuncs.com/file/1698290177150.webp",
             "hcustNo" : "66666",
             "pkabeike" : 0,
             "type" : "4",

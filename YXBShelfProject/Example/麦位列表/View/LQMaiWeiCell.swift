@@ -88,7 +88,7 @@ class LQMaiWeiCell: UICollectionViewCell {
         // 下面都是可能因为收到了某些消息，需要变化界面的绑定
         // 收到了魅力值变化的消息
         model.rx.observeWeakly(String.self, "meiNum")
-//            .debug("\(model.mai ?? "")号麦 魅力值变化了吗")
+//            .debug("\(model.mai?.rawValue ?? "")号麦 魅力值变化了吗")
             .subscribe(onNext: { [weak self] charm in
                 // 如果麦上有人
                 if let uid = model.id, uid.isEmpty == false {
@@ -116,7 +116,7 @@ class LQMaiWeiCell: UICollectionViewCell {
         
         // 是否闭麦绑定到喇叭
         model.rx.observeWeakly(Bool.self, "isb")
-//            .debug("\(model.mai ?? "")号麦 开麦了吗")
+//            .debug("\(model.mai?.rawValue ?? "")号麦 开麦了吗")
             .subscribe(onNext: { [weak self] isMuted in
                 if let isMuted = isMuted {
                     self?.maiWeiView.userView.voiceImageView.isHidden = !isMuted
@@ -132,7 +132,7 @@ class LQMaiWeiCell: UICollectionViewCell {
         } else {
             // 收到了修改麦位名的消息
             model.rx.observeWeakly(String.self, "name")
-    //            .debug("\(model.mai ?? "")号麦 修改麦位名称吗")
+//                .debug("\(model.mai ?? "")号麦 修改麦位名称吗")
                 .subscribe(onNext: { [weak self] name in
                     // 如果上麦位上有人，就不动
                     if let uid = model.id, uid.isEmpty == false {
@@ -149,7 +149,7 @@ class LQMaiWeiCell: UICollectionViewCell {
             
             // 麦位是否被禁言
             model.rx.observeWeakly(Bool.self, "isMaiWeiMute")
-    //            .debug("\(model.mai ?? "")号麦 是否被禁言 \(self)")
+//                .debug("\(model.mai ?? "")号麦 是否被禁言 \(self)")
                 .subscribe(onNext: { [weak self] isMuted in
                     let image = self?.iconMatch(isLock: model.isMaiWeiLock, isMute: isMuted, mai: model.mai)
                     self?.maiWeiView.userView.iconButton.setImage(image, for: .normal)
@@ -158,7 +158,7 @@ class LQMaiWeiCell: UICollectionViewCell {
             
             // 麦位是否被关闭
             model.rx.observeWeakly(Bool.self, "isMaiWeiLock")
-    //            .debug("\(model.mai ?? "")号麦 是否被关闭 \(self)")
+//                .debug("\(model.mai ?? "")号麦 是否被关闭 \(self)")
                 .subscribe(onNext: { [weak self] isLock in
                     let image = self?.iconMatch(isLock: isLock, isMute: model.isMaiWeiMute, mai: model.mai)
                     self?.maiWeiView.userView.iconButton.setImage(image, for: .normal)
