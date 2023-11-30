@@ -10,20 +10,25 @@ import SDWebImage
 
 class LQMicrophoneUserView: UIView {
     
+    weak var delegate: LQMicrophoneUserViewDelegate?
+    
     // 麦波
     let rippleView: LQYinLiangView = {
         LQYinLiangView(frame: .zero)
     }()
     
     // 底图
-    let iconButton: UIButton = {
+    lazy var iconButton: UIButton = {
         let btn = MyUIFactory.commonButton(title: nil, titleColor: nil, titleFont: nil, image: UIImage(named: "CUYuYinFang_zhibojian_kongxian"))
+        btn.addTarget(self, action: #selector(iconButtonAction), for: .touchUpInside)
         return btn
     }()
     
     // 头像 + 头像框
     lazy var headerView: HeaderStaticView = {
         let view = HeaderStaticView()
+        view.isUserInteractionEnabled = true
+        view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(headerViewTapAction)))
         return view
     }()
     
@@ -61,6 +66,14 @@ class LQMicrophoneUserView: UIView {
             make.bottom.equalTo(headerView)
             make.width.height.equalTo(12.fitScale())
         }
+    }
+    
+    @objc private func iconButtonAction() {
+        self.delegate?.microphoneUserView?(view: self, didTapMaiWeiIcon: nil)
+    }
+    
+    @objc private func headerViewTapAction() {
+        self.delegate?.microphoneUserView?(view: self, didTapUserHeader: nil)
     }
     
     required init?(coder: NSCoder) {

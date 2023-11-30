@@ -40,14 +40,17 @@ import RxCocoa
         }
     }
     
+    weak var delegate: LQAllMailWeiViewDelegate?
+    
     let disposed = DisposeBag()
     let viewModel: LQMaiWeiViewModel = LQMaiWeiViewModel()
     
     // 房主麦位,直接借用cell，懒得再写赋值代码了
-    @objc var hostUserView: LQMaiWeiCell = {
+    @objc lazy var hostUserView: LQMaiWeiCell = {
         let contentView = LQMaiWeiCell()
         contentView.backgroundColor = .cyan
         contentView.translatesAutoresizingMaskIntoConstraints = false
+        contentView.delegate = self
         return contentView
     }()
     
@@ -138,7 +141,7 @@ import RxCocoa
 //                debugPrint("刷新了第\(index)cell")
                 cell.backgroundColor = .cyan
                 cell.setup(model: model)
-//                cell.model = model
+                cell.delegate = self
             }
             .disposed(by: disposed)
         
@@ -171,6 +174,23 @@ extension LQAllMailWeiView: UICollectionViewDelegate, UICollectionViewDelegateFl
 //        collectionView.dequeueReusableCell(withClass: LQMaiWeiCell.self, for: indexPath)
 //    }
         
+}
+
+extension LQAllMailWeiView: LQMaiWeiCellDelegate {
+    // 点击了麦位的icon。
+    func maiWeiCell(cell: LQMaiWeiCell, didTapMaiWeiIcon: LQMaiWeiModel) {
+        self.delegate?.mailWeiList?(view: self, didTapMaiWeiIcon: didTapMaiWeiIcon, isHostMai: didTapMaiWeiIcon.mai == .host, roomType: self.roomType.rawValue)
+    }
+    
+    // 麦上有用户，点击的是userheader。
+    func maiWeiCell(cell: LQMaiWeiCell, didTapUserHeader: LQMaiWeiModel) {
+        self.delegate?.mailWeiList?(view: self, didTapUserHeader: didTapUserHeader, isHostMai: didTapUserHeader.mai == .host, roomType: self.roomType.rawValue)
+    }
+    
+    // 麦上有用户，点击的是魅力值。
+    func maiWeiCell(cell: LQMaiWeiCell, didTapCharmView: LQMaiWeiModel) {
+        self.delegate?.mailWeiList?(view: self, didTapCharmView: didTapCharmView, isHostMai: didTapCharmView.mai == .host, roomType: self.roomType.rawValue)
+    }
 }
 
 #Preview {

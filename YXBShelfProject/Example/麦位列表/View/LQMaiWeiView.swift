@@ -9,9 +9,13 @@ import UIKit
 
 class LQMaiWeiView: UIView {
     
+    weak var delegate: LQMaiWeiViewDelegate?
+    
     // 头像 + 头像框 + 麦波
-    let userView: LQMicrophoneUserView = {
-        LQMicrophoneUserView()
+    lazy var userView: LQMicrophoneUserView = {
+        let view = LQMicrophoneUserView()
+        view.delegate = self
+        return view
     }()
     
     // 容器
@@ -44,8 +48,9 @@ class LQMaiWeiView: UIView {
     }()
     
     // 魅力值
-    let charmButton: YXBButton = {
+    lazy var charmButton: YXBButton = {
         let btn = MyUIFactory.commonImageTextButton(title: nil, titleColor: .titleColor_white, titleFont: UIFont.systemFont(ofSize: 8), image: UIImage(named: "CUYuYinFang_zhibojian_xin"), bgColor: UIColor(hex: 0x737373, transparency: 0.2), postion: .left, space: 2)
+        btn.addTarget(self, action: #selector(charmButtonAction), for: .touchUpInside)
         return btn
     }()
             
@@ -91,8 +96,25 @@ class LQMaiWeiView: UIView {
         }
     }
     
+    @objc private func charmButtonAction() {
+        self.delegate?.maiWeiView?(view: self, didTapCharmView: nil)
+    }
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+}
+
+// MARK: - LQMicrophoneUserViewDelegate 代理
+extension LQMaiWeiView: LQMicrophoneUserViewDelegate {
+    // 点击了麦位的icon。
+    func microphoneUserView(view: LQMicrophoneUserView, didTapUserHeader: LQMaiWeiModel?) {
+        self.delegate?.maiWeiView?(view: self, didTapUserHeader: nil)        
+    }
+    
+    // 麦上有用户，点击的是userheader。
+    func microphoneUserView(view: LQMicrophoneUserView, didTapMaiWeiIcon: LQMaiWeiModel?) {
+        self.delegate?.maiWeiView?(view: self, didTapMaiWeiIcon: nil)
     }
 }
 

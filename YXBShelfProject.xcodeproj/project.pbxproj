@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		682066042B16E28700211D98 /* LQMaiWeiProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 682066032B16E28700211D98 /* LQMaiWeiProtocol.swift */; };
 		68252F7D2B0B15200024EC76 /* readme.txt in Resources */ = {isa = PBXBuildFile; fileRef = 68252F7C2B0B15200024EC76 /* readme.txt */; };
 		68252F842B0B2D700024EC76 /* PlayVapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68252F832B0B2D700024EC76 /* PlayVapView.swift */; };
 		68252F862B0B305A0024EC76 /* RoomPlayJoinEffectManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68252F852B0B305A0024EC76 /* RoomPlayJoinEffectManager.swift */; };
@@ -132,6 +133,7 @@
 /* Begin PBXFileReference section */
 		33E84C5C1F29AE3702F08AC2 /* Pods-YXBShelfProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YXBShelfProject.debug.xcconfig"; path = "Target Support Files/Pods-YXBShelfProject/Pods-YXBShelfProject.debug.xcconfig"; sourceTree = "<group>"; };
 		41AF1471FBF82B1FA0C960B3 /* Pods-YXBShelfProject.staging.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YXBShelfProject.staging.xcconfig"; path = "Target Support Files/Pods-YXBShelfProject/Pods-YXBShelfProject.staging.xcconfig"; sourceTree = "<group>"; };
+		682066032B16E28700211D98 /* LQMaiWeiProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LQMaiWeiProtocol.swift; sourceTree = "<group>"; };
 		68252F7C2B0B15200024EC76 /* readme.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = readme.txt; sourceTree = "<group>"; };
 		68252F832B0B2D700024EC76 /* PlayVapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayVapView.swift; sourceTree = "<group>"; };
 		68252F852B0B305A0024EC76 /* RoomPlayJoinEffectManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomPlayJoinEffectManager.swift; sourceTree = "<group>"; };
@@ -512,6 +514,7 @@
 			children = (
 				682530412B108E780024EC76 /* LQMaiWeiViewController.swift */,
 				682530432B1098C20024EC76 /* LQAllMailWeiView.swift */,
+				682066032B16E28700211D98 /* LQMaiWeiProtocol.swift */,
 				6848DC682B15CC87003BE89D /* ViewModel */,
 				6848DC692B15CC94003BE89D /* Model */,
 				6848DC6A2B15CC9D003BE89D /* View */,
@@ -927,6 +930,7 @@
 				68252FAD2B0B42270024EC76 /* VipPictureConfig.swift in Sources */,
 				68252FB02B0B42270024EC76 /* LQMessageAiteCell.swift in Sources */,
 				68ED534D2B0887870099F469 /* RSAPlugin.swift in Sources */,
+				682066042B16E28700211D98 /* LQMaiWeiProtocol.swift in Sources */,
 				68ED53362B0887740099F469 /* NetworkManager.swift in Sources */,
 				682530302B0F31AC0024EC76 /* FSNobbleView.swift in Sources */,
 				68ED53512B0887870099F469 /* ProgressPlugin.swift in Sources */,

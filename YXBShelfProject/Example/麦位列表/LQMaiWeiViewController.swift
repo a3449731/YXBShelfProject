@@ -9,8 +9,9 @@ import UIKit
 
 class LQMaiWeiViewController: UIViewController {
     
-    let nineView: LQAllMailWeiView = {
+    lazy var nineView: LQAllMailWeiView = {
         let view = LQAllMailWeiView(roomType: "1")
+        view.delegate = self
         return view
     }()
     
@@ -125,3 +126,30 @@ class LQMaiWeiViewController: UIViewController {
     }
 }
 
+// MARK: - LQAllMailWeiViewDelegate点击事件的回调
+extension LQMaiWeiViewController: LQAllMailWeiViewDelegate {
+    // 点击了麦位的icon。 isHostMai:表示是否是主持麦。 roomType:房间类型，因为是给OC用就不能用枚举传递了
+    func mailWeiList(view: LQAllMailWeiView, didTapMaiWeiIcon: LQMaiWeiModel, isHostMai: Bool, roomType: String) {
+        debugPrint("点击了icon，是房主吗", isHostMai)
+        debugPrint("点击了icon，房间类型", roomType)
+        debugPrint("点击了icon，模型数据", didTapMaiWeiIcon.toJSON())
+    }
+    
+    // 麦上有用户，点击的是userheader。 isHostMai:表示是否是主持麦。 roomType:房间类型，因为是给OC用就不能用枚举传递了
+    func mailWeiList(view: LQAllMailWeiView, didTapUserHeader: LQMaiWeiModel, isHostMai: Bool, roomType: String) {
+        debugPrint("点击了用户头像，是房主吗", isHostMai)
+        debugPrint("点击了用户头像，房间类型", roomType)
+        debugPrint("点击了用户头像，模型数据", didTapUserHeader.toJSON())
+    }
+    
+    // 麦上有用户，点击的是魅力值。 isHostMai:表示是否是主持麦。 roomType:房间类型，因为是给OC用就不能用枚举传递了
+    func mailWeiList(view: LQAllMailWeiView, didTapCharmView: LQMaiWeiModel, isHostMai: Bool, roomType: String) {
+        debugPrint("点击了魅力值，是房主吗", isHostMai)
+        debugPrint("点击了魅力值，房间类型", roomType)
+        debugPrint("点击了魅力值，模型数据", didTapCharmView.toJSON())
+    }
+}
+
+#Preview {
+    LQMaiWeiViewController()
+}

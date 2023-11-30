@@ -12,13 +12,16 @@ import SwifterSwift
 
 class LQMaiWeiCell: UICollectionViewCell {
     
+    weak var delegate: LQMaiWeiCellDelegate?
+    
     // 定义一个DisposeBag用于管理订阅的生命周期
     private var disposed = DisposeBag()
     // 持有数据
     var model: LQMaiWeiModel?
     
-    let maiWeiView: LQMaiWeiView = {
+    lazy var maiWeiView: LQMaiWeiView = {
         let view = LQMaiWeiView()
+        view.delegate = self
         return view
     }()
     
@@ -38,7 +41,7 @@ class LQMaiWeiCell: UICollectionViewCell {
     
     // 配置数据
     func setup(model: LQMaiWeiModel) {
-//        self.model = model
+        self.model = model
         
         // 这个主持的标志只在主持麦上才有可能展示
         self.maiWeiView.identityImageView.isHidden = true
@@ -194,5 +197,36 @@ class LQMaiWeiCell: UICollectionViewCell {
     }
 }
 
+// MARK: - LQMaiWeiViewDelegate 代理
+extension LQMaiWeiCell: LQMaiWeiViewDelegate {
+    
+    // 点击了麦位的icon。
+    func maiWeiView(view: LQMaiWeiView, didTapMaiWeiIcon: LQMaiWeiModel?) {
+        if let model = self.model {
+            self.delegate?.maiWeiCell?(cell: self, didTapMaiWeiIcon: model)
+        } else {
+            debugPrint("麦位模型数据错误")
+        }
+    }
+    
+    // 麦上有用户，点击的是userheader。
+    func maiWeiView(view: LQMaiWeiView, didTapUserHeader: LQMaiWeiModel?) {
+        if let model = self.model {
+            self.delegate?.maiWeiCell?(cell: self, didTapUserHeader: model)
+        } else {
+            debugPrint("麦位模型数据错误")
+        }
+    }
+    
+    // 麦上有用户，点击的是魅力值。
+    func maiWeiView(view: LQMaiWeiView, didTapCharmView: LQMaiWeiModel?) {
+        if let model = self.model {
+            self.delegate?.maiWeiCell?(cell: self, didTapCharmView: model)
+        } else {
+            debugPrint("麦位模型数据错误")
+        }
+    }
+
+}
 
 
