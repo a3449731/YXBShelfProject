@@ -177,19 +177,20 @@ extension LQAllMailWeiView: UICollectionViewDelegate, UICollectionViewDelegateFl
 }
 
 extension LQAllMailWeiView: LQMaiWeiCellDelegate {
+    
     // 点击了麦位的icon。
-    func maiWeiCell(cell: LQMaiWeiCell, didTapMaiWeiIcon: LQMaiWeiModel) {
-        self.delegate?.mailWeiList?(view: self, didTapMaiWeiIcon: didTapMaiWeiIcon, isHostMai: didTapMaiWeiIcon.mai == .host, roomType: self.roomType.rawValue)
+    func maiWeiCell(didTapMaiWeiIcon: LQMaiWeiCell, model: LQMaiWeiModel) {
+        self.delegate?.mailWeiList?(didTapMaiWeiIcon: self, model: model, isHostMai: model.mai == .host, roomType: self.roomType.rawValue)
     }
     
     // 麦上有用户，点击的是userheader。
-    func maiWeiCell(cell: LQMaiWeiCell, didTapUserHeader: LQMaiWeiModel) {
-        self.delegate?.mailWeiList?(view: self, didTapUserHeader: didTapUserHeader, isHostMai: didTapUserHeader.mai == .host, roomType: self.roomType.rawValue)
+    func maiWeiCell(didTapUserHeader: LQMaiWeiCell, model: LQMaiWeiModel) {
+        self.delegate?.mailWeiList?(didTapUserHeader: self, model: model, isHostMai: model.mai == .host, roomType: self.roomType.rawValue)
     }
     
     // 麦上有用户，点击的是魅力值。
-    func maiWeiCell(cell: LQMaiWeiCell, didTapCharmView: LQMaiWeiModel) {
-        self.delegate?.mailWeiList?(view: self, didTapCharmView: didTapCharmView, isHostMai: didTapCharmView.mai == .host, roomType: self.roomType.rawValue)
+    func maiWeiCell(didTapCharmView: LQMaiWeiCell, model: LQMaiWeiModel) {
+        self.delegate?.mailWeiList?(didTapCharmView: self, model: model, isHostMai: model.mai == .host, roomType: self.roomType.rawValue)
     }
 }
 

@@ -203,7 +203,7 @@ extension LQMaiWeiCell: LQMaiWeiViewDelegate {
     // 点击了麦位的icon。
     func maiWeiView(view: LQMaiWeiView, didTapMaiWeiIcon: LQMaiWeiModel?) {
         if let model = self.model {
-            self.delegate?.maiWeiCell?(cell: self, didTapMaiWeiIcon: model)
+            self.delegate?.maiWeiCell?(didTapMaiWeiIcon: self, model: model)
         } else {
             debugPrint("麦位模型数据错误")
         }
@@ -212,7 +212,7 @@ extension LQMaiWeiCell: LQMaiWeiViewDelegate {
     // 麦上有用户，点击的是userheader。
     func maiWeiView(view: LQMaiWeiView, didTapUserHeader: LQMaiWeiModel?) {
         if let model = self.model {
-            self.delegate?.maiWeiCell?(cell: self, didTapUserHeader: model)
+            self.delegate?.maiWeiCell?(didTapUserHeader: self, model: model)
         } else {
             debugPrint("麦位模型数据错误")
         }
@@ -221,7 +221,7 @@ extension LQMaiWeiCell: LQMaiWeiViewDelegate {
     // 麦上有用户，点击的是魅力值。
     func maiWeiView(view: LQMaiWeiView, didTapCharmView: LQMaiWeiModel?) {
         if let model = self.model {
-            self.delegate?.maiWeiCell?(cell: self, didTapCharmView: model)
+            self.delegate?.maiWeiCell?(didTapCharmView: self, model: model)
         } else {
             debugPrint("麦位模型数据错误")
         }
