@@ -87,6 +87,8 @@
 		682530462B109C3D0024EC76 /* micWave.webp in Resources */ = {isa = PBXBuildFile; fileRef = 682530452B109C3D0024EC76 /* micWave.webp */; };
 		682530482B10AE6B0024EC76 /* LQMaiWeiViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 682530472B10AE6B0024EC76 /* LQMaiWeiViewModel.swift */; };
 		6825306B2B11E59B0024EC76 /* LQMaiWeiViewModel+ReceiveMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6825306A2B11E59B0024EC76 /* LQMaiWeiViewModel+ReceiveMessage.swift */; };
+		6847E0712B1F168D00FD3D79 /* LQRoomMaiWeiEmotionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6847E0702B1F168D00FD3D79 /* LQRoomMaiWeiEmotionView.m */; };
+		6847E0732B203D9300FD3D79 /* LQPersonOpenTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6847E0722B203D9300FD3D79 /* LQPersonOpenTimeView.swift */; };
 		68ED52D12B0760D80099F469 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 68ED52D02B0760D80099F469 /* Assets.xcassets */; };
 		68ED52D42B0760D80099F469 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 68ED52D32B0760D80099F469 /* Preview Assets.xcassets */; };
 		68ED52DB2B0761520099F469 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68ED52DA2B0761520099F469 /* AppDelegate.swift */; };
@@ -213,6 +215,10 @@
 		682530452B109C3D0024EC76 /* micWave.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = micWave.webp; sourceTree = "<group>"; };
 		682530472B10AE6B0024EC76 /* LQMaiWeiViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LQMaiWeiViewModel.swift; sourceTree = "<group>"; };
 		6825306A2B11E59B0024EC76 /* LQMaiWeiViewModel+ReceiveMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LQMaiWeiViewModel+ReceiveMessage.swift"; sourceTree = "<group>"; };
+		6847E06E2B1F168C00FD3D79 /* YXBShelfProject-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "YXBShelfProject-Bridging-Header.h"; sourceTree = "<group>"; };
+		6847E06F2B1F168D00FD3D79 /* LQRoomMaiWeiEmotionView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LQRoomMaiWeiEmotionView.h; sourceTree = "<group>"; };
+		6847E0702B1F168D00FD3D79 /* LQRoomMaiWeiEmotionView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LQRoomMaiWeiEmotionView.m; sourceTree = "<group>"; };
+		6847E0722B203D9300FD3D79 /* LQPersonOpenTimeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LQPersonOpenTimeView.swift; sourceTree = "<group>"; };
 		68ED52C92B0760D60099F469 /* YXBShelfProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YXBShelfProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		68ED52D02B0760D80099F469 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		68ED52D32B0760D80099F469 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -540,6 +546,10 @@
 		682530492B10BA540024EC76 /* 本来就有的 */ = {
 			isa = PBXGroup;
 			children = (
+				6847E0722B203D9300FD3D79 /* LQPersonOpenTimeView.swift */,
+				6847E06F2B1F168D00FD3D79 /* LQRoomMaiWeiEmotionView.h */,
+				6847E0702B1F168D00FD3D79 /* LQRoomMaiWeiEmotionView.m */,
+				6847E06E2B1F168C00FD3D79 /* YXBShelfProject-Bridging-Header.h */,
 			);
 			path = "本来就有的";
 			sourceTree = "<group>";
@@ -829,6 +839,7 @@
 				TargetAttributes = {
 					68ED52C82B0760D60099F469 = {
 						CreatedOnToolsVersion = 15.0.1;
+						LastSwiftMigration = 1500;
 					};
 				};
 			};
@@ -1008,9 +1019,11 @@
 				68252FAF2B0B42270024EC76 /* LQMessageGiftCell.swift in Sources */,
 				6825300A2B0C77F00024EC76 /* LQCircleMaskAnimation.swift in Sources */,
 				68ED53132B0771300099F469 /* TwoLineLabel.swift in Sources */,
+				6847E0712B1F168D00FD3D79 /* LQRoomMaiWeiEmotionView.m in Sources */,
 				682530182B0DA8690024EC76 /* FloatingScreenView.swift in Sources */,
 				68ED53562B08882D0099F469 /* YXBImageCache.swift in Sources */,
 				68ED534C2B0887870099F469 /* CachePlugin.swift in Sources */,
+				6847E0732B203D9300FD3D79 /* LQPersonOpenTimeView.swift in Sources */,
 				68252FD22B0B58770024EC76 /* MSDressPreviewView.swift in Sources */,
 				682530382B1032D80024EC76 /* LQMicrophoneUserView.swift in Sources */,
 				68252FA82B0B42270024EC76 /* LQMessageNobbleJoinCell.swift in Sources */,
@@ -1102,6 +1115,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"YXBShelfProject/Preview Content\"";
@@ -1121,6 +1135,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.baidu.www.YXBShelfProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "YXBShelfProject/Example/麦位列表/本来就有的/YXBShelfProject-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1251,6 +1267,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"YXBShelfProject/Preview Content\"";
@@ -1270,6 +1287,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.baidu.www.YXBShelfProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "YXBShelfProject/Example/麦位列表/本来就有的/YXBShelfProject-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1281,6 +1300,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"YXBShelfProject/Preview Content\"";
@@ -1301,6 +1321,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.baidu.www.YXBShelfProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "YXBShelfProject/Example/麦位列表/本来就有的/YXBShelfProject-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

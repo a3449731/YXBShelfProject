@@ -25,17 +25,28 @@ class LQMaiWeiCell: UICollectionViewCell {
         return view
     }()
     
+    // OC写的展示表情类，只播放一次
+    lazy var emotionView: LQRoomMaiWeiEmotionView = {
+        let view = LQRoomMaiWeiEmotionView(frame: .zero)
+        view.isUserInteractionEnabled = false
+        return view
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.creatUI()
     }
     
     private func creatUI() {
-        self.contentView.addSubview(maiWeiView)
+        self.contentView.addSubviews([maiWeiView, emotionView])
         maiWeiView.snp.makeConstraints { make in
             make.center.equalToSuperview()
             make.width.equalTo(60.fitScale())
             make.height.equalTo(100.fitScale())
+        }
+        
+        emotionView.snp.makeConstraints { make in
+            make.edges.equalTo(maiWeiView.userView)
         }
     }
     
@@ -50,16 +61,26 @@ class LQMaiWeiCell: UICollectionViewCell {
            userId.isEmpty == false {
             // 如果是主持麦麦
             if model.mai == .host {
-                self.maiWeiView.identityImageView.isHidden = false
                 self.maiWeiView.sortLabel.isHidden = true
+                // 五人房也不需要这个标志
+                if model.roomType == .merchant_5 {
+                    self.maiWeiView.identityImageView.isHidden = true
+                } else {
+                    self.maiWeiView.identityImageView.isHidden = false
+                }
                 self.maiWeiView.identityImageView.image = UIImage(named: "CUYuYinFang_fanzhuHead")
             } else {
                 self.maiWeiView.sortLabel.isHidden = false
             }
             self.maiWeiView.sortLabel.text = model.mai?.rawValue
+            if model.isex == .male {
+                self.maiWeiView.sortLabel.backgroundColor = UIColor(hex: 0x4ECAFF)
+            } else {
+                self.maiWeiView.sortLabel.backgroundColor = UIColor(hex: 0xFF4E73)
+            }
             self.maiWeiView.titleLabel.text = model.uname?.truncated(toLength: 6)
             self.maiWeiView.charmButton.isHidden = false
-            self.maiWeiView.charmButton.setTitle(model.meiNum, for: .normal)
+            self.maiWeiView.charmButton.setTitle(formatNumberString(model.meiNum), for: .normal)
             self.maiWeiView.userView.headerView.isHidden = false
             self.maiWeiView.userView.headerView.setImage(url: model.uimg, headerFrameUrl: model.headKuang, placeholderImage: UIImage(named: "CUYuYinFang_login_logo"))
         } else {
@@ -74,6 +95,8 @@ class LQMaiWeiCell: UICollectionViewCell {
                 self.maiWeiView.titleLabel.text = customName
             } else if model.mai == .boss {
                 self.maiWeiView.titleLabel.text = "老板位"
+            } else if model.mai == .host {
+                self.maiWeiView.titleLabel.text = "主持位"
             } else {
                 self.maiWeiView.titleLabel.text = "\(model.mai?.rawValue ?? "")号麦"
             }
@@ -89,13 +112,26 @@ class LQMaiWeiCell: UICollectionViewCell {
         
         
         // 下面都是可能因为收到了某些消息，需要变化界面的绑定
+                
+        // 这个用户发送了表情
+        model.rx.observeWeakly(String.self, "emotionUrl")
+//            .debug("\(model.mai?.rawValue ?? "")号麦 发送了表情")
+            .subscribe(onNext: { [weak self] emotionUrl in
+                // 如果麦上有人
+                if let uid = model.id, uid.isEmpty == false, let url = emotionUrl, url.isEmpty == false {
+                    self?.emotionView.roomEmotionUrl = url
+                    model.emotionUrl = nil
+                }
+            })
+            .disposed(by: disposed)
+        
         // 收到了魅力值变化的消息
         model.rx.observeWeakly(String.self, "meiNum")
 //            .debug("\(model.mai?.rawValue ?? "")号麦 魅力值变化了吗")
             .subscribe(onNext: { [weak self] charm in
                 // 如果麦上有人
                 if let uid = model.id, uid.isEmpty == false {
-                    self?.maiWeiView.charmButton.setTitle(charm, for: .normal)
+                    self?.maiWeiView.charmButton.setTitle(self?.formatNumberString(charm), for: .normal)
                 }
             })
             .disposed(by: disposed)
@@ -123,6 +159,10 @@ class LQMaiWeiCell: UICollectionViewCell {
             .subscribe(onNext: { [weak self] isMuted in
                 if let isMuted = isMuted {
                     self?.maiWeiView.userView.voiceImageView.isHidden = !isMuted
+                    // 如果闭麦了，麦波也要去改变，推流结束不会再出发回调，所以这调整一道的话，为了保险
+                    if isMuted {
+                        model.isSpeaking = false
+                    }
                 } else {
                     self?.maiWeiView.userView.voiceImageView.isHidden = true
                 }
@@ -183,6 +223,23 @@ class LQMaiWeiCell: UICollectionViewCell {
             return UIImage(named: "CUYuYinFang_zhibojian_bimai")
         } else {
             return UIImage(named: "CUYuYinFang_zhibojian_kongxian")
+        }
+    }
+    
+    private func formatNumberString(_ numberString: String?) -> String {
+        guard let numberString = numberString else {
+            return "0"
+        }
+        
+        guard let number = Double(numberString) else {
+            return "0"
+        }
+        
+        if number > 10000 {
+            let formattedNumber = String(format: "%.1fw", number / 10000)
+            return formattedNumber
+        } else {
+            return numberString
         }
     }
     

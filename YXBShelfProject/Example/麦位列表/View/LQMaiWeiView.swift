@@ -109,7 +109,7 @@ class LQMaiWeiView: UIView {
 extension LQMaiWeiView: LQMicrophoneUserViewDelegate {
     // 点击了麦位的icon。
     func microphoneUserView(view: LQMicrophoneUserView, didTapUserHeader: LQMaiWeiModel?) {
-        self.delegate?.maiWeiView?(view: self, didTapUserHeader: nil)        
+        self.delegate?.maiWeiView?(view: self, didTapUserHeader: nil)
     }
     
     // 麦上有用户，点击的是userheader。

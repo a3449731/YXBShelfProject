@@ -10,15 +10,9 @@ import RxSwift
 import RxCocoa
 import SwiftyJSON
 
-class LQMaiWeiViewModel {
+class LQMaiWeiViewModel: NSObject {
     // 源数据
 //    var modelArray: [LQMaiWeiModel] = []
-    // 麦位设置了自定义名字的
-//    var nameMaiWeiArray: [[String: String]]?
-//    // 锁麦数据,两个单纯的["3", "5"],麦位下标数组
-//    var lockMaiWeiArray: [String]?
-//    // 闭麦数据,同上
-//    var muteMaiWeiArray: [String]?
     
     // 房主数据
     var host_vm: BehaviorRelay<LQMaiWeiModel> = BehaviorRelay(value: LQMaiWeiModel())
@@ -50,15 +44,24 @@ class LQMaiWeiViewModel {
         return array
     }
     
+    // 暴露给oc用的才套了一层
+    @objc func requestMainWeiList(houseId: String, roomType: String, success: @escaping () -> (), fail: @escaping () -> ()) {
+        guard let type = LQRoomType(rawValue: roomType) else {
+            debugPrint("xxxxxxxxx 房间类型不合法 xxxxxxxxxxx")
+            return
+        }
+        requestMainWeiList(houseId: houseId, roomType: type, success: success, fail: fail)
+    }
+    
     // 通过接口获取麦位列表
-    func requestMainWeiList(houseId: String, roomType: LQRoomType, closure: @escaping () -> ()) {
+    func requestMainWeiList(houseId: String, roomType: LQRoomType, success: @escaping () -> (), fail: @escaping () -> ()) {
         let network = NetworkManager<IMAPI>()
         network.sendRequest(.getMaiUserInfoList(houseId: houseId)) {[weak self] obj in
             guard let self = self else { return }
             
-            if let json = obj as? [String: Any],
-               let text = json.jsonString(prettify: true) {
-                self.receiveAllMaiListMessage(text: text, roomType: roomType)
+            if let json = obj as? [String: Any] {
+//                let text = json.jsonString(prettify: true)
+                self.receiveAllMaiListMessage(dic: json, roomType: roomType)
             }
             
             // 这里只给了麦上用户的信息，需要找到对应的麦位数据去修改
@@ -66,28 +69,10 @@ class LQMaiWeiViewModel {
    
 //            self.handle(array: array)
             // 为外界预留一个回调，不一定用得上
-            closure()
+            success()
         } failure: { error in
             // 为外界预留一个回调，不一定用得上
-            closure()
+            fail()
         }
-    }    
-
-    // 通过麦位找下标
-    func findIndex(mai: MaiWeiIndex?) -> Int? {
-        let index = self.modelArray_vm.value.firstIndex(where: { $0.mai == mai })
-        return index
     }
-    func findIndex(mai: String?) -> Int? {
-        let index = self.modelArray_vm.value.firstIndex(where: { $0.mai?.rawValue == mai })
-        return index
-    }
-    
-    // 通过uid找下标，可能为空
-    func findIndex(uid: String?) -> Int? {
-        let index = self.modelArray_vm.value.firstIndex(where: { $0.id == uid })
-        return index
-    }
-    
-    
 }

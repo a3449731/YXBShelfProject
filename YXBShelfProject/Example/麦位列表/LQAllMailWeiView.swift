@@ -13,12 +13,14 @@ import RxCocoa
     
     // 由外界传入,房间的类型。初始化方法中创建
     var roomType: LQRoomType!
-    //  房间的信息，5人房的房主信息需要从里面拼出来,外面是一坨屎，不想写模型了
+    //  房间的信息，5人房的房主信息需要从里面拼出来,外面是一坨屎，不想写模型了.
+    //  讲道理，这地方只能设置一次才对，不允许设置多次
     var roomInfo: [String: Any]? {
         didSet {
             // 这是为了5人房准备的, 因为5人房的数据是根据房间信息里的几个字段来的
-            if roomInfo != nil && roomType == .merchant_5 {
+            if roomInfo != nil, roomType == .merchant_5 {
                 let model = self.viewModel.host_vm.value
+                model.roomType = .merchant_5
                 model.uname = roomInfo?["hname"] as? String
                 model.meiNum = roomInfo?["meiNum"] as? String
                 model.id = roomInfo?["huid"] as? String
@@ -36,6 +38,20 @@ import RxCocoa
                     }
                 }
                 self.viewModel.host_vm.accept(model)
+                
+                collectionView.snp.remakeConstraints { make in
+                    make.top.equalTo(hostUserView.snp.bottom).offset(50.fitScale())
+                    make.left.right.equalToSuperview()
+                    make.height.equalTo((95 + 5).fitScale())
+                }
+                
+                // 开启倒计时
+                if let second = roomInfo?["premiereMillisecond"] as? Int,
+                   let userStatus = roomInfo?["userStatus"] as? [String: Any],
+                   let isFz = (userStatus["isFz"] as? String)?.bool,
+                   isFz == true {
+                    self.startOpenTime(second: second)
+                }
             }
         }
     }
@@ -52,6 +68,12 @@ import RxCocoa
         contentView.translatesAutoresizingMaskIntoConstraints = false
         contentView.delegate = self
         return contentView
+    }()
+    
+    // 开播时间，仅5人房，房主可见
+    lazy var openTimeView: LQPersonOpenTimeView = {
+        let view = LQPersonOpenTimeView()
+        return view
     }()
     
     // 其他人麦位
@@ -94,8 +116,18 @@ import RxCocoa
         self.setupData()
     }
     
+    // 调整房间类型,为了给OC用，在接口请求成功之后需要修改这个房间类型。
+    @objc func adjustRoomType(type: String) {
+        guard let type = LQRoomType(rawValue: type) else {
+            debugPrint("xxxxxxxxx 房间类型不合法啊啊 xxxxxxxxxxx")
+            return
+        }
+        self.roomType = type
+    }
+    
     private func setupUI() {
-        self.addSubview(hostUserView)
+        self.addSubviews([hostUserView, collectionView])
+
         hostUserView.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(10.fitScale())
             make.centerX.equalToSuperview()
@@ -103,7 +135,6 @@ import RxCocoa
             make.height.equalTo(95.fitScale())
         }
         
-        self.addSubview(collectionView)
         collectionView.snp.makeConstraints { make in
             make.top.equalTo(hostUserView.snp.bottom).offset(0)
             make.left.right.equalToSuperview()
@@ -120,7 +151,7 @@ import RxCocoa
         let hostModel = self.viewModel.creatHostMaiWei(roomType: self.roomType)
         self.viewModel.host_vm.accept(hostModel)
         
-        var count = (self.roomType == .merchant_5 ? 4 : 8)
+        let count = (self.roomType == .merchant_5 ? 4 : 8)
         let tempArray = self.viewModel.creatMaiWei(count: count, roomType: self.roomType)
         self.viewModel.modelArray_vm.accept(tempArray)
     }
@@ -131,7 +162,7 @@ import RxCocoa
             .subscribe(onNext: { [weak self] model in
                 self?.hostUserView.setup(model: model)
             })
-            .disposed(by: disposed)        
+            .disposed(by: disposed)
     }
     
     private func rx_ColletionView() {
@@ -145,14 +176,25 @@ import RxCocoa
             }
             .disposed(by: disposed)
         
-        // MARK: collectionView点击事件
-        collectionView.rx.itemSelected
-            .subscribe(onNext: { [weak self] indexPath in
-                
-            })
-            .disposed(by: disposed)
+//        // MARK: collectionView点击事件
+//        collectionView.rx.itemSelected
+//            .subscribe(onNext: { [weak self] indexPath in
+//
+//            })
+//            .disposed(by: disposed)
     }
     
+    // 开启直播时长，只有5人房房主可见
+    private func startOpenTime(second: Int) {
+        self.addSubview(openTimeView)
+        openTimeView.snp.makeConstraints { make in
+            make.top.equalTo(hostUserView.snp.bottom)
+            make.centerX.equalTo(hostUserView)
+            make.height.equalTo(15)
+        }
+        
+        self.openTimeView.premiereSecond = second
+    }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -169,7 +211,7 @@ extension LQAllMailWeiView: UICollectionViewDelegate, UICollectionViewDelegateFl
 //    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
 //        8
 //    }
-//    
+//
 //    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 //        collectionView.dequeueReusableCell(withClass: LQMaiWeiCell.self, for: indexPath)
 //    }

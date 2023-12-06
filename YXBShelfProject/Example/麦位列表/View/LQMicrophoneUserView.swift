@@ -55,7 +55,7 @@ class LQMicrophoneUserView: UIView {
         }
         
         headerView.headerImageView.layer.cornerRadius = 25.fitScale()
-        headerView.headerImageView.masksToBounds = true
+        headerView.headerImageView.layer.masksToBounds = true
         headerView.snp.makeConstraints { make in
             make.width.height.equalTo(50.fitScale())
             make.center.equalToSuperview()

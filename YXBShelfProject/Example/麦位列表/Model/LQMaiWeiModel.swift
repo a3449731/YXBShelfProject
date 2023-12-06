@@ -7,7 +7,7 @@
 
 import HandyJSON
 
-@objc class LQMaiWeiModel: NSObject {
+@objcMembers class LQMaiWeiModel: NSObject {
     required override init() {}
     /*
      // 201消息推的是整个魅力值，要自己找对应位置拆分出来
@@ -30,7 +30,7 @@ import HandyJSON
     /// 是否房主
     var isFz: Bool?
     /// 是否管理
-    var isAdmin: Bool?
+    var isAdmin: Bool = false
     /// 是否禁言
     var isJy: Bool?
     /// 麦位下标
@@ -89,6 +89,9 @@ import HandyJSON
     // 打平到同一层级
     @objc dynamic var name: String?
     
+    // 需要展示表情的url，在发送表情消息后收到
+    @objc dynamic var emotionUrl: String?
+    
 }
 
 extension LQMaiWeiModel: HandyJSON {
@@ -133,9 +136,9 @@ enum MaiWeiIndex: String, CaseIterable, HandyJSONEnum {
 // 标1,2,3主要是为了给OC用，方便转化，
 enum LQRoomType: String {
     /// 商业房 9人房
-    case merchant_9 = "1"
+    case merchant_9 = "2"
     /// 商业房 5人房
-    case merchant_5 = "2"
+    case merchant_5 = "1"
     /// 个播房，9人，不在首页展示，可搜索到
     case personal = "3"
 }
@@ -158,6 +161,27 @@ enum LQRoomType: String {
 //"isb" : "1",
 //"headKuang" : "https:\/\/lanqi123.oss-cn-beijing.aliyuncs.com\/file\/1699241663797.webp",
 //"caiLevel" : 101
+
+//// 性别
+//public enum SexType: Int, HandyJSONEnum {
+//    case male = 1     // 男
+//    case female = 2   // 女
+//
+//    var defaultHeaderImage: UIImage? {
+//        switch self {
+//        case .male: return UIImage(named: "login_icon_boy")
+//        case .female: return UIImage(named: "login_icon_girl")
+//        }
+//    }
+//
+//    var radarColor: UIColor {
+//        switch self {
+//        case .male: return UIColor(rgb: 0xFD88D7, alpha: 1)
+//        case .female: return UIColor(rgb: 0xFD88D7, alpha: 1)
+//        }
+//    }
+//}
+
 
 // 性别
 public enum SexType: Int, HandyJSONEnum {
