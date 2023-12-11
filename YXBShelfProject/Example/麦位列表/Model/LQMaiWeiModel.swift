@@ -131,6 +131,22 @@ enum MaiWeiIndex: String, CaseIterable, HandyJSONEnum {
         }
     }
     
+    // pk中的序号
+    var pkSort: String? {
+        switch self {
+        case .one: return "1"
+        case .two: return "2"
+        case .three: return "1"
+        case .four: return "2"
+        case .five: return "3"
+        case .six: return "4"
+        case .seven: return "3"
+        case .boss: return "4"
+        default:
+            return nil
+        }
+    }
+    
 }
 
 // 标1,2,3主要是为了给OC用，方便转化，

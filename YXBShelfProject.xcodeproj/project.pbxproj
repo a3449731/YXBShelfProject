@@ -89,6 +89,15 @@
 		6825306B2B11E59B0024EC76 /* LQMaiWeiViewModel+ReceiveMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6825306A2B11E59B0024EC76 /* LQMaiWeiViewModel+ReceiveMessage.swift */; };
 		6847E0712B1F168D00FD3D79 /* LQRoomMaiWeiEmotionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6847E0702B1F168D00FD3D79 /* LQRoomMaiWeiEmotionView.m */; };
 		6847E0732B203D9300FD3D79 /* LQPersonOpenTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6847E0722B203D9300FD3D79 /* LQPersonOpenTimeView.swift */; };
+		6847E0762B2049F000FD3D79 /* LQPKMaiWeiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6847E0752B2049F000FD3D79 /* LQPKMaiWeiView.swift */; };
+		6847E0782B20512C00FD3D79 /* LQPKSortUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6847E0772B20512C00FD3D79 /* LQPKSortUserView.swift */; };
+		6847E07A2B20727500FD3D79 /* LQPKRankView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6847E0792B20727500FD3D79 /* LQPKRankView.swift */; };
+		6847E07C2B20763400FD3D79 /* LQPKRedBlueRateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6847E07B2B20763400FD3D79 /* LQPKRedBlueRateView.swift */; };
+		6847E07E2B21662700FD3D79 /* LQPKTimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6847E07D2B21662700FD3D79 /* LQPKTimerView.swift */; };
+		6847E0802B21743400FD3D79 /* LQPKMaiWeiCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6847E07F2B21743400FD3D79 /* LQPKMaiWeiCell.swift */; };
+		6847E0822B218F0400FD3D79 /* LQPKMaiWeiViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6847E0812B218F0300FD3D79 /* LQPKMaiWeiViewController.swift */; };
+		68E67DE62B246248001CED99 /* pkReadyGo.gif in Resources */ = {isa = PBXBuildFile; fileRef = 68E67DE52B246248001CED99 /* pkReadyGo.gif */; };
+		68E67DE82B246329001CED99 /* PKReadyGifView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68E67DE72B246329001CED99 /* PKReadyGifView.swift */; };
 		68ED52D12B0760D80099F469 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 68ED52D02B0760D80099F469 /* Assets.xcassets */; };
 		68ED52D42B0760D80099F469 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 68ED52D32B0760D80099F469 /* Preview Assets.xcassets */; };
 		68ED52DB2B0761520099F469 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68ED52DA2B0761520099F469 /* AppDelegate.swift */; };
@@ -219,6 +228,15 @@
 		6847E06F2B1F168D00FD3D79 /* LQRoomMaiWeiEmotionView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LQRoomMaiWeiEmotionView.h; sourceTree = "<group>"; };
 		6847E0702B1F168D00FD3D79 /* LQRoomMaiWeiEmotionView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LQRoomMaiWeiEmotionView.m; sourceTree = "<group>"; };
 		6847E0722B203D9300FD3D79 /* LQPersonOpenTimeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LQPersonOpenTimeView.swift; sourceTree = "<group>"; };
+		6847E0752B2049F000FD3D79 /* LQPKMaiWeiView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LQPKMaiWeiView.swift; sourceTree = "<group>"; };
+		6847E0772B20512C00FD3D79 /* LQPKSortUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LQPKSortUserView.swift; sourceTree = "<group>"; };
+		6847E0792B20727500FD3D79 /* LQPKRankView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LQPKRankView.swift; sourceTree = "<group>"; };
+		6847E07B2B20763400FD3D79 /* LQPKRedBlueRateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LQPKRedBlueRateView.swift; sourceTree = "<group>"; };
+		6847E07D2B21662700FD3D79 /* LQPKTimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LQPKTimerView.swift; sourceTree = "<group>"; };
+		6847E07F2B21743400FD3D79 /* LQPKMaiWeiCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LQPKMaiWeiCell.swift; sourceTree = "<group>"; };
+		6847E0812B218F0300FD3D79 /* LQPKMaiWeiViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LQPKMaiWeiViewController.swift; sourceTree = "<group>"; };
+		68E67DE52B246248001CED99 /* pkReadyGo.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = pkReadyGo.gif; sourceTree = "<group>"; };
+		68E67DE72B246329001CED99 /* PKReadyGifView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PKReadyGifView.swift; sourceTree = "<group>"; };
 		68ED52C92B0760D60099F469 /* YXBShelfProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YXBShelfProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		68ED52D02B0760D80099F469 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		68ED52D32B0760D80099F469 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -299,6 +317,7 @@
 				682530012B0C5D8B0024EC76 /* 加载GIF菊花 */,
 				682530042B0C66780024EC76 /* Mask转场动画 */,
 				6825300F2B0CA0A90024EC76 /* 麦位列表 */,
+				6847E0742B20471D00FD3D79 /* 房内PK */,
 				682530122B0D8A110024EC76 /* 飘屏，队列与动画解耦 */,
 			);
 			path = Example;
@@ -554,6 +573,28 @@
 			path = "本来就有的";
 			sourceTree = "<group>";
 		};
+		6847E0742B20471D00FD3D79 /* 房内PK */ = {
+			isa = PBXGroup;
+			children = (
+				6847E0812B218F0300FD3D79 /* LQPKMaiWeiViewController.swift */,
+				6847E0752B2049F000FD3D79 /* LQPKMaiWeiView.swift */,
+				6847E0832B219CD000FD3D79 /* View */,
+			);
+			path = "房内PK";
+			sourceTree = "<group>";
+		};
+		6847E0832B219CD000FD3D79 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				6847E07F2B21743400FD3D79 /* LQPKMaiWeiCell.swift */,
+				6847E07D2B21662700FD3D79 /* LQPKTimerView.swift */,
+				6847E07B2B20763400FD3D79 /* LQPKRedBlueRateView.swift */,
+				6847E0792B20727500FD3D79 /* LQPKRankView.swift */,
+				6847E0772B20512C00FD3D79 /* LQPKSortUserView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		6848DC682B15CC87003BE89D /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -641,6 +682,7 @@
 		68ED53002B0766B50099F469 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				68E67DE52B246248001CED99 /* pkReadyGo.gif */,
 				682530452B109C3D0024EC76 /* micWave.webp */,
 				68252FE82B0B5F5A0024EC76 /* refeshIcon.gif */,
 				68ED52D02B0760D80099F469 /* Assets.xcassets */,
@@ -740,6 +782,7 @@
 				68252FE62B0B5E470024EC76 /* YXBGifRefreshHeader.swift */,
 				68ED530D2B07712A0099F469 /* YXBCountDownButton.swift */,
 				68252FFF2B0C5CD60024EC76 /* LoadingGifView.swift */,
+				68E67DE72B246329001CED99 /* PKReadyGifView.swift */,
 			);
 			path = CustomView;
 			sourceTree = "<group>";
@@ -867,6 +910,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				68252FE92B0B5F5A0024EC76 /* refeshIcon.gif in Resources */,
+				68E67DE62B246248001CED99 /* pkReadyGo.gif in Resources */,
 				68252F7D2B0B15200024EC76 /* readme.txt in Resources */,
 				68ED52D42B0760D80099F469 /* Preview Assets.xcassets in Resources */,
 				682530462B109C3D0024EC76 /* micWave.webp in Resources */,
@@ -925,10 +969,13 @@
 			files = (
 				68ED53292B0772130099F469 /* UIView+YXB.swift in Sources */,
 				68ED53482B0887870099F469 /* APIRouter.swift in Sources */,
+				6847E0782B20512C00FD3D79 /* LQPKSortUserView.swift in Sources */,
 				68252FE52B0B5D4A0024EC76 /* IM+API.swift in Sources */,
 				68252FB32B0B42270024EC76 /* RoomMessageTableView.swift in Sources */,
 				68252FAB2B0B42270024EC76 /* LQMeesageShangMaiCell.swift in Sources */,
+				6847E07E2B21662700FD3D79 /* LQPKTimerView.swift in Sources */,
 				68ED53192B07718F0099F469 /* MyUIFactory.swift in Sources */,
+				6847E07C2B20763400FD3D79 /* LQPKRedBlueRateView.swift in Sources */,
 				68252FD92B0B58770024EC76 /* MSDressCell.swift in Sources */,
 				6825301A2B0DAA610024EC76 /* LQAnimationModel.swift in Sources */,
 				68252F842B0B2D700024EC76 /* PlayVapView.swift in Sources */,
@@ -956,6 +1003,7 @@
 				68252FFC2B0C56950024EC76 /* FileManager+YXB.swift in Sources */,
 				68252FE42B0B5D4A0024EC76 /* MSSystemNoticeVC.swift in Sources */,
 				68252FD12B0B58770024EC76 /* MyDressPreviewView+Protocol.swift in Sources */,
+				6847E0802B21743400FD3D79 /* LQPKMaiWeiCell.swift in Sources */,
 				68ED52DB2B0761520099F469 /* AppDelegate.swift in Sources */,
 				68252F882B0B370E0024EC76 /* RoomPlayViewController.swift in Sources */,
 				68ED53212B0771F90099F469 /* UIFont+Const.swift in Sources */,
@@ -974,6 +1022,7 @@
 				68252FD62B0B58770024EC76 /* MSDressBuyVC.swift in Sources */,
 				68252FB42B0B42270024EC76 /* LQMessageBubbleCell.swift in Sources */,
 				68ED53352B0887740099F469 /* NetworkCode.swift in Sources */,
+				6847E07A2B20727500FD3D79 /* LQPKRankView.swift in Sources */,
 				68252FE32B0B5D4A0024EC76 /* MSSystemNoticeModel.swift in Sources */,
 				6825300C2B0C7B560024EC76 /* ExampleViewController+Mask.swift in Sources */,
 				682530002B0C5CD60024EC76 /* LoadingGifView.swift in Sources */,
@@ -987,9 +1036,11 @@
 				68252FF12B0C4D210024EC76 /* YXBPhotoBrowswer.swift in Sources */,
 				682530142B0D8A3F0024EC76 /* LQAnimationQueue.swift in Sources */,
 				68ED53372B0887740099F469 /* Env.swift in Sources */,
+				6847E0762B2049F000FD3D79 /* LQPKMaiWeiView.swift in Sources */,
 				68252FB52B0B42270024EC76 /* LQOnlyBubbleCell.swift in Sources */,
 				68252FEC2B0B683A0024EC76 /* BannerViewController.swift in Sources */,
 				68ED532B2B0772130099F469 /* UIFont+PingFang.swift in Sources */,
+				68E67DE82B246329001CED99 /* PKReadyGifView.swift in Sources */,
 				68ED532C2B0772130099F469 /* UIButton+YXB.swift in Sources */,
 				68252FB12B0B42270024EC76 /* LQMessageWelcomeCell.swift in Sources */,
 				68252FFE2B0C57EB0024EC76 /* PermissionManager.swift in Sources */,
@@ -1037,6 +1088,7 @@
 				68252FAA2B0B42270024EC76 /* LQMeesageRoomAnnouncCell.swift in Sources */,
 				68ED534A2B0887870099F469 /* LogCustomPlugin.swift in Sources */,
 				68252FBC2B0B43570024EC76 /* HeaderStaticView.swift in Sources */,
+				6847E0822B218F0400FD3D79 /* LQPKMaiWeiViewController.swift in Sources */,
 				68252FDB2B0B596F0024EC76 /* PlayEffectsView.swift in Sources */,
 				68252FB72B0B42270024EC76 /* LQMessageTagsView.swift in Sources */,
 				68252FA62B0B42270024EC76 /* LQMessageModel.swift in Sources */,
@@ -1126,7 +1178,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1278,7 +1330,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1312,7 +1364,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
