@@ -19,6 +19,7 @@ enum ExampleType: String, CaseIterable {
     case mask = "Mask的转场动画"
     case floatScreen = "飘屏，队列与动画解耦"
     case micropphone = "麦位, Rx双向绑定"
+    case pk = "房内pk"
 }
 
 class ExampleViewController: UIViewController {
@@ -98,6 +99,9 @@ extension ExampleViewController: UITableViewDelegate, UITableViewDataSource {
             self.navigationController?.pushViewController(vc, animated: true)
         case .micropphone:
             let vc = LQMaiWeiViewController()
+            self.navigationController?.pushViewController(vc, animated: true)
+        case .pk:            
+            let vc = LQPKMaiWeiViewController()
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }

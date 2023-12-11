@@ -5,7 +5,7 @@
 //  Created by 蓝鳍互娱 on 2023/12/6.
 //
 
-import Foundation
+import UIKit
 
 class LQPKRedBlueRateView: UIView {
     
@@ -65,7 +65,7 @@ class LQPKRedBlueRateView: UIView {
         rate = min(max(rate, 0.1), 0.9)
         let redWidth = ScreenConst.width * rate
         
-        UIView.animate(springDuration: 1) {
+        UIView.animate(withDuration: 1) {
             self.redView.width = redWidth
             self.fireImageView.x = redWidth - self.fireImageView.width / 2
             self.blueView.x = redWidth
