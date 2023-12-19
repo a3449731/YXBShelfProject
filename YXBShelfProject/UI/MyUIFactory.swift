@@ -59,8 +59,8 @@ struct MyUIFactory {
     
     /// 创建UIButton,这样创建节省一点代码行数
     static func commonButton(title: String?, titleColor: UIColor?, titleFont: UIFont?,
-                             image: UIImage?, bgColor: UIColor? = nil) -> UIButton {
-        let btn = UIButton(type: .custom)
+                             image: UIImage?, bgColor: UIColor? = nil) -> YXBBaseButton {
+        let btn = YXBBaseButton(type: .custom)
         btn.preventDoubleTap(interval: 1) // 防止重复点击
         btn.setTitle(title, for: .normal)
         btn.setImage(image, for: .normal)
@@ -77,7 +77,7 @@ struct MyUIFactory {
     static func commonGradientButton(title: String?, titleColor: UIColor?, titleFont: UIFont?,
                              image: UIImage?, bgColor: UIColor? = nil) -> GradientButton {
         let btn = GradientButton(type: .custom)
-        btn.preventDoubleTap(interval: 1) // 防止重复点击
+//        btn.preventDoubleTap(interval: 1) // 防止重复点击
         btn.setTitle(title, for: .normal)
         btn.setImage(image, for: .normal)
         btn.setTitleColor(titleColor, for: .normal)
@@ -133,13 +133,26 @@ extension MyUIFactory {
 }
 
 // MARK: - 防止重复点击
+protocol PreventDoubleTap {
+    func preventDoubleTap(interval: TimeInterval)
+}
+
+extension PreventDoubleTap where Self: YXBBaseButton {
+    func preventDoubleTap(interval: TimeInterval = 1.0) {
+        isPreventingDoubleTap = true
+        DispatchQueue.main.asyncAfter(deadline: .now() + interval) { [weak self] in
+            self?.isPreventingDoubleTap = false
+        }
+    }
+}
+
 /// 使用示例 btn.preventDoubleTap
-private extension UIButton {
-    private struct AssociatedKeys {
+class YXBBaseButton: UIButton, PreventDoubleTap {
+    fileprivate struct AssociatedKeys {
         static var isPreventingDoubleTap = "isPreventingDoubleTap"
     }
     
-    private var isPreventingDoubleTap: Bool {
+    fileprivate var isPreventingDoubleTap: Bool {
         get {
             return objc_getAssociatedObject(self, &AssociatedKeys.isPreventingDoubleTap) as? Bool ?? false
         }
@@ -147,19 +160,13 @@ private extension UIButton {
             objc_setAssociatedObject(self, &AssociatedKeys.isPreventingDoubleTap, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
         }
     }
-        
-    func preventDoubleTap(interval: TimeInterval = 1.0) {
-        isPreventingDoubleTap = true
-        DispatchQueue.main.asyncAfter(deadline: .now() + interval) { [weak self] in
-            self?.isPreventingDoubleTap = false
-        }
-    }
     
-    // 这地方会扩展到所有点击事件
-    open override func sendAction(_ action: Selector, to target: Any?, for event: UIEvent?) {
+    // 这地方会扩展到所有YXBBaseButton点击事件
+    override open func sendAction(_ action: Selector, to target: Any?, for event: UIEvent?) {
         if isPreventingDoubleTap {
             return
         }
         super.sendAction(action, to: target, for: event)
     }
 }
+

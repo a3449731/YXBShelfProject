@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		680985BB2B2B10120061D5C0 /* LQUserAllTagsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680985BA2B2B10120061D5C0 /* LQUserAllTagsView.swift */; };
 		681CE6C42B26D1F60037EA53 /* LQRoomMaiWeiEmotionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 681CE6C32B26D1F60037EA53 /* LQRoomMaiWeiEmotionView.swift */; };
+		681CE6C82B26FFA80037EA53 /* LQPKRedBlueResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 681CE6C72B26FFA80037EA53 /* LQPKRedBlueResultView.swift */; };
 		682066042B16E28700211D98 /* LQMaiWeiProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 682066032B16E28700211D98 /* LQMaiWeiProtocol.swift */; };
 		68252F7D2B0B15200024EC76 /* readme.txt in Resources */ = {isa = PBXBuildFile; fileRef = 68252F7C2B0B15200024EC76 /* readme.txt */; };
 		68252F842B0B2D700024EC76 /* PlayVapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68252F832B0B2D700024EC76 /* PlayVapView.swift */; };
@@ -144,7 +146,9 @@
 /* Begin PBXFileReference section */
 		33E84C5C1F29AE3702F08AC2 /* Pods-YXBShelfProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YXBShelfProject.debug.xcconfig"; path = "Target Support Files/Pods-YXBShelfProject/Pods-YXBShelfProject.debug.xcconfig"; sourceTree = "<group>"; };
 		41AF1471FBF82B1FA0C960B3 /* Pods-YXBShelfProject.staging.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YXBShelfProject.staging.xcconfig"; path = "Target Support Files/Pods-YXBShelfProject/Pods-YXBShelfProject.staging.xcconfig"; sourceTree = "<group>"; };
+		680985BA2B2B10120061D5C0 /* LQUserAllTagsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LQUserAllTagsView.swift; sourceTree = "<group>"; };
 		681CE6C32B26D1F60037EA53 /* LQRoomMaiWeiEmotionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LQRoomMaiWeiEmotionView.swift; sourceTree = "<group>"; };
+		681CE6C72B26FFA80037EA53 /* LQPKRedBlueResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LQPKRedBlueResultView.swift; sourceTree = "<group>"; };
 		682066032B16E28700211D98 /* LQMaiWeiProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LQMaiWeiProtocol.swift; sourceTree = "<group>"; };
 		68252F7C2B0B15200024EC76 /* readme.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = readme.txt; sourceTree = "<group>"; };
 		68252F832B0B2D700024EC76 /* PlayVapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayVapView.swift; sourceTree = "<group>"; };
@@ -359,6 +363,7 @@
 			children = (
 				68252FBB2B0B43570024EC76 /* HeaderStaticView.swift */,
 				68252F8F2B0B42260024EC76 /* HonourTagView.swift */,
+				680985BA2B2B10120061D5C0 /* LQUserAllTagsView.swift */,
 			);
 			path = "本来就有的";
 			sourceTree = "<group>";
@@ -550,12 +555,12 @@
 			isa = PBXGroup;
 			children = (
 				682530152B0DA7EB0024EC76 /* PiaoPingViewController.swift */,
-				6825301B2B0DAA850024EC76 /* LQAnimationProtocol.swift */,
 				682530132B0D8A3F0024EC76 /* LQAnimationQueue.swift */,
 				682530192B0DAA610024EC76 /* LQAnimationModel.swift */,
+				6825301B2B0DAA850024EC76 /* LQAnimationProtocol.swift */,
 				682530172B0DA8690024EC76 /* FloatingScreenView.swift */,
-				6825302F2B0F31AC0024EC76 /* FSNobbleView.swift */,
 				682530312B0F3B930024EC76 /* FSBigGiftView.swift */,
+				6825302F2B0F31AC0024EC76 /* FSNobbleView.swift */,
 			);
 			path = "飘屏，队列与动画解耦";
 			sourceTree = "<group>";
@@ -587,6 +592,7 @@
 				6847E07B2B20763400FD3D79 /* LQPKRedBlueRateView.swift */,
 				6847E0792B20727500FD3D79 /* LQPKRankView.swift */,
 				6847E0772B20512C00FD3D79 /* LQPKSortUserView.swift */,
+				681CE6C72B26FFA80037EA53 /* LQPKRedBlueResultView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -966,6 +972,7 @@
 				68ED53292B0772130099F469 /* UIView+YXB.swift in Sources */,
 				68ED53482B0887870099F469 /* APIRouter.swift in Sources */,
 				6847E0782B20512C00FD3D79 /* LQPKSortUserView.swift in Sources */,
+				680985BB2B2B10120061D5C0 /* LQUserAllTagsView.swift in Sources */,
 				68252FE52B0B5D4A0024EC76 /* IM+API.swift in Sources */,
 				68252FB32B0B42270024EC76 /* RoomMessageTableView.swift in Sources */,
 				68252FAB2B0B42270024EC76 /* LQMeesageShangMaiCell.swift in Sources */,
@@ -978,6 +985,7 @@
 				68ED53142B0771300099F469 /* TwoLineButton.swift in Sources */,
 				68ED53582B0888860099F469 /* User+Const.swift in Sources */,
 				682530082B0C6D830024EC76 /* MaskViewController.swift in Sources */,
+				681CE6C82B26FFA80037EA53 /* LQPKRedBlueResultView.swift in Sources */,
 				68ED53542B0887C60099F469 /* YXBBaseViewController.swift in Sources */,
 				68252FB22B0B42270024EC76 /* LQMeesageAnnouncCell.swift in Sources */,
 				682530062B0C668E0024EC76 /* LJKAudioCallAssistiveTouchView.swift in Sources */,
@@ -1174,7 +1182,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1326,7 +1334,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1360,7 +1368,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

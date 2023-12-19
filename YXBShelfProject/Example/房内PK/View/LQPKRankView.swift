@@ -94,7 +94,7 @@ class LQPKRankView: UIView {
         }
                 
         redRankStack.snp.makeConstraints { make in
-            make.centerY.equalToSuperview()
+            make.centerY.equalToSuperview().offset(4)
             make.left.equalToSuperview().offset(60)
         }
         
@@ -114,8 +114,38 @@ class LQPKRankView: UIView {
         }
         
         blueRankStack.snp.makeConstraints { make in
-            make.centerY.equalToSuperview()
+            make.centerY.equalToSuperview().offset(4)
             make.right.equalToSuperview().offset(-60)
+        }
+    }
+    
+    func updateUI(reds: [LQPKCombatModel.LQPKCombatSortModel], blues: [LQPKCombatModel.LQPKCombatSortModel]) {
+        // 把其他先置空
+        for sortView in redRankStack.arrangedSubviews {
+            if let view = sortView as? LQPKSortUserView {
+                view.headerImageView.image = nil
+            }
+        }
+        for sortView in blueRankStack.arrangedSubviews {
+            if let view = sortView as? LQPKSortUserView {
+                view.headerImageView.image = nil
+            }
+        }
+        
+        // 为红方前三名赋值头像
+        for (index, red) in reds.enumerated() {
+            guard index < 3 else { break } // 最多只处理前三名
+            if let redUserView = redRankStack.arrangedSubviews[index] as? LQPKSortUserView {
+                redUserView.headerImageView.sd_setImage(with: URL(string: red.headImg))
+            }
+        }
+        
+        // 为蓝方前三名赋值头像
+        for (index, blue) in blues.enumerated() {
+            guard index < 3 else { break } // 最多只处理前三名
+            if let blueUserView = blueRankStack.arrangedSubviews[index] as? LQPKSortUserView {
+                blueUserView.headerImageView.sd_setImage(with: URL(string: blue.headImg))
+            }
         }
     }
     

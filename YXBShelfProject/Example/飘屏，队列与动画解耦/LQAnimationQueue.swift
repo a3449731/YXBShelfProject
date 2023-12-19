@@ -38,7 +38,7 @@ import UIKit
 ///
 ///     floatAnimationQueue.playAnimations()
 /// }
-class LQAnimationQueue<T: FloatingBaseView> {
+class LQAnimationQueue<T: FloatingBaseView & LQPlayableAnimation> {
 
     // 数据模型数组
     private var animationArray: [LQAnimationModel] = []
@@ -53,6 +53,9 @@ class LQAnimationQueue<T: FloatingBaseView> {
         }
     }
     
+    init() {}
+    
+    // 设计的失败。会有不同view进行动画
 //    init(playView: T) {
 //        self.playView = playView
 //        self.playView.delegate = self
@@ -119,7 +122,9 @@ class LQAnimationQueue<T: FloatingBaseView> {
         isPlayingAnimation = true
         // 真正的去执行动画
         debugPrint("开始动画")
-        self.playView.start(model: animation)
+        if self.playView != nil {
+            self.playView.start(model: animation)
+        }
     }
     
     // 下一个

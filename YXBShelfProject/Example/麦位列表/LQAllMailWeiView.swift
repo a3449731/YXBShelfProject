@@ -64,7 +64,7 @@ import RxCocoa
     // 房主麦位,直接借用cell，懒得再写赋值代码了
     @objc lazy var hostUserView: LQMaiWeiCell = {
         let contentView = LQMaiWeiCell()
-        contentView.backgroundColor = .cyan
+//        contentView.backgroundColor = .cyan
         contentView.translatesAutoresizingMaskIntoConstraints = false
         contentView.delegate = self
         return contentView
@@ -82,7 +82,7 @@ import RxCocoa
         layout.scrollDirection = .vertical
         layout.minimumLineSpacing = 5.fitScale()
         layout.minimumInteritemSpacing = 5.fitScale()
-        layout.sectionInset = UIEdgeInsets(top: 0, left: 15.fitScale(), bottom: 0, right: 15.fitScale())
+        layout.sectionInset = UIEdgeInsets(top: 5, left: 15.fitScale(), bottom: 0, right: 15.fitScale())
         layout.itemSize = CGSize(width: 78.fitScale(), height: 95.fitScale())
         
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
@@ -136,9 +136,9 @@ import RxCocoa
         }
         
         collectionView.snp.makeConstraints { make in
-            make.top.equalTo(hostUserView.snp.bottom).offset(0)
+            make.top.equalTo(hostUserView.snp.bottom).offset(-5)
             make.left.right.equalToSuperview()
-            make.height.equalTo((190 + 5).fitScale())
+            make.height.equalTo((190 + 5).fitScale() + 5)
         }
     }
     
@@ -170,7 +170,7 @@ import RxCocoa
         viewModel.modelArray_vm
             .bind(to: collectionView.rx.items(cellIdentifier: "LQMaiWeiCell", cellType: LQMaiWeiCell.self)) { [weak self] index, model, cell in
 //                debugPrint("刷新了第\(index)cell")
-                cell.backgroundColor = .cyan
+//                cell.backgroundColor = .cyan
                 cell.setup(model: model)
                 cell.delegate = self
             }

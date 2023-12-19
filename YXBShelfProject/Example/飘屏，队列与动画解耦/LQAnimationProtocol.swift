@@ -32,15 +32,15 @@ private struct Time {
     // 其实时间
     fileprivate static let startTime: CFTimeInterval = 0.000001
     /// 进入的时间
-    fileprivate static let join: CFTimeInterval = 1
+    fileprivate static let join: CFTimeInterval = 2
     /// 停留的时间
-    fileprivate static let stay: CFTimeInterval = 2
+    fileprivate static let stay: CFTimeInterval = 4
     // 离开的起始时间
     fileprivate static var levelStart: CFTimeInterval = {
         join + stay
     }()
     /// 离开的时间
-    fileprivate static let level: CFTimeInterval = 1
+    fileprivate static let level: CFTimeInterval = 2
     // 总时间
     fileprivate static var total: CFTimeInterval = {
         join + level + stay
@@ -85,3 +85,4 @@ extension LQFloatAnimation {
         return groupAnimationAnimation
     }
 }
+

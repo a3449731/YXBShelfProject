@@ -68,7 +68,7 @@ class LQMaiWeiViewController: UIViewController {
         
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        view.backgroundColor = .gray
         self.view.addSubview(nineView)
         nineView.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(ScreenConst.navStatusBarHeight + 10)

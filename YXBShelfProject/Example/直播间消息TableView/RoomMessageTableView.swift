@@ -102,6 +102,24 @@ import HandyJSON
         }
     }
     
+    // 清空所有消息
+    @objc func clearAllMessage() {
+        self.modelArray = []
+        self.tableview.reloadData()
+    }
+    
+    // 清空送礼物消息
+    @objc func clearGiftMessage() {
+        self.modelArray = self.modelArray.filter{ $0.type != .gift }
+        self.tableview.reloadData()
+    }
+    
+    // 清空聊天消息
+    @objc func clearChatMessage() {
+        self.modelArray = self.modelArray.filter{ $0.type != .text && $0.type != .picture }
+        self.tableview.reloadData()
+    }
+    
     // 给OC用的
     @objc func scrollToBoottom(animated: Bool) {
         let lastIndexPath = IndexPath(row: self.modelArray.count - 1, section: 0)

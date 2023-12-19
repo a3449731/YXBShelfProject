@@ -17,6 +17,10 @@ import HandyJSON
     @objc dynamic var meiNum: String?
     /// 这好像没用上
 //    var meiliNum: String?
+    /// 战力值，这是在pk状态下才有值。
+    @objc dynamic var combatValue: String?
+    // pk状态 1未开始 2已开始 3已结束 4异常结束(提前结束)
+    var pkType: String?
     /// 头像
     var uimg: String?
     /// 头像框
@@ -92,6 +96,10 @@ import HandyJSON
     // 需要展示表情的url，在发送表情消息后收到
     @objc dynamic var emotionUrl: String?
     
+    // 给pk的送礼麦位用的，真不想用oc
+    @objc func giftMaiRank_oc() -> Int {
+        self.mai?.giftPkSort ?? 10
+    }
 }
 
 extension LQMaiWeiModel: HandyJSON {
@@ -147,6 +155,20 @@ enum MaiWeiIndex: String, CaseIterable, HandyJSONEnum {
         }
     }
     
+    // 如果是pk状态下的话，在送礼麦位中的排序,
+    var giftPkSort: Int {
+        switch self {
+        case .host: return 9
+        case .one: return 1
+        case .two: return 2
+        case .three: return 5
+        case .four: return 6
+        case .five: return 3
+        case .six: return 4
+        case .seven: return 7
+        case .boss: return 8
+        }
+    }
 }
 
 // 标1,2,3主要是为了给OC用，方便转化，
@@ -197,6 +219,65 @@ enum LQRoomType: String {
 //        }
 //    }
 //}
+
+// PK中的战力值
+/*
+Rtm频道消息:{"campB":"400","dataList":[{"mai":"0","combatValue":"1300","id":"16493c6c81194643b03406269770b16f"},{"mai":"1","combatValue":"1500","id":"85e55d4ff8684c588f4158137653e8c2"},{"mai":"3","combatValue":"200","id":"fd56a01b47f949f5bcb1690d62f4aa8e"}],"type":"210"}
+*/
+class LQPKCombatModel: HandyJSON {
+    /// 类型，应该是210
+    var type: String?
+    /// 红方总战力
+    var campA: Int?
+    /// 蓝方总战力
+    var campB: Int?
+    var dataList: [LQPKCombatValueModel]?
+    // 红方前三
+    var bestContributionA: [LQPKCombatSortModel]?
+    // 蓝方前三
+    var bestContributionB: [LQPKCombatSortModel]?
+    
+    
+    // 调整映射层级
+    func mapping(mapper: HelpingMapper) {
+        mapper <<< self.bestContributionA <-- "data.bestContributionA"
+        mapper <<< self.bestContributionB <-- "data.bestContributionB"
+    }
+    
+    required init() {}
+    
+    // 战力值
+    class LQPKCombatValueModel: HandyJSON {
+        var mai: String?
+        var combatValue: String?
+        var id: String?
+        
+        required init() {}
+    }
+    
+    // 前三头像
+    class LQPKCombatSortModel: HandyJSON {
+        var headImg: String?
+        var fromUserId: String?
+        var currency: String?
+        var userId: String?
+        var camp: Int?
+        
+        required init() {}
+    }
+}
+
+
+class LQMaiWeiMessageModel: HandyJSON {
+    required init() {}
+    
+    var type: String?
+    var mai: String?
+    
+    var maiName: String?
+    var uid: String?
+    var url: String?
+}
 
 
 // 性别

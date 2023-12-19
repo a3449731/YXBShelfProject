@@ -13,7 +13,9 @@ import HandyJSON
 extension LQMaiWeiViewModel {
     
     /// 收到全麦List的消息推送, 重置全麦数据重新配置. 有一个很恶心的事情：9人的房的房主跟着列表一起推送过来了， 而5人房不推房主
-    //    200：上麦，下麦，跳麦 以后都会收到服务器那边推来的麦位信息, 204,收到当前麦位状态推送，另外接口请求的数据结构也与这一模一样。
+    //    200：上麦，下麦，跳麦 以后都会收到服务器那边推来的麦位信息,
+    //    204,收到当前麦位状态推送，另外接口请求的数据结构也与这一模一样。
+    //    211: pk的麦位消息
     @objc func receiveAllMaiListMessage(dic: [String: Any], roomType: String) {
         guard let type = LQRoomType(rawValue: roomType) else {
             debugPrint("xxxxxxxxx 房间类型不合法 xxxxxxxxxxx")
@@ -85,9 +87,9 @@ extension LQMaiWeiViewModel {
             }
         }
         
-        defer {
+//        defer {
             self.modelArray_vm.accept(modelArray)
-        }
+//        }
         
 //        return modelArray
     }
@@ -165,11 +167,11 @@ extension LQMaiWeiViewModel {
     
     // 收到表情消息
     @objc func receiveEmjiomMessage(dic: [String: Any]) {
-        let json = JSON(dic)
-        if let type = json["type"].string,
-           let uid = json["uid"].string,
+        let messageModel = LQMaiWeiMessageModel.deserialize(from: dic)
+        if let type = messageModel?.type,
+           let uid = messageModel?.uid,
            let model = self.findModel(uid: uid),
-           let url = json["url"].string {
+           let url = messageModel?.url {
             if type == "207" {
                 model.emotionUrl = url
             }
@@ -187,9 +189,9 @@ extension LQMaiWeiViewModel {
     */
     // 收到有人开闭麦的消息
     @objc func receiveOpenCloseMaiMessage(dic: [String: Any]) {
-        let json = JSON(dic)
-        if let type = json["type"].string,
-           let mai = json["mai"].string,
+        let messageModel = LQMaiWeiMessageModel.deserialize(from: dic)
+        if let type = messageModel?.type,
+           let mai = messageModel?.mai,
            let model = self.findModel(mai: mai) {
             if type == "7" {
                 model.isb = true
@@ -210,9 +212,9 @@ extension LQMaiWeiViewModel {
      */
     /// 接收锁麦的消息推送
     @objc func receiveLockMaiMessage(dic: [String: Any]) {
-        let json = JSON(dic)
-        if let type = json["type"].string,
-           let mai = json["mai"].string,
+        let messageModel = LQMaiWeiMessageModel.deserialize(from: dic)
+        if let type = messageModel?.type,
+           let mai = messageModel?.mai,
            let model = self.findModel(mai: mai) {
             if type == "20" {
                 model.isMaiWeiLock = true
@@ -232,9 +234,9 @@ extension LQMaiWeiViewModel {
      */
     /// 接收麦位禁言的消息推送
     @objc func receiveMuteMaiMessage(dic: [String: Any]) {
-        let json = JSON(dic)
-        if let type = json["type"].string,
-           let mai = json["mai"].string,
+        let messageModel = LQMaiWeiMessageModel.deserialize(from: dic)
+        if let type = messageModel?.type,
+           let mai = messageModel?.mai,
            let model = self.findModel(mai: mai) {
             if type == "24" {
                 model.isMaiWeiMute = true
@@ -254,12 +256,12 @@ extension LQMaiWeiViewModel {
      */
     /// 接收修改麦位名字的消息推送
     @objc func receiveUpdateMaiNameMessage(dic: [String: Any]) {
-        let json = JSON(dic)
-        if let type = json["type"].string,
-           let mai = json["mai"].string,
+        let messageModel = LQMaiWeiMessageModel.deserialize(from: dic)
+        if let type = messageModel?.type,
+           let mai = messageModel?.mai,
            let model = self.findModel(mai: mai) {
             if type == "29" {
-                let name = json["maiName"].string
+                let name = messageModel?.maiName
                 model.name = name
             }
         }
@@ -315,6 +317,68 @@ extension LQMaiWeiViewModel {
             if roomType == .merchant_5 {
                 self.host_vm.value.meiNum = json["meiNum"].string
             }
+        }
+    }
+    
+    // 210:PK中的:麦位战力值推送，推送的是有人的所有麦位
+    /*
+    {
+        "campA":"3073128",
+        "campB":"0", // 这个值就是5人房 房主的魅力值
+        "dataList":[
+            {
+                "mai":"5",
+                "combatValue":"100",
+                "id":"e4a7c97b69d946c4b93ce44034e93716"
+            },
+            {
+                "mai":"0",
+                "combatValue":"0",
+                "id":"fd56a01b47f949f5bcb1690d62f4aa8e"
+            }
+        ],
+        "type":"210"
+    }
+    */
+    /// 接收pk战力值的消息推送
+    @objc func receiveWar3ListMessage(dic: [String: Any], roomType: String) {
+        guard let type = LQRoomType(rawValue: roomType) else {
+            debugPrint("xxxxxxxxx 房间类型不合法 xxxxxxxxxxx")
+            return
+        }
+        receiveWar3ListMessage(dic: dic, roomType: type)
+    }
+    func receiveWar3ListMessage(dic: [String: Any], roomType: LQRoomType) {
+        
+        if let model = LQPKCombatModel.deserialize(from: dic),
+           model.type == "210" {
+            
+            self.combatModel_vm.accept(model)
+            
+            model.dataList?.forEach({ combatModel in
+                if let mai = combatModel.mai {
+                    // 如果是主持麦
+                    if mai == MaiWeiIndex.host.rawValue {
+                        self.host_vm.value.combatValue = combatModel.combatValue
+                    } else if let model = self.findModel(mai: mai), let war3Value = combatModel.combatValue {
+                        // 非主持麦
+                        model.combatValue = war3Value
+                    }
+                }
+            })
+        }
+    }
+    
+    
+    /// 接收pk前三贡献的消息推送
+    @objc func receiveContribute3Message(dic: [String: Any], roomType: String) {
+        guard let type = LQRoomType(rawValue: roomType) else {
+            debugPrint("xxxxxxxxx 房间类型不合法 xxxxxxxxxxx")
+            return
+        }
+        if let model = LQPKCombatModel.deserialize(from: dic),
+           model.type == "216" {
+            self.combatModel_vm.accept(model)
         }
     }
 }

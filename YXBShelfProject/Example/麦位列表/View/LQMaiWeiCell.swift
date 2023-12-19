@@ -15,7 +15,7 @@ class LQMaiWeiCell: UICollectionViewCell {
     weak var delegate: LQMaiWeiCellDelegate?
     
     // 定义一个DisposeBag用于管理订阅的生命周期
-    private var disposed = DisposeBag()
+    var disposed = DisposeBag()
     // 持有数据
     var model: LQMaiWeiModel?
     
@@ -56,6 +56,8 @@ class LQMaiWeiCell: UICollectionViewCell {
         
         // 这个主持的标志只在主持麦上才有可能展示
         self.maiWeiView.identityImageView.isHidden = true
+        // 这个标志只有老板麦上有人才有
+        self.maiWeiView.userView.tipLabel.isHidden = true
         // 存在用户id的时候
         if let userId = model.id,
            userId.isEmpty == false {
@@ -69,6 +71,8 @@ class LQMaiWeiCell: UICollectionViewCell {
                     self.maiWeiView.identityImageView.isHidden = false
                 }
                 self.maiWeiView.identityImageView.image = UIImage(named: "CUYuYinFang_fanzhuHead")
+            } else if model.mai == .boss {
+                self.maiWeiView.userView.tipLabel.isHidden = false
             } else {
                 self.maiWeiView.sortLabel.isHidden = false
             }
@@ -106,7 +110,7 @@ class LQMaiWeiCell: UICollectionViewCell {
         if model.roomType == .merchant_5 {
             self.maiWeiView.userView.iconButton.setImage(UIImage(named: model.mai?.iconImageName_5 ?? ""), for: .normal)
         } else {
-            let image = self.iconMatch(isLock: model.isMaiWeiLock, isMute: model.isMaiWeiMute, mai: model.mai)
+            let image = self.iconMatch(isLock: model.isMaiWeiLock, isMute: model.isMaiWeiMute, model: model)
             self.maiWeiView.userView.iconButton.setImage(image, for: .normal)
         }
         
@@ -194,7 +198,7 @@ class LQMaiWeiCell: UICollectionViewCell {
             model.rx.observeWeakly(Bool.self, "isMaiWeiMute")
 //                .debug("\(model.mai ?? "")号麦 是否被禁言 \(self)")
                 .subscribe(onNext: { [weak self] isMuted in
-                    let image = self?.iconMatch(isLock: model.isMaiWeiLock, isMute: isMuted, mai: model.mai)
+                    let image = self?.iconMatch(isLock: model.isMaiWeiLock, isMute: isMuted, model: model)
                     self?.maiWeiView.userView.iconButton.setImage(image, for: .normal)
                 })
                 .disposed(by: disposed)
@@ -203,7 +207,7 @@ class LQMaiWeiCell: UICollectionViewCell {
             model.rx.observeWeakly(Bool.self, "isMaiWeiLock")
 //                .debug("\(model.mai ?? "")号麦 是否被关闭 \(self)")
                 .subscribe(onNext: { [weak self] isLock in
-                    let image = self?.iconMatch(isLock: isLock, isMute: model.isMaiWeiMute, mai: model.mai)
+                    let image = self?.iconMatch(isLock: isLock, isMute: model.isMaiWeiMute, model: model)
                     self?.maiWeiView.userView.iconButton.setImage(image, for: .normal)
                 })
                 .disposed(by: disposed)
@@ -211,16 +215,14 @@ class LQMaiWeiCell: UICollectionViewCell {
     }
     
     // 匹配麦位站位图片状态，
-    private func iconMatch(isLock: Bool? = false, isMute: Bool? = false, mai: MaiWeiIndex?) -> UIImage? {
-        // 老板位
-        if mai == .boss {
-            return UIImage(named: "CUYuYinFang_zhibojian_Boss")
-        }
-        
+    func iconMatch(isLock: Bool? = false, isMute: Bool? = false, model: LQMaiWeiModel) -> UIImage? {
         if isLock! {
             return UIImage(named: "CUYuYinFang_zhibojian_shangsuo")
         } else if isMute! {
             return UIImage(named: "CUYuYinFang_zhibojian_bimai")
+        } else if model.mai == .boss {
+            // 老板位
+            return UIImage(named: "CUYuYinFang_zhibojian_Boss")
         } else {
             return UIImage(named: "CUYuYinFang_zhibojian_kongxian")
         }

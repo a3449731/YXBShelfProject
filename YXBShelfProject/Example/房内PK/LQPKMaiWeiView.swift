@@ -14,34 +14,23 @@ import RxCocoa
     
     // 由外界传入,房间的类型。初始化方法中创建
     var roomType: LQRoomType!
-    //  房间的信息，5人房的房主信息需要从里面拼出来,外面是一坨屎，不想写模型了.
-    //  讲道理，这地方只能设置一次才对，不允许设置多次
-    var roomInfo: [String: Any]? {
+    // 房间信息
+    /*
+    var roomInfo: RoomDetailModel? {
         didSet {
-            // 这是为了5人房准备的, 因为5人房的数据是根据房间信息里的几个字段来的
-            if roomInfo != nil, roomType == .merchant_5 {
-                let model = self.viewModel.host_vm.value
-                model.roomType = .merchant_5
-                model.uname = roomInfo?["hname"] as? String
-                model.meiNum = roomInfo?["meiNum"] as? String
-                model.id = roomInfo?["huid"] as? String
-                model.headKuang = roomInfo?["headKuang"] as? String
-                model.uimg = roomInfo?["himg"] as? String
-                if let isb = (roomInfo?["isb"] as? String)?.bool {
-                    model.isb = isb
-                }
-                if let status = roomInfo?["userStatus"] as? [String: Any] {
-                    if let isFz = (status["isFz"] as? String)?.bool {
-                        model.isFz = isFz
-                    }
-                    if let isAdmin = (status["isAdmin"] as? String)?.bool {
-                        model.isAdmin = isAdmin
-                    }
-                }
-                self.viewModel.host_vm.accept(model)
+            guard let info = roomInfo else { return }
+            
+            // 启动倒计时
+            if let pkEndTime = info.pkEndTime {
+                self.timeView.premiereSecond = pkEndTime
             }
+            
+            // 更新战力比
+            self.rateView.updateRate(red: info.campA ?? 0, blue: info.campB ?? 0)
+            self.rankView.updateUI(reds: info.bestContributionA ?? [], blues: info.bestContributionB ?? [])
         }
     }
+    */
     
     weak var delegate: LQPKMailWeiViewDelegate?
     
@@ -51,7 +40,7 @@ import RxCocoa
     // 房主麦位,直接借用cell，懒得再写赋值代码了
     @objc lazy var hostUserView: LQPKMaiWeiCell = {
         let contentView = LQPKMaiWeiCell()
-        contentView.backgroundColor = .cyan
+//        contentView.backgroundColor = .cyan
         contentView.translatesAutoresizingMaskIntoConstraints = false
         contentView.delegate = self
         return contentView
@@ -78,7 +67,7 @@ import RxCocoa
         layout.scrollDirection = .vertical
         layout.minimumLineSpacing = 5.fitScale()
         layout.minimumInteritemSpacing = 5.fitScale()
-        layout.sectionInset = UIEdgeInsets(top: 0, left: 15.fitScale(), bottom: 0, right: 15.fitScale())
+        layout.sectionInset = UIEdgeInsets(top: 5.fitScale(), left: 15.fitScale(), bottom: 0, right: 15.fitScale())
         layout.itemSize = CGSize(width: 78.fitScale(), height: 95.fitScale())
         
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
@@ -100,6 +89,12 @@ import RxCocoa
     // 前三
     lazy var rankView: LQPKRankView = {
         let view = LQPKRankView()
+        return view
+    }()
+    
+    // 结果
+    lazy var resultView: LQPKRedBlueResultView = {
+        let view = LQPKRedBlueResultView()
         return view
     }()
     
@@ -133,7 +128,7 @@ import RxCocoa
     }
     
     private func setupUI() {
-        self.addSubviews([bgImageView, hostUserView, collectionView, timeView, pkIconImageView, rateView, rankView])
+        self.addSubviews([bgImageView, hostUserView, collectionView, timeView, pkIconImageView, rateView, rankView, resultView])
         
         hostUserView.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(10.fitScale())
@@ -148,9 +143,9 @@ import RxCocoa
         }
         
         collectionView.snp.makeConstraints { make in
-            make.top.equalTo(hostUserView.snp.bottom).offset(35.fitScale())
+            make.top.equalTo(hostUserView.snp.bottom).offset(30.fitScale())
             make.left.right.equalToSuperview()
-            make.height.equalTo((190 + 5).fitScale())
+            make.height.equalTo((190 + 5 + 5).fitScale())
         }
                 
         timeView.snp.makeConstraints { make in
@@ -173,11 +168,18 @@ import RxCocoa
             make.left.right.equalToSuperview()
             make.height.equalTo(46)
         }
+        
+        resultView.snp.makeConstraints { make in
+            make.left.right.equalToSuperview()
+            make.centerY.equalTo(collectionView).offset(-10)
+            make.height.equalTo(60.fitScale())
+        }
     }
     
     private func setupTool() {
         self.rx_HostView()
         self.rx_ColletionView()
+        self.rx_RankView()
     }
     
     private func setupData() {
@@ -215,6 +217,28 @@ import RxCocoa
 //
 //            })
 //            .disposed(by: disposed)
+    }
+    
+    private func rx_RankView() {
+        viewModel.combatModel_vm
+            .subscribe(onNext: { [weak self] model in
+                self?.rateView.updateRate(red: model.campA ?? 0, blue: model.campB ?? 0)
+                self?.rankView.updateUI(reds: model.bestContributionA ?? [], blues: model.bestContributionB ?? [])
+            })
+            .disposed(by: disposed)
+    }
+    
+    // 开启倒计时，给OC用的
+    @objc func startTimer(second: Int) {
+        if second != nil {
+            self.timeView.premiereSecond = second
+        }
+    }
+    
+    // 更新结果,给oc用的
+    @objc func show(result: String) {
+        guard let type = LQPKRedBlueResultView.PKRedBlueResult(rawValue: result) else { return }
+        self.resultView.update(result: type)
     }
     
     required init?(coder: NSCoder) {

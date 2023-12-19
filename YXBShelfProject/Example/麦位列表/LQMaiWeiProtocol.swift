@@ -52,7 +52,6 @@ import Foundation
     @objc optional func mailWeiList(didTapCharmView: LQAllMailWeiView, model: LQMaiWeiModel, isHostMai: Bool, roomType: String)
 }
 
-
 // 给tableview留的协议，这是要给oc用的。
 @objc protocol LQPKMailWeiViewDelegate: NSObjectProtocol {
     // 点击了麦位的icon。 isHostMai:表示是否是主持麦。 roomType:房间类型，因为是给OC用就不能用枚举传递了

@@ -25,3 +25,21 @@ extension String {
            }
        }
 }
+
+extension String {
+    // 格式化，随便写的，不配存于世。
+    func formatNumberString() -> String {
+        guard let number = Double(self) else {
+            return "0"
+        }
+        
+        if number > 10000 {
+            // 去尾，保留一位小数
+            let round = (number / 10000).rounded(numberOfDecimalPlaces: 1, rule: .down)
+            let formattedNumber = String(format: "%.1fw", round)
+            return formattedNumber
+        } else {
+            return self
+        }
+    }
+}

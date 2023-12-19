@@ -16,6 +16,7 @@ struct LQAnimationModel: Equatable {
     var scopeFloat: FloatingScreenType.FloatScopeType?
     /// 礼物图片
     var img: String?
+    var giftName: String? //":"相约巴黎",
     /// 礼物数量
     var num: String?
     /// 房间id
@@ -24,10 +25,16 @@ struct LQAnimationModel: Equatable {
     var tippingUser: FloatUserModel?
     /// 被打赏人
     var byTippingUser: FloatUserModel?
+    /// 贵族信息
+    var userData: FloatUserModel?
     /// 用户id
     var id: String?
     /// 昵称
     var nickname: String?
+    /// 活动名称
+    var activityName: String?
+    /// 活动url
+    var activityUrl: String?
     /// 头像
     var headImg: String?
     /// 用户号（有靓号则展示靓号）
@@ -45,7 +52,7 @@ struct LQAnimationModel: Equatable {
     var vipImg: String?
     
     /// 下面是送礼的，起另一个模型就太麻烦了
-    /// floatType 飘屏类型 1礼物飘屏 2贵族升级飘屏 3红包飘屏 4大礼物
+    /// floatType 飘屏类型 1礼物飘屏 2贵族升级飘屏 3红包飘屏 4大礼物 5
     var floatType: FloatingScreenType? //":4,
 //    var houseId: String? //":"50616500",
 //    var headImg: String? //":"https://misheng001-1318856868.cos.ap-nanjing.myqcloud.com/1690792476235.jpg",
@@ -78,12 +85,13 @@ extension LQAnimationModel: HandyJSON {
 }
 
 enum FloatingScreenType: Int, HandyJSONEnum {
-//    floatType 飘屏类型 1礼物飘屏 2贵族升级飘屏 3红包飘屏 4大礼物
+//    floatType 飘屏类型 1礼物飘屏 2贵族升级飘屏 3红包飘屏 4大礼物 5活动飘屏
     // 当为1时候，要和FloatScopeType结合起来，样式不一样
     case gift = 1
     case nobble = 2
     case redPacket = 3
     case bigGift = 4
+    case active = 5    
     
     // 获取底图
     func bgImageName(nobbleLevel: Int, scopeFloat: Int) -> String? {
@@ -100,9 +108,8 @@ enum FloatingScreenType: Int, HandyJSONEnum {
             } else if nobbleLevel == 7 {
                 return "float_nobble_type_7"
             }
-        case .bigGift: return "float_big_type_1"
-        default:
-            return nil
+        case .bigGift, .active: return "float_big_type_1"
+        case .redPacket: return nil
         }
         return nil
     }

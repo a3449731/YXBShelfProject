@@ -18,7 +18,7 @@ enum PKSortResultType {
 class LQPKSortResultUserView: LQPKSortUserView {
     // 积分
     lazy var scoreLabel: UILabel = {
-        let label = MyUIFactory.commonLabel(text: "123", textColor: .titleColor_white, font: UIFont.systemFont(ofSize: 8), textAlignment: .center)
+        let label = MyUIFactory.commonLabel(text: "", textColor: .titleColor_white, font: UIFont.systemFont(ofSize: 8), textAlignment: .center)
         return label
     }()
     
@@ -28,8 +28,13 @@ class LQPKSortResultUserView: LQPKSortUserView {
         return imageView
     }()
     
+    var type: PKSortResultType?
+    var sortResult: PKSortResult
+    
     // 自定义初始化方法，要求PKSortResultType参数，还要PKSortResult参数
     init(sortResult: PKSortResult, type: PKSortResultType? = nil) {
+        self.sortResult = sortResult
+        self.type = type
         super.init(sortResult: sortResult)
         
         if let resultType = type {
@@ -83,7 +88,7 @@ class LQPKSortUserView: UIView {
     
     // 头像
     let headerImageView: UIImageView = {
-        let imageView = MyUIFactory.commonImageView(placeholderImage: nil)
+        let imageView = MyUIFactory.commonImageView(placeholderImage: nil, contentMode: .scaleAspectFill)
         return imageView
     }()
     
@@ -129,7 +134,7 @@ enum PKSortResult {
         
     var borderColor: UIColor {
         switch self {
-        case .first: return UIColor(hex: 0xFFE600)!
+        case .first: return UIColor(hex: 0xFFBE00)!
         case .second: return UIColor(hex: 0xA2A9FF)!
         case .third: return UIColor(hex: 0xFF897F)!
         }

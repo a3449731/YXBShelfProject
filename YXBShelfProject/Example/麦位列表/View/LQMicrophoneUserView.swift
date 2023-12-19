@@ -38,11 +38,19 @@ class LQMicrophoneUserView: UIView {
         view.isHidden = true
         return view
     }()
+    
+    // 提示文字位 -> 如：老板
+    let tipLabel: UILabel = {
+        let label = MyUIFactory.commonLabel(text: "老板", textColor: .titleColor_black, font: UIFont.systemFont(ofSize: 7), textAlignment: .center)
+        label.backgroundColor = UIColor(hex: 0xF5D04B)
+        label.isHidden = true
+        return label
+    }()
             
     // 初始化
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.addSubviews([rippleView, iconButton, headerView, voiceImageView])
+        self.addSubviews([rippleView, iconButton, headerView, voiceImageView, tipLabel])
         
         rippleView.snp.makeConstraints { make in
             make.center.equalToSuperview()
@@ -66,6 +74,16 @@ class LQMicrophoneUserView: UIView {
             make.bottom.equalTo(headerView)
             make.width.height.equalTo(12.fitScale())
         }
+        
+        tipLabel.layer.cornerRadius = 6.fitScale()
+        tipLabel.layer.masksToBounds = true
+        tipLabel.snp.makeConstraints { make in
+            make.centerX.equalTo(headerView)
+            make.bottom.equalTo(headerView)
+            make.width.equalTo(25.fitScale())
+            make.height.equalTo(12.fitScale())
+        }
+        
     }
     
     @objc private func iconButtonAction() {

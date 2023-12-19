@@ -57,12 +57,15 @@ class LQPKRedBlueRateView: UIView {
     }
     
     func updateRate(red: Int, blue: Int) {
+        self.redLabel.text = "\(red)"
+        self.blueLabel.text = "\(blue)"
+        
         if red + blue <= 0 {
             return
         }
         var rate = Double(red) / Double(red + blue)
         // 把rate的范围限定到0.1 ~ 0.9之间， 留一点余地
-        rate = min(max(rate, 0.1), 0.9)
+        rate = min(max(rate, 0.15), 0.85)
         let redWidth = ScreenConst.width * rate
         
         UIView.animate(withDuration: 1) {

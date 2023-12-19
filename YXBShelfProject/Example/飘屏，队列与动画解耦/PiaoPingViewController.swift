@@ -35,14 +35,19 @@ class PiaoPingViewController: UIViewController {
   
         DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
             debugPrint("添加示例")
-            self.add(dic: [:])
+            // MARK: -这个floatType在PreView中没能成功转换成枚举，不知是为什么。在真机中可以
+            let dic: [String: Any] = ["nickname":"张八", "floatType": 4]
+            self.add(dic: dic)
+            
         }
+        
     }
     
     @objc func add(dic: [String: Any]) {
-//        let model = LQAnimationModel.deserialize(from: dic)
-        var model: LQAnimationModel?  = LQAnimationModel()
-        model?.floatType = .gift
+        let model = LQAnimationModel.deserialize(from: dic)
+        debugPrint("转化的模型", model, "如果是你是在PreView中执行的，请忽略，他转换不成功枚举。")
+//        var model: LQAnimationModel?  = LQAnimationModel()
+//        model?.floatType = .gift
                      
         if let model = model,
            let floatType = model.floatType {
@@ -53,7 +58,7 @@ class PiaoPingViewController: UIViewController {
                 floatAnimationQueue.playView = nobbleAnimationView
             case .redPacket:
                 break
-            case .bigGift:
+            case .bigGift, .active:
                 floatAnimationQueue.playView = bigGiftAnimationView
             }
         }
@@ -67,5 +72,17 @@ class PiaoPingViewController: UIViewController {
 }
 
 #Preview {
-    PiaoPingViewController()
+    let vc = PiaoPingViewController()
+    
+//   let tempstring = """
+//    {"gift":{"giftImg":"https://lanqi123.oss-cn-beijing.aliyuncs.com/file/1701507467381.png","giftName":"绮梦星光","num":"1"},"floatType":5,"activityUrl":"https://lanyu.whlqhy.online/jnh/","headImg":"https://lanqi123.oss-cn-beijing.aliyuncs.com/file/1700894442151.webp","nickname":"张八","activityName":"时光扭蛋机","jueName":"帝王","id":"aab8b0b8ac674f98be779144cbccc169","isex":"1","type":"409","scopeFloat":5}
+//"""
+//    
+//    
+//    if let dic = try? tempstring.data(using: .utf8)?.jsonObject() as? [String: Any] {
+//        debugPrint("我要准备添加",dic)
+//        vc.add(dic: dic)
+//    }
+    
+    return vc
 }
