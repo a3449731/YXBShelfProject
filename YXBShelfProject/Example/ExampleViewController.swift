@@ -10,7 +10,7 @@ import UIKit
 enum ExampleType: String, CaseIterable {
     case vap = "vap特效播放，队列播放"
     case message = "消息列表"
-    case dress = "装扮中心"
+    case dress = "装扮中心+MVVM+Rx"
     case mvvm = "MVVM+Rx+MJ加载gif图"
     case banner = "轮播图"
     case browser = "预览图片"
@@ -20,6 +20,7 @@ enum ExampleType: String, CaseIterable {
     case floatScreen = "飘屏，队列与动画解耦"
     case micropphone = "麦位, Rx双向绑定"
     case pk = "房内pk"
+    case dragTableView = "可拖动Cell的TableView"
 }
 
 class ExampleViewController: UIViewController {
@@ -102,6 +103,9 @@ extension ExampleViewController: UITableViewDelegate, UITableViewDataSource {
             self.navigationController?.pushViewController(vc, animated: true)
         case .pk:            
             let vc = LQPKMaiWeiViewController()
+            self.navigationController?.pushViewController(vc, animated: true)
+        case .dragTableView:
+            let vc = DragTableViewController()
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }

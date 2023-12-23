@@ -98,6 +98,7 @@
 		6847E07E2B21662700FD3D79 /* LQPKTimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6847E07D2B21662700FD3D79 /* LQPKTimerView.swift */; };
 		6847E0802B21743400FD3D79 /* LQPKMaiWeiCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6847E07F2B21743400FD3D79 /* LQPKMaiWeiCell.swift */; };
 		6847E0822B218F0400FD3D79 /* LQPKMaiWeiViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6847E0812B218F0300FD3D79 /* LQPKMaiWeiViewController.swift */; };
+		6858F54A2B3186740098DAD7 /* DragTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6858F5492B3186740098DAD7 /* DragTableViewController.swift */; };
 		68E67DE62B246248001CED99 /* pkReadyGo.gif in Resources */ = {isa = PBXBuildFile; fileRef = 68E67DE52B246248001CED99 /* pkReadyGo.gif */; };
 		68E67DE82B246329001CED99 /* PKReadyGifView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68E67DE72B246329001CED99 /* PKReadyGifView.swift */; };
 		68ED52D12B0760D80099F469 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 68ED52D02B0760D80099F469 /* Assets.xcassets */; };
@@ -237,6 +238,7 @@
 		6847E07D2B21662700FD3D79 /* LQPKTimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LQPKTimerView.swift; sourceTree = "<group>"; };
 		6847E07F2B21743400FD3D79 /* LQPKMaiWeiCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LQPKMaiWeiCell.swift; sourceTree = "<group>"; };
 		6847E0812B218F0300FD3D79 /* LQPKMaiWeiViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LQPKMaiWeiViewController.swift; sourceTree = "<group>"; };
+		6858F5492B3186740098DAD7 /* DragTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DragTableViewController.swift; sourceTree = "<group>"; };
 		68E67DE52B246248001CED99 /* pkReadyGo.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = pkReadyGo.gif; sourceTree = "<group>"; };
 		68E67DE72B246329001CED99 /* PKReadyGifView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PKReadyGifView.swift; sourceTree = "<group>"; };
 		68ED52C92B0760D60099F469 /* YXBShelfProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YXBShelfProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -321,6 +323,7 @@
 				6825300F2B0CA0A90024EC76 /* 麦位列表 */,
 				6847E0742B20471D00FD3D79 /* 房内PK */,
 				682530122B0D8A110024EC76 /* 飘屏，队列与动画解耦 */,
+				6858F5482B31863E0098DAD7 /* 可拖动Cell的TableView */,
 			);
 			path = Example;
 			sourceTree = "<group>";
@@ -623,6 +626,14 @@
 				6825303B2B1044A10024EC76 /* LQYinLiangView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		6858F5482B31863E0098DAD7 /* 可拖动Cell的TableView */ = {
+			isa = PBXGroup;
+			children = (
+				6858F5492B3186740098DAD7 /* DragTableViewController.swift */,
+			);
+			path = "可拖动Cell的TableView";
 			sourceTree = "<group>";
 		};
 		68ED52C02B0760D60099F469 = {
@@ -998,6 +1009,7 @@
 				68ED53512B0887870099F469 /* ProgressPlugin.swift in Sources */,
 				68252FD02B0B58770024EC76 /* MSDressBuyViewModel.swift in Sources */,
 				681CE6C42B26D1F60037EA53 /* LQRoomMaiWeiEmotionView.swift in Sources */,
+				6858F54A2B3186740098DAD7 /* DragTableViewController.swift in Sources */,
 				68ED53522B0887870099F469 /* MyMoyaExmple.swift in Sources */,
 				68252FD52B0B58770024EC76 /* MSDressCenterVC.swift in Sources */,
 				6825303E2B1049320024EC76 /* LQMaiWeiView.swift in Sources */,
