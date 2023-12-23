@@ -159,6 +159,8 @@ class DialogViewController: UIViewController {
         segue.presentationStyle = .bottom
         // 弹出的背景模型 interactive:表示能点击背景消失。
         segue.dimMode = .gray(interactive: true)
+        // 设置高度
+        segue.messageView.backgroundHeight = 600
         
         // 边距，需要配合 containment = .background 一起使用才生效
         // 这个会空出安全区
