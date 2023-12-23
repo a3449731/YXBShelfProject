@@ -2,7 +2,7 @@
 //  LQPKRedBlueResultView.swift
 //  CUYuYinFang
 //
-//  Created by 蓝鳍互娱 on 2023/12/11.
+//  Created by yangxiaobin on 2023/12/11.
 //  Copyright © 2023 lixinkeji. All rights reserved.
 //
 

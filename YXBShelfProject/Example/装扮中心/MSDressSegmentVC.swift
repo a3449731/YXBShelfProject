@@ -2,7 +2,7 @@
 //  MSDressSegmentVC.swift
 //  YXBSwiftProject
 //
-//  Created by 蓝鳍互娱 on 2023/10/20.
+//  Created by yangxiaobin on 2023/10/20.
 //  Copyright © 2023 ShengChang. All rights reserved.
 //
 

@@ -2,7 +2,7 @@
 //  My+API.swift
 //  CUYuYinFang
 //
-//  Created by 蓝鳍互娱 on 2023/10/19.
+//  Created by yangxiaobin on 2023/10/19.
 //  Copyright © 2023 lixinkeji. All rights reserved.
 //
 

@@ -2,7 +2,7 @@
 //  MaskViewController.swift
 //  YXBShelfProject
 //
-//  Created by 蓝鳍互娱 on 2023/11/21.
+//  Created by yangxiaobin on 2023/11/21.
 //
 
 import UIKit

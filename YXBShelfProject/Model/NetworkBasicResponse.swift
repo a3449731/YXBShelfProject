@@ -2,7 +2,7 @@
 //  NetworkBasicResponse.swift
 //  YXBSwiftProject
 //
-//  Created by 蓝鳍互娱 on 2023/10/9.
+//  Created by yangxiaobin on 2023/10/9.
 //  Copyright © 2023 ShengChang. All rights reserved.
 //
 

@@ -2,7 +2,7 @@
 //  DialogViewController.swift
 //  YXBShelfProject
 //
-//  Created by 蓝鳍互娱 on 2023/12/23.
+//  Created by yangxiaobin on 2023/12/23.
 //
 
 import UIKit

@@ -2,7 +2,7 @@
 //  UIView+YYAdd.swift
 //  CUYuYinFang
 //
-//  Created by 蓝鳍互娱 on 2023/11/11.
+//  Created by yangxiaobin on 2023/11/11.
 //  Copyright © 2023 lixinkeji. All rights reserved.
 //
 

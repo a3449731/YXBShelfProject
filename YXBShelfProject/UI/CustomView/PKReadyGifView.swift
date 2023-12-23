@@ -2,7 +2,7 @@
 //  PKReadyGifView.swift
 //  YXBShelfProject
 //
-//  Created by 蓝鳍互娱 on 2023/12/9.
+//  Created by yangxiaobin on 2023/12/9.
 //
 
 import UIKit

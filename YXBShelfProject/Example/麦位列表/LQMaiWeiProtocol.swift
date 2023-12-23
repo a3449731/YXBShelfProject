@@ -2,7 +2,7 @@
 //  LQMaiWeiProtocol.swift
 //  YXBShelfProject
 //
-//  Created by 蓝鳍互娱 on 2023/11/29.
+//  Created by yangxiaobin on 2023/11/29.
 //
 
 import Foundation

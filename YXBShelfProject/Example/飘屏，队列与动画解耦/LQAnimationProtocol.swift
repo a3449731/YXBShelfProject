@@ -2,7 +2,7 @@
 //  LQAnimationProtocol.swift
 //  YXBShelfProject
 //
-//  Created by 蓝鳍互娱 on 2023/11/22.
+//  Created by yangxiaobin on 2023/11/22.
 //
 
 // 抽离的协议，Swift协议。遵守了此协议的对象，就可以使用LQAnimationQueue队列来播放动画
