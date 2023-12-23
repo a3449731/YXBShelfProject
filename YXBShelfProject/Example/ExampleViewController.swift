@@ -21,6 +21,7 @@ enum ExampleType: String, CaseIterable {
     case micropphone = "麦位, Rx双向绑定"
     case pk = "房内pk"
     case dragTableView = "可拖动Cell的TableView"
+    case dialog = "消息弹窗SwiftMessage"
 }
 
 class ExampleViewController: UIViewController {
@@ -107,6 +108,9 @@ extension ExampleViewController: UITableViewDelegate, UITableViewDataSource {
         case .dragTableView:
             let vc = DragTableViewController()
             self.navigationController?.pushViewController(vc, animated: true)
+        case .dialog:
+            let vc = DialogViewController()
+            self.navigationController?.pushViewController(vc, animated: true)            
         }
     }
 }

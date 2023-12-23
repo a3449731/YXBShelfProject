@@ -29,6 +29,17 @@ target 'YXBShelfProject' do
   pod 'MBProgressHUD'
     
 
+  # 有很多很多转圈加载样式
+  #  pod 'NVActivityIndicatorView'
+  #  # 这是封装apple内购库，待了解
+  #  pod 'SwiftyStoreKit'
+  #  # Swipeable UITableViewCell/UICollectionViewCell based on the stock Mail.app, implemented in Swift.
+  #  pod 'SwipeCellKit'
+  #  # 日志打印库
+  #  pod 'SwiftyBeaver'
+  #  # 做表单比较方便,还没研究。
+  #  pod 'Eureka'
+
 # 本地源码依赖库
 def loaclPods
 # 配置环境，测试下的  
@@ -80,6 +91,12 @@ def DownLoad
   pod 'Tiercel'
 end
 
+# 弹消息
+def AlertMessage
+  # 消息弹窗，弹view很方便。 也可以支持弹控制器，还没研究。
+  pod 'SwiftMessages'
+end
+
 # 为了示例所需要的,按需导入
 def example
   MyDress()
@@ -89,6 +106,7 @@ def example
   Banner()
   Preview()
   DownLoad()
+  AlertMessage()
 end
 example()
 
