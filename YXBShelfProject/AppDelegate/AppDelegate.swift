@@ -33,6 +33,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func allApplicationCofing() -> Void {
 //        self.setupDebugTool()
         self.setupSDWebImage()
+        self.setupLogConfig()                
     }
     
     func setupMainViewController() {

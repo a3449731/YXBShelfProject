@@ -101,6 +101,7 @@
 		6847E0802B21743400FD3D79 /* LQPKMaiWeiCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6847E07F2B21743400FD3D79 /* LQPKMaiWeiCell.swift */; };
 		6847E0822B218F0400FD3D79 /* LQPKMaiWeiViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6847E0812B218F0300FD3D79 /* LQPKMaiWeiViewController.swift */; };
 		6858F54A2B3186740098DAD7 /* DragTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6858F5492B3186740098DAD7 /* DragTableViewController.swift */; };
+		68D4859C2B3822BA0086E336 /* AppDelegate+SwiftyBeaver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68D4859B2B3822BA0086E336 /* AppDelegate+SwiftyBeaver.swift */; };
 		68E67DE62B246248001CED99 /* pkReadyGo.gif in Resources */ = {isa = PBXBuildFile; fileRef = 68E67DE52B246248001CED99 /* pkReadyGo.gif */; };
 		68E67DE82B246329001CED99 /* PKReadyGifView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68E67DE72B246329001CED99 /* PKReadyGifView.swift */; };
 		68ED52D12B0760D80099F469 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 68ED52D02B0760D80099F469 /* Assets.xcassets */; };
@@ -243,6 +244,7 @@
 		6847E07F2B21743400FD3D79 /* LQPKMaiWeiCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LQPKMaiWeiCell.swift; sourceTree = "<group>"; };
 		6847E0812B218F0300FD3D79 /* LQPKMaiWeiViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LQPKMaiWeiViewController.swift; sourceTree = "<group>"; };
 		6858F5492B3186740098DAD7 /* DragTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DragTableViewController.swift; sourceTree = "<group>"; };
+		68D4859B2B3822BA0086E336 /* AppDelegate+SwiftyBeaver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+SwiftyBeaver.swift"; sourceTree = "<group>"; };
 		68E67DE52B246248001CED99 /* pkReadyGo.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = pkReadyGo.gif; sourceTree = "<group>"; };
 		68E67DE72B246329001CED99 /* PKReadyGifView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PKReadyGifView.swift; sourceTree = "<group>"; };
 		68ED52C92B0760D60099F469 /* YXBShelfProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YXBShelfProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -702,6 +704,7 @@
 				68ED52DA2B0761520099F469 /* AppDelegate.swift */,
 				68ED53592B088DA00099F469 /* AppDelegate+DBDebugTool.swift */,
 				682530392B1040BE0024EC76 /* AppDelegate+SDWebImage.swift */,
+				68D4859B2B3822BA0086E336 /* AppDelegate+SwiftyBeaver.swift */,
 			);
 			path = AppDelegate;
 			sourceTree = "<group>";
@@ -1066,6 +1069,7 @@
 				68ED534E2B0887870099F469 /* LogPlugin.swift in Sources */,
 				682530422B108E780024EC76 /* LQMaiWeiViewController.swift in Sources */,
 				68252FF12B0C4D210024EC76 /* YXBPhotoBrowswer.swift in Sources */,
+				68D4859C2B3822BA0086E336 /* AppDelegate+SwiftyBeaver.swift in Sources */,
 				680FAD3E2B372C66004A7C38 /* TestDialogViewController.swift in Sources */,
 				682530142B0D8A3F0024EC76 /* LQAnimationQueue.swift in Sources */,
 				68ED53372B0887740099F469 /* Env.swift in Sources */,

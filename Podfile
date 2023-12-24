@@ -28,6 +28,8 @@ target 'YXBShelfProject' do
   #pod 'SVProgressHUD'
   pod 'MBProgressHUD'
     
+  # 日志打印库,可惜2023.06.30停止了维护. 可以考虑使用CocoaLumberjack 或者 Fabric代替。
+  pod 'SwiftyBeaver'
 
   # 有很多很多转圈加载样式
   #  pod 'NVActivityIndicatorView'
@@ -35,8 +37,7 @@ target 'YXBShelfProject' do
   #  pod 'SwiftyStoreKit'
   #  # Swipeable UITableViewCell/UICollectionViewCell based on the stock Mail.app, implemented in Swift.
   #  pod 'SwipeCellKit'
-  #  # 日志打印库
-  #  pod 'SwiftyBeaver'
+
   #  # 做表单比较方便,还没研究。
   #  pod 'Eureka'
 

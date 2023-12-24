@@ -159,8 +159,6 @@ class DialogViewController: UIViewController {
         segue.presentationStyle = .bottom
         // 弹出的背景模型 interactive:表示能点击背景消失。
         segue.dimMode = .gray(interactive: true)
-        // 设置高度
-        segue.messageView.backgroundHeight = 600
         
         // 边距，需要配合 containment = .background 一起使用才生效
         // 这个会空出安全区
@@ -177,12 +175,15 @@ class DialogViewController: UIViewController {
                 
         // 添加默认阴影
         segue.messageView.configureDropShadow()
-        
+                
         // Change the corner radius
         segue.containerView.cornerRadius = 20
         
         // 该类KeyboardTrackingView可用于在键盘距离太近时使消息视图通过向上滑动来避开键盘。
         segue.keyboardTrackingView = KeyboardTrackingView()
+        
+        // 设置高度
+        segue.messageView.backgroundHeight = 600
         
         // 弹出
         segue.perform()
@@ -217,5 +218,4 @@ class DialogViewController: UIViewController {
 
 #Preview {
     DialogViewController()
-    
 }
