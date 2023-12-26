@@ -22,6 +22,7 @@ enum ExampleType: String, CaseIterable {
     case pk = "房内pk"
     case dragTableView = "可拖动Cell的TableView"
     case dialog = "消息弹窗SwiftMessage"
+    case db = "realm 数据库"
 }
 
 class ExampleViewController: UIViewController {
@@ -110,7 +111,10 @@ extension ExampleViewController: UITableViewDelegate, UITableViewDataSource {
             self.navigationController?.pushViewController(vc, animated: true)
         case .dialog:
             let vc = DialogViewController()
-            self.navigationController?.pushViewController(vc, animated: true)            
+            self.navigationController?.pushViewController(vc, animated: true) 
+        case .db:
+            let vc = RealmViewController()
+            self.navigationController?.pushViewController(vc, animated: true)
         }
     }
 }

@@ -98,6 +98,12 @@ def AlertMessage
   pod 'SwiftMessages'
 end
 
+# 数据库
+def SQData
+  # realm的数据库，与安卓可以通用。
+  pod 'RealmSwift'
+end
+
 # 为了示例所需要的,按需导入
 def example
   MyDress()
@@ -108,6 +114,7 @@ def example
   Preview()
   DownLoad()
   AlertMessage()
+  SQData()
 end
 example()
 
