@@ -104,6 +104,12 @@ def SQData
   pod 'RealmSwift'
 end
 
+# 图表
+def Charts
+  # 图表库，安卓也有相似的 MPAndroidChart
+  pod 'DGCharts'
+end
+
 # 为了示例所需要的,按需导入
 def example
   MyDress()
@@ -115,6 +121,7 @@ def example
   DownLoad()
   AlertMessage()
   SQData()
+  Charts()
 end
 example()
 

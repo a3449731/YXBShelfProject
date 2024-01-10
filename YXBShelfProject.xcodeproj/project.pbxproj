@@ -146,6 +146,8 @@
 		68ED535E2B08C1B80099F469 /* IPNRSAUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68ED535D2B08C1B80099F469 /* IPNRSAUtil.swift */; };
 		68F483182B3A6376001C0EB1 /* RealmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68F483172B3A6376001C0EB1 /* RealmViewController.swift */; };
 		68F4831A2B3A6A6F001C0EB1 /* ReamlModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68F483192B3A6A6F001C0EB1 /* ReamlModel.swift */; };
+		68F4831F2B3AD448001C0EB1 /* ChartsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68F4831E2B3AD448001C0EB1 /* ChartsViewController.swift */; };
+		68F483232B3AD669001C0EB1 /* BillBarChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68F483222B3AD669001C0EB1 /* BillBarChartView.swift */; };
 		8EE63CAC2BA993086660B981 /* libPods-YXBShelfProject.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DEFD9847B1C5B3D5D2748B2E /* libPods-YXBShelfProject.a */; };
 /* End PBXBuildFile section */
 
@@ -293,6 +295,8 @@
 		68ED535D2B08C1B80099F469 /* IPNRSAUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IPNRSAUtil.swift; sourceTree = "<group>"; };
 		68F483172B3A6376001C0EB1 /* RealmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmViewController.swift; sourceTree = "<group>"; };
 		68F483192B3A6A6F001C0EB1 /* ReamlModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReamlModel.swift; sourceTree = "<group>"; };
+		68F4831E2B3AD448001C0EB1 /* ChartsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartsViewController.swift; sourceTree = "<group>"; };
+		68F483222B3AD669001C0EB1 /* BillBarChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillBarChartView.swift; sourceTree = "<group>"; };
 		6BDE22C351AFDE9FE70F1451 /* Pods-YXBShelfProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YXBShelfProject.release.xcconfig"; path = "Target Support Files/Pods-YXBShelfProject/Pods-YXBShelfProject.release.xcconfig"; sourceTree = "<group>"; };
 		DEFD9847B1C5B3D5D2748B2E /* libPods-YXBShelfProject.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-YXBShelfProject.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -345,6 +349,7 @@
 				6858F5482B31863E0098DAD7 /* 可拖动Cell的TableView */,
 				680FAD3A2B372C1B004A7C38 /* 消息弹窗SwiftMeesage */,
 				68F483162B3A634A001C0EB1 /* 数据库Realm */,
+				68F4831D2B3AD429001C0EB1 /* 图表Charts */,
 			);
 			path = Example;
 			sourceTree = "<group>";
@@ -874,6 +879,15 @@
 			path = "数据库Realm";
 			sourceTree = "<group>";
 		};
+		68F4831D2B3AD429001C0EB1 /* 图表Charts */ = {
+			isa = PBXGroup;
+			children = (
+				68F4831E2B3AD448001C0EB1 /* ChartsViewController.swift */,
+				68F483222B3AD669001C0EB1 /* BillBarChartView.swift */,
+			);
+			path = "图表Charts";
+			sourceTree = "<group>";
+		};
 		B3DBF970E717B82DEF610987 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -1026,6 +1040,7 @@
 				68F483182B3A6376001C0EB1 /* RealmViewController.swift in Sources */,
 				6825301A2B0DAA610024EC76 /* LQAnimationModel.swift in Sources */,
 				68252F842B0B2D700024EC76 /* PlayVapView.swift in Sources */,
+				68F4831F2B3AD448001C0EB1 /* ChartsViewController.swift in Sources */,
 				68ED53142B0771300099F469 /* TwoLineButton.swift in Sources */,
 				68ED53582B0888860099F469 /* User+Const.swift in Sources */,
 				682530082B0C6D830024EC76 /* MaskViewController.swift in Sources */,
@@ -1126,6 +1141,7 @@
 				682530182B0DA8690024EC76 /* FloatingScreenView.swift in Sources */,
 				68ED53562B08882D0099F469 /* YXBImageCache.swift in Sources */,
 				68ED534C2B0887870099F469 /* CachePlugin.swift in Sources */,
+				68F483232B3AD669001C0EB1 /* BillBarChartView.swift in Sources */,
 				6847E0732B203D9300FD3D79 /* LQPersonOpenTimeView.swift in Sources */,
 				68252FD22B0B58770024EC76 /* MSDressPreviewView.swift in Sources */,
 				682530382B1032D80024EC76 /* LQMicrophoneUserView.swift in Sources */,
