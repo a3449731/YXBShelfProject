@@ -1,0 +1,23 @@
+[
+    {
+        "action": "bullet",
+        "image": "gn_list_check",
+        "selectImage": "gn_list_check_light",
+    },
+    {
+        "action": "ordered",
+        "image": "gn_list_ordered",
+        "selectImage": "gn_list_ordered_light",
+    },
+    {
+        "action": "br",
+        "image": "gn_divider",
+        "selectImage": "gn_divider",
+    },
+
+    {
+        "action": "image",
+        "image": "gn_more",
+        "selectImage": "gn_more",
+    }
+]

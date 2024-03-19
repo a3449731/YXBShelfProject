@@ -101,6 +101,23 @@
 		6847E0802B21743400FD3D79 /* LQPKMaiWeiCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6847E07F2B21743400FD3D79 /* LQPKMaiWeiCell.swift */; };
 		6847E0822B218F0400FD3D79 /* LQPKMaiWeiViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6847E0812B218F0300FD3D79 /* LQPKMaiWeiViewController.swift */; };
 		6858F54A2B3186740098DAD7 /* DragTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6858F5492B3186740098DAD7 /* DragTableViewController.swift */; };
+		6896E79B2BA9D73D00432438 /* GNWeakScriptMessageDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6896E78C2BA9D73D00432438 /* GNWeakScriptMessageDelegate.swift */; };
+		6896E79C2BA9D73D00432438 /* GNRichEditorWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6896E78D2BA9D73D00432438 /* GNRichEditorWebView.swift */; };
+		6896E79D2BA9D73D00432438 /* QuillJs.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 6896E78E2BA9D73D00432438 /* QuillJs.bundle */; };
+		6896E79E2BA9D73D00432438 /* EditAction.json in Resources */ = {isa = PBXBuildFile; fileRef = 6896E7902BA9D73D00432438 /* EditAction.json */; };
+		6896E79F2BA9D73D00432438 /* GNMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6896E7912BA9D73D00432438 /* GNMenuView.swift */; };
+		6896E7A02BA9D73D00432438 /* GNEditToolBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6896E7922BA9D73D00432438 /* GNEditToolBar.swift */; };
+		6896E7A12BA9D73D00432438 /* GroupNoticeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6896E7942BA9D73D00432438 /* GroupNoticeViewController.swift */; };
+		6896E7A22BA9D73D00432438 /* GroupNoticeBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6896E7952BA9D73D00432438 /* GroupNoticeBaseViewController.swift */; };
+		6896E7A32BA9D73D00432438 /* GroupNoticeViewController+ToolBarEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6896E7962BA9D73D00432438 /* GroupNoticeViewController+ToolBarEvent.swift */; };
+		6896E7A42BA9D73D00432438 /* GroupNoticePreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6896E7972BA9D73D00432438 /* GroupNoticePreviewViewController.swift */; };
+		6896E7A52BA9D73D00432438 /* GroupNoticeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6896E7992BA9D73D00432438 /* GroupNoticeModel.swift */; };
+		6896E7A62BA9D73D00432438 /* GroupNoticeFileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6896E79A2BA9D73D00432438 /* GroupNoticeFileCell.swift */; };
+		6896E7A82BA9DB2C00432438 /* YXBDocumentPickerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6896E7A72BA9DB2C00432438 /* YXBDocumentPickerPresenter.swift */; };
+		6896E7AB2BA9DB6B00432438 /* YXBUTI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6896E7A92BA9DB6B00432438 /* YXBUTI.swift */; };
+		6896E7AC2BA9DB6B00432438 /* UTI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6896E7AA2BA9DB6B00432438 /* UTI.swift */; };
+		6896E7AF2BA9E0AC00432438 /* YXBRoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6896E7AE2BA9E0AB00432438 /* YXBRoom.swift */; };
+		6896E7B12BA9E1AF00432438 /* QuillViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6896E7B02BA9E1AF00432438 /* QuillViewController.swift */; };
 		68D4859C2B3822BA0086E336 /* AppDelegate+SwiftyBeaver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68D4859B2B3822BA0086E336 /* AppDelegate+SwiftyBeaver.swift */; };
 		68E67DE62B246248001CED99 /* pkReadyGo.gif in Resources */ = {isa = PBXBuildFile; fileRef = 68E67DE52B246248001CED99 /* pkReadyGo.gif */; };
 		68E67DE82B246329001CED99 /* PKReadyGifView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68E67DE72B246329001CED99 /* PKReadyGifView.swift */; };
@@ -248,6 +265,23 @@
 		6847E07F2B21743400FD3D79 /* LQPKMaiWeiCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LQPKMaiWeiCell.swift; sourceTree = "<group>"; };
 		6847E0812B218F0300FD3D79 /* LQPKMaiWeiViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LQPKMaiWeiViewController.swift; sourceTree = "<group>"; };
 		6858F5492B3186740098DAD7 /* DragTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DragTableViewController.swift; sourceTree = "<group>"; };
+		6896E78C2BA9D73D00432438 /* GNWeakScriptMessageDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GNWeakScriptMessageDelegate.swift; sourceTree = "<group>"; };
+		6896E78D2BA9D73D00432438 /* GNRichEditorWebView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GNRichEditorWebView.swift; sourceTree = "<group>"; };
+		6896E78E2BA9D73D00432438 /* QuillJs.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = QuillJs.bundle; sourceTree = "<group>"; };
+		6896E7902BA9D73D00432438 /* EditAction.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = EditAction.json; sourceTree = "<group>"; };
+		6896E7912BA9D73D00432438 /* GNMenuView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GNMenuView.swift; sourceTree = "<group>"; };
+		6896E7922BA9D73D00432438 /* GNEditToolBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GNEditToolBar.swift; sourceTree = "<group>"; };
+		6896E7942BA9D73D00432438 /* GroupNoticeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupNoticeViewController.swift; sourceTree = "<group>"; };
+		6896E7952BA9D73D00432438 /* GroupNoticeBaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupNoticeBaseViewController.swift; sourceTree = "<group>"; };
+		6896E7962BA9D73D00432438 /* GroupNoticeViewController+ToolBarEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GroupNoticeViewController+ToolBarEvent.swift"; sourceTree = "<group>"; };
+		6896E7972BA9D73D00432438 /* GroupNoticePreviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupNoticePreviewViewController.swift; sourceTree = "<group>"; };
+		6896E7992BA9D73D00432438 /* GroupNoticeModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupNoticeModel.swift; sourceTree = "<group>"; };
+		6896E79A2BA9D73D00432438 /* GroupNoticeFileCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupNoticeFileCell.swift; sourceTree = "<group>"; };
+		6896E7A72BA9DB2C00432438 /* YXBDocumentPickerPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YXBDocumentPickerPresenter.swift; sourceTree = "<group>"; };
+		6896E7A92BA9DB6B00432438 /* YXBUTI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YXBUTI.swift; sourceTree = "<group>"; };
+		6896E7AA2BA9DB6B00432438 /* UTI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UTI.swift; sourceTree = "<group>"; };
+		6896E7AE2BA9E0AB00432438 /* YXBRoom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YXBRoom.swift; sourceTree = "<group>"; };
+		6896E7B02BA9E1AF00432438 /* QuillViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuillViewController.swift; sourceTree = "<group>"; };
 		68D4859B2B3822BA0086E336 /* AppDelegate+SwiftyBeaver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+SwiftyBeaver.swift"; sourceTree = "<group>"; };
 		68E67DE52B246248001CED99 /* pkReadyGo.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = pkReadyGo.gif; sourceTree = "<group>"; };
 		68E67DE72B246329001CED99 /* PKReadyGifView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PKReadyGifView.swift; sourceTree = "<group>"; };
@@ -350,6 +384,7 @@
 				680FAD3A2B372C1B004A7C38 /* 消息弹窗SwiftMeesage */,
 				68F483162B3A634A001C0EB1 /* 数据库Realm */,
 				68F4831D2B3AD429001C0EB1 /* 图表Charts */,
+				6896E78A2BA9D70500432438 /* 富文本Quill */,
 			);
 			path = Example;
 			sourceTree = "<group>";
@@ -662,6 +697,70 @@
 			path = "可拖动Cell的TableView";
 			sourceTree = "<group>";
 		};
+		6896E78A2BA9D70500432438 /* 富文本Quill */ = {
+			isa = PBXGroup;
+			children = (
+				6896E7B02BA9E1AF00432438 /* QuillViewController.swift */,
+				6896E7AD2BA9E09300432438 /* Tool */,
+				6896E7982BA9D73D00432438 /* Model */,
+				6896E7932BA9D73D00432438 /* ViewController */,
+				6896E78F2BA9D73D00432438 /* Toolbar */,
+				6896E78B2BA9D73D00432438 /* WebView */,
+			);
+			path = "富文本Quill";
+			sourceTree = "<group>";
+		};
+		6896E78B2BA9D73D00432438 /* WebView */ = {
+			isa = PBXGroup;
+			children = (
+				6896E78C2BA9D73D00432438 /* GNWeakScriptMessageDelegate.swift */,
+				6896E78D2BA9D73D00432438 /* GNRichEditorWebView.swift */,
+				6896E78E2BA9D73D00432438 /* QuillJs.bundle */,
+			);
+			path = WebView;
+			sourceTree = "<group>";
+		};
+		6896E78F2BA9D73D00432438 /* Toolbar */ = {
+			isa = PBXGroup;
+			children = (
+				6896E7902BA9D73D00432438 /* EditAction.json */,
+				6896E7912BA9D73D00432438 /* GNMenuView.swift */,
+				6896E7922BA9D73D00432438 /* GNEditToolBar.swift */,
+			);
+			path = Toolbar;
+			sourceTree = "<group>";
+		};
+		6896E7932BA9D73D00432438 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				6896E7952BA9D73D00432438 /* GroupNoticeBaseViewController.swift */,
+				6896E7972BA9D73D00432438 /* GroupNoticePreviewViewController.swift */,
+				6896E7942BA9D73D00432438 /* GroupNoticeViewController.swift */,
+				6896E7962BA9D73D00432438 /* GroupNoticeViewController+ToolBarEvent.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		6896E7982BA9D73D00432438 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				6896E7992BA9D73D00432438 /* GroupNoticeModel.swift */,
+				6896E79A2BA9D73D00432438 /* GroupNoticeFileCell.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		6896E7AD2BA9E09300432438 /* Tool */ = {
+			isa = PBXGroup;
+			children = (
+				6896E7A72BA9DB2C00432438 /* YXBDocumentPickerPresenter.swift */,
+				6896E7A92BA9DB6B00432438 /* YXBUTI.swift */,
+				6896E7AA2BA9DB6B00432438 /* UTI.swift */,
+				6896E7AE2BA9E0AB00432438 /* YXBRoom.swift */,
+			);
+			path = Tool;
+			sourceTree = "<group>";
+		};
 		68ED52C02B0760D60099F469 = {
 			isa = PBXGroup;
 			children = (
@@ -968,7 +1067,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				68252FE92B0B5F5A0024EC76 /* refeshIcon.gif in Resources */,
+				6896E79D2BA9D73D00432438 /* QuillJs.bundle in Resources */,
 				68E67DE62B246248001CED99 /* pkReadyGo.gif in Resources */,
+				6896E79E2BA9D73D00432438 /* EditAction.json in Resources */,
 				68252F7D2B0B15200024EC76 /* readme.txt in Resources */,
 				68ED52D42B0760D80099F469 /* Preview Assets.xcassets in Resources */,
 				682530462B109C3D0024EC76 /* micWave.webp in Resources */,
@@ -1042,6 +1143,7 @@
 				68252F842B0B2D700024EC76 /* PlayVapView.swift in Sources */,
 				68F4831F2B3AD448001C0EB1 /* ChartsViewController.swift in Sources */,
 				68ED53142B0771300099F469 /* TwoLineButton.swift in Sources */,
+				6896E7A52BA9D73D00432438 /* GroupNoticeModel.swift in Sources */,
 				68ED53582B0888860099F469 /* User+Const.swift in Sources */,
 				682530082B0C6D830024EC76 /* MaskViewController.swift in Sources */,
 				681CE6C82B26FFA80037EA53 /* LQPKRedBlueResultView.swift in Sources */,
@@ -1067,7 +1169,9 @@
 				68252FD82B0B58770024EC76 /* MSDressBuyCell.swift in Sources */,
 				68252FFC2B0C56950024EC76 /* FileManager+YXB.swift in Sources */,
 				68252FE42B0B5D4A0024EC76 /* MSSystemNoticeVC.swift in Sources */,
+				6896E79B2BA9D73D00432438 /* GNWeakScriptMessageDelegate.swift in Sources */,
 				68252FD12B0B58770024EC76 /* MyDressPreviewView+Protocol.swift in Sources */,
+				6896E7A22BA9D73D00432438 /* GroupNoticeBaseViewController.swift in Sources */,
 				6847E0802B21743400FD3D79 /* LQPKMaiWeiCell.swift in Sources */,
 				68ED52DB2B0761520099F469 /* AppDelegate.swift in Sources */,
 				68252F882B0B370E0024EC76 /* RoomPlayViewController.swift in Sources */,
@@ -1082,6 +1186,7 @@
 				68252FF32B0C4D670024EC76 /* BrowswerViewController.swift in Sources */,
 				68ED53342B0887740099F469 /* NetworkError.swift in Sources */,
 				6825301C2B0DAA850024EC76 /* LQAnimationProtocol.swift in Sources */,
+				6896E7A42BA9D73D00432438 /* GroupNoticePreviewViewController.swift in Sources */,
 				6825300E2B0C7D550024EC76 /* LJKAudioTouchViewManager.swift in Sources */,
 				682530112B0CA5750024EC76 /* LQMaiWeiModel.swift in Sources */,
 				68252FD62B0B58770024EC76 /* MSDressBuyVC.swift in Sources */,
@@ -1091,6 +1196,7 @@
 				68252FE32B0B5D4A0024EC76 /* MSSystemNoticeModel.swift in Sources */,
 				6825300C2B0C7B560024EC76 /* ExampleViewController+Mask.swift in Sources */,
 				682530002B0C5CD60024EC76 /* LoadingGifView.swift in Sources */,
+				6896E7A82BA9DB2C00432438 /* YXBDocumentPickerPresenter.swift in Sources */,
 				68ED53472B0887870099F469 /* APIParameters.swift in Sources */,
 				68ED531F2B0771F90099F469 /* UIColor+Const.swift in Sources */,
 				68252FD32B0B58770024EC76 /* My+API.swift in Sources */,
@@ -1106,7 +1212,9 @@
 				6847E0762B2049F000FD3D79 /* LQPKMaiWeiView.swift in Sources */,
 				68252FB52B0B42270024EC76 /* LQOnlyBubbleCell.swift in Sources */,
 				68252FEC2B0B683A0024EC76 /* BannerViewController.swift in Sources */,
+				6896E7A02BA9D73D00432438 /* GNEditToolBar.swift in Sources */,
 				68ED532B2B0772130099F469 /* UIFont+PingFang.swift in Sources */,
+				6896E7A12BA9D73D00432438 /* GroupNoticeViewController.swift in Sources */,
 				68E67DE82B246329001CED99 /* PKReadyGifView.swift in Sources */,
 				68ED532C2B0772130099F469 /* UIButton+YXB.swift in Sources */,
 				68252FB12B0B42270024EC76 /* LQMessageWelcomeCell.swift in Sources */,
@@ -1120,16 +1228,19 @@
 				682530442B1098C20024EC76 /* LQAllMailWeiView.swift in Sources */,
 				68252FA92B0B42270024EC76 /* LQMessageNormalJoinCell.swift in Sources */,
 				682530402B1088D20024EC76 /* LQMaiWeiCell.swift in Sources */,
+				6896E7AC2BA9DB6B00432438 /* UTI.swift in Sources */,
 				68252FD42B0B58770024EC76 /* MSDressSegmentVC.swift in Sources */,
 				68252FE22B0B5D4A0024EC76 /* MSSystemNoticeViewModel.swift in Sources */,
 				6825306B2B11E59B0024EC76 /* LQMaiWeiViewModel+ReceiveMessage.swift in Sources */,
 				682530032B0C5DA30024EC76 /* LoadingGiftViewController.swift in Sources */,
+				6896E7A32BA9D73D00432438 /* GroupNoticeViewController+ToolBarEvent.swift in Sources */,
 				68252FB82B0B42270024EC76 /* LQMessageBaseCell.swift in Sources */,
 				682530162B0DA7EB0024EC76 /* PiaoPingViewController.swift in Sources */,
 				68252FAE2B0B42270024EC76 /* LQMessageTextCell.swift in Sources */,
 				68ED532A2B0772130099F469 /* UIView+YYAdd.swift in Sources */,
 				68252FA72B0B42270024EC76 /* HonourTagView.swift in Sources */,
 				68252FE72B0B5E470024EC76 /* YXBGifRefreshHeader.swift in Sources */,
+				6896E7AB2BA9DB6B00432438 /* YXBUTI.swift in Sources */,
 				68ED532F2B08873E0099F469 /* NetworkBasicResponse.swift in Sources */,
 				68ED534B2B0887870099F469 /* ToastPlugin.swift in Sources */,
 				68ED530E2B07712A0099F469 /* YXBCountDownButton.swift in Sources */,
@@ -1143,22 +1254,27 @@
 				68ED534C2B0887870099F469 /* CachePlugin.swift in Sources */,
 				68F483232B3AD669001C0EB1 /* BillBarChartView.swift in Sources */,
 				6847E0732B203D9300FD3D79 /* LQPersonOpenTimeView.swift in Sources */,
+				6896E7B12BA9E1AF00432438 /* QuillViewController.swift in Sources */,
 				68252FD22B0B58770024EC76 /* MSDressPreviewView.swift in Sources */,
 				682530382B1032D80024EC76 /* LQMicrophoneUserView.swift in Sources */,
 				68252FA82B0B42270024EC76 /* LQMessageNobbleJoinCell.swift in Sources */,
 				68252F862B0B305A0024EC76 /* RoomPlayJoinEffectManager.swift in Sources */,
 				68252FBA2B0B42270024EC76 /* LQMessageCellProtocol.swift in Sources */,
+				6896E79C2BA9D73D00432438 /* GNRichEditorWebView.swift in Sources */,
 				6825303C2B1044A10024EC76 /* LQYinLiangView.swift in Sources */,
 				68252FD72B0B58770024EC76 /* MSDressModel.swift in Sources */,
 				682530482B10AE6B0024EC76 /* LQMaiWeiViewModel.swift in Sources */,
 				68252FB92B0B42270024EC76 /* MessageViewController.swift in Sources */,
 				68ED531B2B07719A0099F469 /* GCDTimerManager.swift in Sources */,
 				68252FAA2B0B42270024EC76 /* LQMeesageRoomAnnouncCell.swift in Sources */,
+				6896E7A62BA9D73D00432438 /* GroupNoticeFileCell.swift in Sources */,
 				68ED534A2B0887870099F469 /* LogCustomPlugin.swift in Sources */,
+				6896E7AF2BA9E0AC00432438 /* YXBRoom.swift in Sources */,
 				68252FBC2B0B43570024EC76 /* HeaderStaticView.swift in Sources */,
 				6847E0822B218F0400FD3D79 /* LQPKMaiWeiViewController.swift in Sources */,
 				68252FDB2B0B596F0024EC76 /* PlayEffectsView.swift in Sources */,
 				68252FB72B0B42270024EC76 /* LQMessageTagsView.swift in Sources */,
+				6896E79F2BA9D73D00432438 /* GNMenuView.swift in Sources */,
 				68252FA62B0B42270024EC76 /* LQMessageModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

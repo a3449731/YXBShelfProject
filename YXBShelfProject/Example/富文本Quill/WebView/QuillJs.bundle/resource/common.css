@@ -1,0 +1,27 @@
+/* 白色 */
+.rich_text_theme_light .ql-container {
+    background-color: #FFFFFF !important;
+}
+
+.rich_text_theme_light .ql-container .ql-editor {
+    color: #000 !important;
+}
+
+.rich_text_theme_light .ql-container .ql-editor::before {
+    color: #979797;
+}
+
+
+/* 黑色 */
+.rich_text_theme_dark .ql-container {
+    background-color: #0F0B15 !important;
+}
+
+.rich_text_theme_dark .ql-container .ql-editor {
+    color: #fff !important;
+}
+
+.rich_text_theme_dark .ql-container .ql-editor::before {
+    color: #CDCDCD;
+}
+

@@ -24,6 +24,7 @@ enum ExampleType: String, CaseIterable {
     case dialog = "消息弹窗SwiftMessage"
     case db = "realm 数据库"
     case charts = "图表 Charts"
+    case quill = "富文本 Quill"
 }
 
 class ExampleViewController: UIViewController {
@@ -118,6 +119,9 @@ extension ExampleViewController: UITableViewDelegate, UITableViewDataSource {
             self.navigationController?.pushViewController(vc, animated: true)
         case .charts:
             let vc = ChartsViewController()
+            self.navigationController?.pushViewController(vc, animated: true)            
+        case .quill:
+            let vc = QuillViewController()
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }

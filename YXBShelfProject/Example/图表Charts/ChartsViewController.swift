@@ -2,7 +2,7 @@
 //  ChartsViewController.swift
 //  YXBShelfProject
 //
-//  Created by 蓝鳍互娱 on 2023/12/26.
+//  Created by yangxiaobin on 2023/12/26.
 //
 
 import UIKit
