@@ -25,6 +25,7 @@ enum ExampleType: String, CaseIterable {
     case db = "realm 数据库"
     case charts = "图表 Charts"
     case quill = "富文本 Quill"
+    case calendar = "日历"
 }
 
 class ExampleViewController: UIViewController {
@@ -122,6 +123,9 @@ extension ExampleViewController: UITableViewDelegate, UITableViewDataSource {
             self.navigationController?.pushViewController(vc, animated: true)            
         case .quill:
             let vc = QuillViewController()
+            self.navigationController?.pushViewController(vc, animated: true)
+        case .calendar:
+            let vc = CalendarViewController()
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }

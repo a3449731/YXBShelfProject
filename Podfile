@@ -110,6 +110,11 @@ def Charts
   pod 'DGCharts'
 end
 
+# 日历
+def Calendar
+  pod 'FSCalendar'
+end
+
 # 为了示例所需要的,按需导入
 def example
   MyDress()
@@ -122,6 +127,7 @@ def example
   AlertMessage()
   SQData()
   Charts()
+  Calendar()
 end
 example()
 
